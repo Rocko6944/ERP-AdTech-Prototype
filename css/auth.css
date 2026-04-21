@@ -1,45 +1,42 @@
 @import url("globals.css");
 
 body {
+  margin: 0;
   display: grid;
   place-items: center;
   min-height: 100vh;
   padding: 24px;
+  background: radial-gradient(circle at center, #ffffff 0%, #f6f7fb 52%, #edf1f7 100%);
 }
 
 .login-shell {
   display: grid;
-  grid-template-columns: minmax(360px, 424px) minmax(300px, 1fr);
+  grid-template-columns: minmax(360px, 500px) minmax(320px, 1fr);
   align-items: center;
-  gap: 48px;
-  width: min(1080px, 100%);
-  min-height: 620px;
-  padding: 40px;
-  background: #ffffff;
-  border: none;
-  box-shadow: 0 14px 48px rgba(17, 24, 39, 0.08);
+  gap: 56px;
+  width: min(1120px, 100%);
 }
 
 .login-panel {
   display: grid;
-  gap: 30px;
+  gap: 34px;
   align-content: start;
-  padding: 34px 34px 40px;
-  border: none;
-  border-radius: 22px;
-  box-shadow: 0 18px 44px rgba(17, 24, 39, 0.12);
+  padding: 42px 40px 52px;
+  border-radius: 20px;
+  background: #ffffff;
+  box-shadow: 0 20px 60px rgba(17, 24, 39, 0.14);
 }
 
 .login-copy {
   display: grid;
-  gap: 8px;
+  gap: 10px;
   justify-items: center;
   text-align: center;
 }
 
 .login-panel h1 {
   margin: 0;
-  font-size: clamp(2.4rem, 3vw, 3rem);
+  font-size: clamp(2.6rem, 3vw, 3.3rem);
   line-height: 1.05;
   letter-spacing: -0.03em;
   color: #111111;
@@ -47,14 +44,14 @@ body {
 
 .login-copy p {
   margin: 0;
-  color: #1e1e1e;
-  font-size: 1.05rem;
-  line-height: 1.4;
+  color: #2f2f39;
+  font-size: 1.1rem;
+  line-height: 1.2;
 }
 
 .login-form {
   display: grid;
-  gap: 22px;
+  gap: 20px;
 }
 
 .input-group {
@@ -63,17 +60,18 @@ body {
 }
 
 .input-group label {
-  color: #373737;
-  font-size: 0.98rem;
+  color: #35353d;
+  font-size: 0.96rem;
+  font-weight: 500;
 }
 
 .input-shell {
   display: flex;
   align-items: center;
-  min-height: 42px;
-  border-radius: 6px;
-  border: 1px solid #d7deea;
-  background: #f1f4f8;
+  min-height: 44px;
+  border-radius: 8px;
+  border: 1px solid #d6dbe6;
+  background: #eff3f9;
   overflow: hidden;
 }
 
@@ -81,7 +79,7 @@ body {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
+  width: 44px;
   color: #1f1f1f;
 }
 
@@ -94,11 +92,12 @@ body {
 
 .input-group input {
   width: 100%;
-  min-height: 42px;
+  min-height: 44px;
   border: none;
-  padding: 0 14px 0 4px;
+  padding: 0 14px 0 2px;
   background: transparent;
   color: #374151;
+  font-size: 0.98rem;
 }
 
 .input-group input::placeholder {
@@ -110,19 +109,20 @@ body {
 }
 
 .input-shell:focus-within {
-  border-color: #3a287d;
-  box-shadow: 0 0 0 3px rgba(58, 40, 125, 0.12);
+  border-color: #6486ef;
+  box-shadow: 0 0 0 3px rgba(100, 134, 239, 0.12);
 }
 
 .password-toggle {
   display: inline-flex;
   align-items: center;
   justify-content: center;
-  width: 42px;
-  height: 42px;
+  width: 44px;
+  height: 44px;
   border: none;
   background: transparent;
   color: #1f1f1f;
+  cursor: pointer;
 }
 
 .checkbox-group {
@@ -131,12 +131,13 @@ body {
   gap: 8px;
   color: #3f3f46;
   font-size: 0.95rem;
-  margin-top: -4px;
+  margin-top: -2px;
 }
 
 .checkbox-group input {
   width: 16px;
   height: 16px;
+  accent-color: #554399;
 }
 
 .primary-button {
@@ -144,30 +145,31 @@ body {
   align-items: center;
   justify-content: center;
   width: 100%;
-  min-height: 38px;
+  min-height: 44px;
   border: none;
-  border-radius: 5px;
-  background: #3a287d;
-  color: white;
+  border-radius: 8px;
+  background: #59459b;
+  color: #ffffff;
   font-weight: 700;
-  font-size: 1rem;
+  font-size: 1.08rem;
   transition: transform 0.2s ease, box-shadow 0.2s ease;
+  cursor: pointer;
 }
 
 .primary-button:hover {
   transform: translateY(-1px);
-  box-shadow: 0 12px 24px rgba(58, 40, 125, 0.18);
+  box-shadow: 0 12px 24px rgba(89, 69, 155, 0.22);
 }
 
 .auth-footer {
   display: grid;
   justify-items: center;
-  padding-top: 2px;
+  padding-top: 4px;
   font-size: 0.95rem;
 }
 
 .auth-footer a {
-  color: #333333;
+  color: #3a3a46;
   text-decoration: none;
 }
 
@@ -178,37 +180,38 @@ body {
 .image-panel {
   display: grid;
   place-items: center;
-  min-height: 100%;
+  min-height: 560px;
 }
 
 .brand-image {
-  width: min(100%, 430px);
+  width: min(100%, 470px);
   object-fit: contain;
-  filter: drop-shadow(0 8px 26px rgba(58, 40, 125, 0.08));
+  filter: drop-shadow(0 12px 30px rgba(58, 40, 125, 0.08));
 }
 
 @media (max-width: 900px) {
   .login-shell {
     grid-template-columns: 1fr;
     gap: 28px;
-    min-height: auto;
-    padding: 28px;
   }
 
   .image-panel {
     order: -1;
-    min-height: 220px;
+    min-height: 180px;
+  }
+
+  .brand-image {
+    width: min(100%, 340px);
   }
 }
 
 @media (max-width: 520px) {
   .login-panel {
-    padding: 24px 20px 28px;
+    padding: 28px 20px 32px;
   }
 
   .login-shell {
-    padding: 18px;
-    gap: 20px;
+    gap: 22px;
   }
 
   .login-panel h1 {

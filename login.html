@@ -8,22 +8,40 @@
   </head>
   <body>
     <main class="login-shell">
-      <section class="login-panel card">
-        <div>
-          <p>e SUBIR IMAGEN LOGIN</p>
+      <section class="login-panel">
+        <div class="login-copy">
           <h1>Iniciar Sesión</h1>
-          <p>Accede al módulo y descubre un prototipo ERP corporativo, limpio y responsivo.</p>
+          <p>Accede al Módulo</p>
         </div>
 
         <form id="loginForm" class="login-form" novalidate>
           <div class="input-group">
-            <label for="email">Usuario</label>
-            <input id="email" type="email" name="email" placeholder="usuario@empresa.com" required />
+            <label for="email">Usuario:</label>
+            <div class="input-shell">
+              <span class="input-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M12 12c2.761 0 5-2.462 5-5.5S14.761 1 12 1 7 3.462 7 6.5 9.239 12 12 12Zm0-9c1.617 0 3 1.603 3 3.5S13.617 10 12 10 9 8.397 9 6.5 10.383 3 12 3ZM12 14c-4.418 0-8 2.686-8 6v1h16v-1c0-3.314-3.582-6-8-6Zm-5.829 5c.828-1.748 3.144-3 5.829-3s5.001 1.252 5.829 3H6.171Z"></path>
+                </svg>
+              </span>
+              <input id="email" type="text" name="email" placeholder="ADTECH" required />
+            </div>
           </div>
 
           <div class="input-group">
-            <label for="password">Contraseña</label>
-            <input id="password" type="password" name="password" placeholder="••••••••" required />
+            <label for="password">Contraseña:</label>
+            <div class="input-shell">
+              <span class="input-icon" aria-hidden="true">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M17 8h-1V6a4 4 0 1 0-8 0v2H7a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h10a2 2 0 0 0 2-2v-9a2 2 0 0 0-2-2Zm-7-2a2 2 0 1 1 4 0v2h-4V6Zm7 13H7v-9h10v9Z"></path>
+                </svg>
+              </span>
+              <input id="password" type="password" name="password" placeholder="•••••••" required />
+              <button type="button" class="password-toggle" aria-label="Mostrar contraseña">
+                <svg viewBox="0 0 24 24" aria-hidden="true">
+                  <path d="M2.707 1.293 1.293 2.707l3.11 3.11C2.706 7.231 1.438 9.085 1 10c1.731 3.61 5.446 6 11 6 1.793 0 3.398-.264 4.835-.746l4.458 4.458 1.414-1.414L2.707 1.293ZM12 14c-3.879 0-6.615-2.105-8.218-4 .43-.637 1.307-1.777 2.72-2.76l1.53 1.53A4.92 4.92 0 0 0 7 12a5 5 0 0 0 7.23 4.454l1.112 1.112A11.74 11.74 0 0 1 12 18Zm-3-6c.001-.185.03-.364.055-.544l4.489 4.489c-.18.025-.359.054-.544.055A3 3 0 0 1 9 8Zm11.218 4c-.446.662-1.37 1.866-2.87 2.873l-1.455-1.455A4.92 4.92 0 0 0 17 12a5 5 0 0 0-5-5c-.49 0-.958.079-1.4.214L8.939 5.553A11.44 11.44 0 0 1 12 5c5.558 0 9.273 2.39 11 6-.143.298-.398.779-.782 1.447Z"></path>
+                </svg>
+              </button>
+            </div>
           </div>
 
           <div class="checkbox-group">
@@ -34,16 +52,13 @@
           <button type="submit" class="primary-button">Ingresar</button>
 
           <div class="auth-footer">
-            <span>¿Olvidaste tu contraseña?</span>
-            <span>ERP Adtech</span>
+            <a href="#">¿Olvidaste tu contraseña?</a>
           </div>
         </form>
       </section>
 
-      <aside class="image-panel card">
-        <div class="image-placeholder">
-          <span>SUBIR IMAGEN LOGIN</span>
-        </div>
+      <aside class="image-panel" aria-label="Marca Ad Tech">
+        <img src="Images/logo ad tech.png" alt="Ad Tech Comunicación & Marketing" class="brand-image" />
       </aside>
     </main>
 
