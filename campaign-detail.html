@@ -1,0 +1,399 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Campaña | ERP Adtech</title>
+    <link rel="stylesheet" href="css/marketing.css" />
+  </head>
+  <body>
+    <div class="marketing-shell">
+      <aside class="sidebar is-expanded" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Contraer menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link is-active" href="marketing.html" aria-current="page">
+              <img src="Images/IconoMKTBlanco.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="marketing-content campaign-detail-page">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="campaigns.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de marketing">
+          <a class="top-tab" href="marketing.html">Leads</a>
+          <a class="top-tab is-active" href="campaigns.html" aria-current="page">Campañas</a>
+          <a class="top-tab" href="automation.html">Automatización</a>
+        </section>
+
+        <section class="campaign-detail-header">
+          <div class="campaign-detail-title-row">
+            <h1>Campaña Agro</h1>
+            <span class="detail-chip">27/01/2026 - 27/01/2026</span>
+            <span class="detail-chip">Estado: Activa</span>
+          </div>
+          <button type="button" class="new-lead-button campaign-edit-button" id="openEditCampaignModal">Editar Campaña</button>
+        </section>
+
+        <section class="campaign-detail-summary" aria-label="Resumen de campaña">
+          <article class="summary-card">
+            <span>Lead Generados</span>
+            <strong>10</strong>
+          </article>
+          <article class="summary-card">
+            <span>Oportunidades Creadas</span>
+            <strong>10</strong>
+          </article>
+          <article class="summary-card">
+            <span>Conversiones</span>
+            <strong>10</strong>
+          </article>
+        </section>
+
+        <section class="campaign-analytics-grid">
+          <article class="detail-panel chart-panel">
+            <div class="detail-panel-header">
+              <h2>Leads por Fecha</h2>
+              <select class="detail-panel-select">
+                <option>Esta Semana</option>
+                <option>Este Mes</option>
+              </select>
+            </div>
+
+            <div class="line-chart">
+              <div class="chart-grid-lines">
+                <span></span>
+                <span></span>
+                <span></span>
+                <span></span>
+              </div>
+              <div class="chart-y-labels">
+                <span>12,450</span>
+                <span>8,000</span>
+                <span>4,500</span>
+                <span>0</span>
+              </div>
+              <div class="chart-canvas">
+                <svg viewBox="0 0 520 220" class="chart-svg" aria-hidden="true">
+                  <polyline points="10,190 90,70 170,140 250,80 330,115 410,135 500,72" class="chart-line-primary" />
+                  <circle cx="250" cy="80" r="7" class="chart-point-primary" />
+                </svg>
+                <div class="chart-tooltip">Hover 12,450</div>
+              </div>
+              <div class="chart-x-labels">
+                <span>23/01</span>
+                <span>01/01</span>
+                <span>23/01</span>
+                <span>24/01</span>
+                <span>25/01</span>
+                <span>26/01</span>
+                <span>27/01</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="detail-panel funnel-panel">
+            <div class="detail-panel-header">
+              <h2>Funnel de Conversión</h2>
+              <select class="detail-panel-select">
+                <option>Esta Semana</option>
+                <option>Este Mes</option>
+              </select>
+            </div>
+
+            <div class="funnel-layout">
+              <div class="funnel-labels">
+                <span>Leads</span>
+                <span>Leads Calificados</span>
+                <span>Oportunidades</span>
+                <span>Conversiones</span>
+              </div>
+              <div class="funnel-graphic">
+                <div class="funnel-step funnel-step-1">12,450</div>
+                <div class="funnel-step funnel-step-2">3,120</div>
+                <div class="funnel-step funnel-step-3">678</div>
+                <div class="funnel-step funnel-step-4">312</div>
+              </div>
+            </div>
+          </article>
+        </section>
+
+        <section class="campaign-related-grid">
+          <article class="detail-panel related-table-panel">
+            <div class="related-table-title">LEADS ASOCIADOS</div>
+            <table class="related-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Estado</th>
+                  <th>Prioridad</th>
+                  <th>Fecha</th>
+                  <th>Responsable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Campaña Agro</td>
+                  <td><span class="pill pill-new">Nuevo</span></td>
+                  <td><span class="pill pill-priority high">Alta</span></td>
+                  <td>23/01</td>
+                  <td><span class="owner"><span class="owner-avatar photo-avatar">C</span>Carlos P.</span></td>
+                </tr>
+                <tr>
+                  <td>Campaña Agro</td>
+                  <td><span class="pill pill-contact">Contactado</span></td>
+                  <td><span class="pill pill-priority medium">Media</span></td>
+                  <td>27/01</td>
+                  <td><span class="owner"><span class="owner-avatar photo-avatar-alt">C</span>Carlos P.</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="related-panel-actions">
+              <button type="button" class="outline-action-button" id="openCampaignLeadsModal">Ver todos los leads</button>
+            </div>
+          </article>
+
+          <article class="detail-panel related-table-panel">
+            <div class="related-table-title">AUTOMATIZACIONES ASOCIADAS</div>
+            <table class="related-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Tipo</th>
+                  <th>Regla de Disparo</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Campaña A</td>
+                  <td><span class="pill automation-pill">Email Marketing</span></td>
+                  <td>Regla de Disparo</td>
+                  <td><span class="pill campaign-status active">Activa</span></td>
+                </tr>
+                <tr>
+                  <td>Campaña B</td>
+                  <td><span class="pill automation-pill automation-pill-whatsapp">WhatsApp Automatizado</span></td>
+                  <td>Regla de Disparo</td>
+                  <td><span class="pill campaign-status inactive">Inactiva</span></td>
+                </tr>
+              </tbody>
+            </table>
+            <div class="related-panel-actions">
+              <a href="automation.html" class="outline-action-button outline-action-link">Crear automatización</a>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="campaign-modal-backdrop" id="campaignLeadsModal" hidden>
+      <div class="campaign-modal campaign-leads-modal" role="dialog" aria-modal="true" aria-labelledby="campaignLeadsModalTitle">
+        <button type="button" class="campaign-modal-close" id="closeCampaignLeadsModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="campaignLeadsModalTitle">Leads de Campaña Agro</h2>
+
+        <div class="campaign-leads-modal-copy">
+          <p>Mostrando únicamente los leads asociados a esta campaña.</p>
+        </div>
+
+        <div class="campaign-leads-modal-table">
+          <table class="related-table">
+            <thead>
+              <tr>
+                <th>Nombre</th>
+                <th>Empresa</th>
+                <th>Estado</th>
+                <th>Prioridad</th>
+                <th>Canal</th>
+                <th>Fecha</th>
+                <th>Responsable</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>María López</td>
+                <td>AgroTech Solutions S.A.</td>
+                <td><span class="pill pill-status">Calificado</span></td>
+                <td><span class="pill pill-priority high">Alta</span></td>
+                <td><span class="pill pill-channel">Formulario</span></td>
+                <td>23/01/2026</td>
+                <td><span class="owner"><span class="owner-avatar photo-avatar">C</span>Carlos P.</span></td>
+              </tr>
+              <tr>
+                <td>Juan Pérez</td>
+                <td>Cultivos del Sur</td>
+                <td><span class="pill pill-new">Nuevo</span></td>
+                <td><span class="pill pill-priority medium">Media</span></td>
+                <td><span class="pill pill-whatsapp">WhatsApp</span></td>
+                <td>24/01/2026</td>
+                <td><span class="owner"><span class="owner-avatar photo-avatar-alt">C</span>Carlos P.</span></td>
+              </tr>
+              <tr>
+                <td>Ana Torres</td>
+                <td>BioInsumos Perú</td>
+                <td><span class="pill pill-contact">Contactado</span></td>
+                <td><span class="pill pill-priority high">Alta</span></td>
+                <td><span class="pill pill-channel">Landing</span></td>
+                <td>25/01/2026</td>
+                <td><span class="owner"><span class="owner-avatar photo-avatar-warm">C</span>Carlos P.</span></td>
+              </tr>
+              <tr>
+                <td>Pedro García</td>
+                <td>Exportadora Verde</td>
+                <td><span class="pill pill-status">Calificado</span></td>
+                <td><span class="pill pill-priority medium">Media</span></td>
+                <td><span class="pill pill-channel">Google Ads</span></td>
+                <td>26/01/2026</td>
+                <td><span class="owner"><span class="owner-avatar photo-avatar">C</span>Carlos P.</span></td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+
+        <div class="campaign-modal-actions">
+          <button type="button" class="campaign-modal-button campaign-modal-button-secondary" id="closeCampaignLeadsFooter">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="campaign-modal-backdrop" id="editCampaignModal" hidden>
+      <div class="campaign-modal campaign-edit-modal" role="dialog" aria-modal="true" aria-labelledby="editCampaignModalTitle">
+        <button type="button" class="campaign-modal-close" id="closeEditCampaignModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="editCampaignModalTitle">Editar campaña</h2>
+
+        <form class="campaign-form" id="editCampaignForm" novalidate>
+          <div class="edit-section-title">DATOS GENERALES</div>
+
+          <div class="campaign-grid">
+            <label class="campaign-field">
+              <span>Nombre de campaña</span>
+              <input type="text" class="campaign-input" id="editCampaignName" value="Campaña Agro" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Descripción</span>
+              <textarea class="campaign-input campaign-textarea campaign-textarea-small" id="editCampaignDescription">Generar leads para servicios de automatización y funnoro...</textarea>
+            </label>
+
+            <label class="campaign-field campaign-field-full">
+              <span>Objetivo</span>
+              <input type="text" class="campaign-input" id="editCampaignObjective" value="Generar leads para servicios de automatización" required />
+            </label>
+          </div>
+
+          <div class="edit-section-title">CONFIGURACIÓN Y ESTADO</div>
+
+          <div class="campaign-grid">
+            <label class="campaign-field">
+              <span>Fecha de inicio</span>
+              <input type="date" class="campaign-input" id="editCampaignStartDate" value="2026-01-23" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Fecha de fin</span>
+              <input type="date" class="campaign-input" id="editCampaignEndDate" value="2026-01-27" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Presupuesto</span>
+              <input type="number" class="campaign-input" id="editCampaignBudget" value="2500" min="0" step="0.01" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Público objetivo</span>
+              <select class="campaign-input" id="editCampaignAudience" required>
+                <option value="agro-exportadores" selected>Agro exportadores</option>
+                <option value="gerentes-comerciales">Gerentes comerciales</option>
+                <option value="marketing-b2b">Equipos de marketing B2B</option>
+                <option value="duenos-agro">Dueños de agroindustrias</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Estado de campaña</span>
+              <select class="campaign-input" id="editCampaignStatus" required>
+                <option value="activa" selected>Activa</option>
+                <option value="inactiva">Inactiva</option>
+                <option value="finalizada">Finalizada</option>
+                <option value="programada">Programada</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Responsable</span>
+              <select class="campaign-input" id="editCampaignOwner" required>
+                <option value="carlos" selected>Carlos P.</option>
+                <option value="ana">Ana G.</option>
+                <option value="maria">María T.</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="campaign-modal-actions">
+            <button type="submit" class="campaign-modal-button campaign-modal-button-primary">Guardar campaña</button>
+            <button type="button" class="campaign-modal-button campaign-modal-button-secondary" id="cancelEditCampaignModal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="campaign-toast" id="editCampaignToast" hidden>Campaña actualizada correctamente</div>
+
+    <script src="js/marketing.js"></script>
+  </body>
+</html>

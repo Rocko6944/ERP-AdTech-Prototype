@@ -1,0 +1,231 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Automatización | ERP Adtech</title>
+    <link rel="stylesheet" href="css/marketing.css" />
+  </head>
+  <body>
+    <div class="marketing-shell">
+      <aside class="sidebar is-expanded" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Contraer menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link is-active" href="marketing.html" aria-current="page">
+              <img src="Images/IconoMKTBlanco.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="marketing-content automation-page">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="modules.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de marketing">
+          <a class="top-tab" href="marketing.html">Leads</a>
+          <a class="top-tab" href="campaigns.html">Campañas</a>
+          <a class="top-tab is-active" href="automation.html" aria-current="page">Automatización</a>
+        </section>
+
+        <section class="automation-grid" aria-label="Listado de automatizaciones">
+          <article class="automation-card" data-automation-name="CAPTACIÓN Y REGISTRO AUTOMÁTICO DE LEADS" data-automation-description="El sistema registra automáticamente todos los leads provenientes de Meta o formularios web, almacenando datos clave como origen, campaña y fecha, sin intervención manual." data-automation-area="marketing" data-automation-trigger="Nuevo lead captado" data-automation-owner="Marketing" data-automation-status="active">
+            <div class="automation-card-top">
+              <h2>CAPTACIÓN Y REGISTRO AUTOMÁTICO DE LEADS</h2>
+              <label class="automation-switch">
+                <input type="checkbox" checked />
+                <span class="automation-slider"></span>
+              </label>
+            </div>
+            <p>El sistema registra automáticamente todos los leads provenientes de Meta o formularios web, almacenando datos clave como origen, campaña y fecha, sin intervención manual.</p>
+            <div class="automation-actions">
+              <button type="button" class="mini-action-button open-automation-edit">Editar</button>
+              <button type="button" class="mini-action-button mini-action-danger open-automation-delete">Eliminar</button>
+            </div>
+          </article>
+
+          <article class="automation-card" data-automation-name="DISTRIBUCIÓN INTELIGENTE DE LEADS" data-automation-description="Los leads se asignan automáticamente a vendedores según reglas simples (round robin, zona o tipo de cliente), garantizando atención rápida y equilibrada." data-automation-area="ventas" data-automation-trigger="Lead nuevo asignable" data-automation-owner="Ventas" data-automation-status="active">
+            <div class="automation-card-top">
+              <h2>DISTRIBUCIÓN INTELIGENTE DE LEADS</h2>
+              <label class="automation-switch">
+                <input type="checkbox" checked />
+                <span class="automation-slider"></span>
+              </label>
+            </div>
+            <p>Los leads se asignan automáticamente a vendedores según reglas simples (round robin, zona o tipo de cliente), garantizando atención rápida y equilibrada.</p>
+            <div class="automation-actions">
+              <button type="button" class="mini-action-button open-automation-edit">Editar</button>
+              <button type="button" class="mini-action-button mini-action-danger open-automation-delete">Eliminar</button>
+            </div>
+          </article>
+
+          <article class="automation-card" data-automation-name="CALIFICACIÓN AUTOMÁTICA DE LEADS (LEAD SCORING)" data-automation-description="El ERP evalúa cada lead mediante un sistema de puntaje basado en su comportamiento e información, clasificándolo como calificado o no calificado para priorizar esfuerzos comerciales." data-automation-area="marketing" data-automation-trigger="Lead actualizado" data-automation-owner="Comercial" data-automation-status="active">
+            <div class="automation-card-top">
+              <h2>CALIFICACIÓN AUTOMÁTICA DE LEADS (LEAD SCORING)</h2>
+              <label class="automation-switch">
+                <input type="checkbox" checked />
+                <span class="automation-slider"></span>
+              </label>
+            </div>
+            <p>El ERP evalúa cada lead mediante un sistema de puntaje basado en su comportamiento e información, clasificándolo como calificado o no calificado para priorizar esfuerzos comerciales.</p>
+            <div class="automation-actions">
+              <button type="button" class="mini-action-button open-automation-edit">Editar</button>
+              <button type="button" class="mini-action-button mini-action-danger open-automation-delete">Eliminar</button>
+            </div>
+          </article>
+
+          <article class="automation-card" data-automation-name="GESTIÓN AUTOMÁTICA DE SEGUIMIENTO" data-automation-description="Se generan automáticamente tareas y recordatorios para que los vendedores contacten a los leads en tiempos definidos, evitando pérdidas por falta de seguimiento." data-automation-area="ventas" data-automation-trigger="Lead sin contacto en 24h" data-automation-owner="Ventas" data-automation-status="active">
+            <div class="automation-card-top">
+              <h2>GESTIÓN AUTOMÁTICA DE SEGUIMIENTO</h2>
+              <label class="automation-switch">
+                <input type="checkbox" checked />
+                <span class="automation-slider"></span>
+              </label>
+            </div>
+            <p>Se generan automáticamente tareas y recordatorios para que los vendedores contacten a los leads en tiempos definidos, evitando pérdidas por falta de seguimiento.</p>
+            <div class="automation-actions">
+              <button type="button" class="mini-action-button open-automation-edit">Editar</button>
+              <button type="button" class="mini-action-button mini-action-danger open-automation-delete">Eliminar</button>
+            </div>
+          </article>
+
+          <article class="automation-card" data-automation-name="AUTOMATIZACIÓN DEL AVANCE EN EL FUNNEL" data-automation-description="El sistema mueve automáticamente los leads dentro del embudo de ventas (lead → oportunidad) según acciones o condiciones, reduciendo trabajo manual y manteniendo actualizado el pipeline." data-automation-area="operaciones" data-automation-trigger="Cambio de etapa" data-automation-owner="Operaciones" data-automation-status="active">
+            <div class="automation-card-top">
+              <h2>AUTOMATIZACIÓN DEL AVANCE EN EL FUNNEL</h2>
+              <label class="automation-switch">
+                <input type="checkbox" checked />
+                <span class="automation-slider"></span>
+              </label>
+            </div>
+            <p>El sistema mueve automáticamente los leads dentro del embudo de ventas (lead → oportunidad) según acciones o condiciones, reduciendo trabajo manual y manteniendo actualizado el pipeline.</p>
+            <div class="automation-actions">
+              <button type="button" class="mini-action-button open-automation-edit">Editar</button>
+              <button type="button" class="mini-action-button mini-action-danger open-automation-delete">Eliminar</button>
+            </div>
+          </article>
+
+          <article class="automation-card" data-automation-name="MONITOREO Y ALERTAS DE RENDIMIENTO" data-automation-description="El ERP analiza continuamente métricas clave del funnel y genera alertas cuando detecta caídas en el rendimiento, permitiendo tomar acciones rápidas." data-automation-area="operaciones" data-automation-trigger="Caída en conversión" data-automation-owner="Dirección Comercial" data-automation-status="active">
+            <div class="automation-card-top">
+              <h2>MONITOREO Y ALERTAS DE RENDIMIENTO</h2>
+              <label class="automation-switch">
+                <input type="checkbox" checked />
+                <span class="automation-slider"></span>
+              </label>
+            </div>
+            <p>El ERP analiza continuamente métricas clave del funnel y genera alertas cuando detecta caídas en el rendimiento, permitiendo tomar acciones rápidas.</p>
+            <div class="automation-actions">
+              <button type="button" class="mini-action-button open-automation-edit">Editar</button>
+              <button type="button" class="mini-action-button mini-action-danger open-automation-delete">Eliminar</button>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="campaign-modal-backdrop" id="automationEditModal" hidden>
+      <div class="campaign-modal automation-edit-modal" role="dialog" aria-modal="true" aria-labelledby="automationEditModalTitle">
+        <button type="button" class="campaign-modal-close" id="closeAutomationEditModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="automationEditModalTitle">Editar automatización</h2>
+
+        <form class="campaign-form" id="automationEditForm" novalidate>
+          <label class="campaign-field campaign-field-full">
+            <span>Nombre</span>
+            <input type="text" class="campaign-input" id="automationEditName" required />
+          </label>
+
+          <label class="campaign-field campaign-field-full">
+            <span>Descripción</span>
+            <textarea class="campaign-input campaign-textarea" id="automationEditDescription" required></textarea>
+          </label>
+
+          <div class="campaign-grid">
+            <label class="campaign-field">
+              <span>Área</span>
+              <select class="campaign-input" id="automationEditArea" required>
+                <option value="marketing">Marketing</option>
+                <option value="ventas">Ventas</option>
+                <option value="operaciones">Operaciones</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="campaign-modal-actions">
+            <button type="button" class="campaign-modal-button campaign-modal-button-secondary" id="cancelAutomationEditModal">Cancelar</button>
+            <button type="submit" class="campaign-modal-button campaign-modal-button-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="campaign-modal-backdrop" id="automationDeleteModal" hidden>
+      <div class="campaign-modal automation-delete-modal" role="dialog" aria-modal="true" aria-labelledby="automationDeleteModalTitle">
+        <button type="button" class="campaign-modal-close" id="closeAutomationDeleteModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="automationDeleteModalTitle">Eliminar automatización</h2>
+        <p class="automation-delete-copy">¿Seguro que quieres eliminar <strong id="automationDeleteName">esta automatización</strong>?</p>
+
+        <div class="campaign-modal-actions">
+          <button type="button" class="campaign-modal-button campaign-modal-button-secondary" id="cancelAutomationDeleteModal">Cancelar</button>
+          <button type="button" class="campaign-modal-button automation-delete-button" id="confirmAutomationDelete">Sí, eliminar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="campaign-toast" id="automationToast" hidden>Automatización actualizada correctamente</div>
+    <div class="campaign-toast" id="automationDeleteToast" hidden>Automatización eliminada correctamente</div>
+
+    <script src="js/marketing.js"></script>
+  </body>
+</html>

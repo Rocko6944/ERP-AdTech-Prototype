@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Módulos | ERP Adtech</title>
+    <link rel="stylesheet" href="css/modules.css" />
+  </head>
+  <body>
+    <main class="modules-shell">
+      <header class="modules-topbar">
+        <a class="topbar-brand" href="modules.html" aria-label="Inicio Ad Tech">
+          <img src="Images/logo ad tech-blanco.png" alt="Ad Tech" />
+        </a>
+
+        <div class="topbar-actions" aria-label="Accesos de cabecera">
+          <button type="button" class="topbar-icon" aria-label="Notificaciones">
+            <img src="Images/IconoNotificacionesBlanco.png" alt="" />
+          </button>
+          <button type="button" class="topbar-icon" aria-label="Configuración">
+            <img src="Images/IconoConfiguracionesBlanco.png" alt="" />
+          </button>
+          <label class="language-picker" for="languageSelect" aria-label="Seleccionar idioma">
+            <select id="languageSelect" name="language">
+              <option value="es">Español</option>
+              <option value="en">English</option>
+            </select>
+          </label>
+          <button type="button" class="topbar-avatar" aria-label="Perfil">
+            <img src="Images/IconoUsuarioBlanco.png" alt="" />
+          </button>
+        </div>
+      </header>
+
+      <section class="modules-grid" aria-label="Módulos del sistema">
+        <article class="module-card">
+          <img src="Images/IsotipoMKT.png" alt="" class="module-icon" />
+          <h2>Marketing</h2>
+          <p>Gestión de campañas y leads</p>
+          <button type="button" class="module-button" data-module="Marketing">Ingresar</button>
+        </article>
+
+        <article class="module-card">
+          <img src="Images/IsotipoVentas.png" alt="" class="module-icon" />
+          <h2>Ventas</h2>
+          <p>Funel de ventas y clientes</p>
+          <button type="button" class="module-button" data-module="Ventas">Ingresar</button>
+        </article>
+
+        <article class="module-card">
+          <img src="Images/IsotipoOperaciones.png" alt="" class="module-icon" />
+          <h2>Operaciones</h2>
+          <p>Administración operativa y comercial</p>
+          <button type="button" class="module-button" data-module="Operaciones">Ingresar</button>
+        </article>
+
+        <article class="module-card">
+          <img src="Images/IsotipoAnalisis.png" alt="" class="module-icon" />
+          <h2>Análisis</h2>
+          <p>Reportes y metricas</p>
+          <button type="button" class="module-button" data-module="Análisis">Ingresar</button>
+        </article>
+      </section>
+    </main>
+
+    <script src="js/app.js"></script>
+  </body>
+</html>

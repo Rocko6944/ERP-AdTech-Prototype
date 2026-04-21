@@ -1,0 +1,73 @@
+/* Global design tokens and utility styles */
+:root {
+  --bg: #f4f8ff;
+  --surface: #ffffff;
+  --surface-strong: #f6faff;
+  --text: #102a43;
+  --text-muted: #51667a;
+  --primary: #2f5cb1;
+  --primary-soft: #d8e4ff;
+  --accent: #00bcd4;
+  --accent-soft: #d6f5ff;
+  --warning: #f0b429;
+  --border: #dde5f1;
+  --shadow: 0 20px 60px rgba(16, 42, 67, 0.08);
+  --radius: 24px;
+  --radius-sm: 16px;
+  --max-width: 1240px;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 16px;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  font-family: Inter, "Segoe UI", system-ui, -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--text);
+  background: linear-gradient(180deg, #eff5ff 0%, #fdfcff 100%);
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+button,
+input {
+  font: inherit;
+}
+
+button {
+  cursor: pointer;
+}
+
+.page-shell {
+  width: min(100%, var(--max-width));
+  margin: 0 auto;
+  padding: 0 24px;
+}
+
+.card {
+  background: var(--surface);
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+}
+
+.visually-hidden {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}

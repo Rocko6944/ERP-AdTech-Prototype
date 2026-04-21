@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Marketing | ERP Adtech</title>
+    <link rel="stylesheet" href="css/marketing.css" />
+  </head>
+  <body>
+    <div class="marketing-shell">
+      <aside class="sidebar is-expanded" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Contraer menú">
+            <img
+              src="Images/IconoCerrarBarra.png"
+              alt=""
+              class="toggle-icon toggle-icon-close"
+            />
+            <img
+              src="Images/iconoAbrirBarra.png"
+              alt=""
+              class="toggle-icon toggle-icon-open"
+            />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link is-active" href="marketing.html" aria-current="page">
+              <img src="Images/IconoMKTBlanco.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="marketing-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="modules.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de marketing">
+          <a class="top-tab is-active" href="marketing.html" aria-current="page">Leads</a>
+          <a class="top-tab" href="campaigns.html">Campañas</a>
+          <a class="top-tab" href="automation.html">Automatización</a>
+        </section>
+
+        <section class="summary-row" aria-label="Indicadores">
+          <article class="summary-card">
+            <span>Leads sin gestionar</span>
+            <strong>18</strong>
+          </article>
+          <article class="summary-card summary-card-wide">
+            <span>Leads con reunión agendada</span>
+            <strong>80</strong>
+          </article>
+          <article class="summary-card">
+            <span>Leads por WhatsApp</span>
+            <strong>80</strong>
+          </article>
+          <article class="summary-card">
+            <span>Leads totales</span>
+            <strong>100</strong>
+          </article>
+          <button type="button" class="new-lead-button">+ Nuevo Lead</button>
+        </section>
+
+        <section class="filters-row" aria-label="Filtros de leads">
+          <label class="filter-group filter-group-search">
+            <span>Buscador de Leads</span>
+            <div class="input-box search-box">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input type="text" placeholder="Nombre, empresa, email..." />
+            </div>
+          </label>
+
+          <label class="filter-group">
+            <span>Estado</span>
+            <select class="input-box">
+              <option>Todos</option>
+              <option>Calificado</option>
+              <option>Nuevo</option>
+              <option>Contactado</option>
+              <option>Descartado</option>
+            </select>
+          </label>
+
+          <label class="filter-group">
+            <span>Rango de Fechas</span>
+            <select class="input-box">
+              <option>Este Mes</option>
+              <option>Últimos 30 días</option>
+              <option>Este Año</option>
+            </select>
+          </label>
+
+          <button type="button" class="clear-filter-button">Limpiar filtro</button>
+        </section>
+
+        <section class="table-card" aria-label="Tabla de leads">
+          <div class="table-scroll">
+            <table class="leads-table">
+              <thead>
+                <tr>
+                  <th>Nombre</th>
+                  <th>Empresa</th>
+                  <th>Canal</th>
+                  <th>Estado</th>
+                  <th>Prioridad</th>
+                  <th>Fecha de registro</th>
+                  <th>Reunión agendada</th>
+                  <th>Responsable</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="is-highlighted clickable-row" data-href="lead-detail.html" tabindex="0">
+                  <td>María López</td>
+                  <td>AgroTech solutions S.A.</td>
+                  <td><span class="pill pill-channel">Formulario</span></td>
+                  <td><span class="pill pill-status">Calificado</span></td>
+                  <td><span class="pill pill-priority high">Alta</span></td>
+                  <td>23/03/2026</td>
+                  <td><span class="pill pill-meeting">25 Mar - 10:00 AM</span></td>
+                  <td><span class="owner"><span class="owner-avatar">A</span>Ana G.</span></td>
+                  <td>
+                    <span class="actions">
+                      <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                    </span>
+                  </td>
+                </tr>
+                <tr class="clickable-row" data-href="lead-detail.html" tabindex="0">
+                  <td>Juan Pérez</td>
+                  <td>Cultivos del Sur</td>
+                  <td><span class="pill pill-whatsapp">WhatsApp</span></td>
+                  <td><span class="pill pill-new">Nuevo</span></td>
+                  <td><span class="pill pill-priority medium">Media</span></td>
+                  <td>22/03/2026</td>
+                  <td>No agendada</td>
+                  <td><span class="owner"><span class="owner-avatar">A</span>Ana G.</span></td>
+                  <td>
+                    <span class="actions">
+                      <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                    </span>
+                  </td>
+                </tr>
+                <tr class="clickable-row" data-href="lead-detail.html" tabindex="0">
+                  <td>Carlos Ruiz</td>
+                  <td>Insumos Agrícolas</td>
+                  <td><span class="pill pill-channel">Formulario</span></td>
+                  <td><span class="pill pill-status">Calificado</span></td>
+                  <td><span class="pill pill-priority high">Alta</span></td>
+                  <td>21/03/2026</td>
+                  <td><span class="pill pill-meeting">27 Mar - 11:30 AM</span></td>
+                  <td><span class="owner"><span class="owner-avatar">A</span>Ana G.</span></td>
+                  <td>
+                    <span class="actions">
+                      <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                    </span>
+                  </td>
+                </tr>
+                <tr class="clickable-row" data-href="lead-detail.html" tabindex="0">
+                  <td>Luisa Martínez</td>
+                  <td>Logística Verde</td>
+                  <td><span class="pill pill-whatsapp">WhatsApp</span></td>
+                  <td><span class="pill pill-contact">Contactado</span></td>
+                  <td><span class="pill pill-priority medium">Media</span></td>
+                  <td>20/03/2026</td>
+                  <td>No agendada</td>
+                  <td><span class="owner"><span class="owner-avatar">A</span>Ana G.</span></td>
+                  <td>
+                    <span class="actions">
+                      <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                    </span>
+                  </td>
+                </tr>
+                <tr class="clickable-row" data-href="lead-detail.html" tabindex="0">
+                  <td>David Ramírez</td>
+                  <td>Semillas del Futuro</td>
+                  <td><span class="pill pill-channel">Formulario</span></td>
+                  <td><span class="pill pill-discarded">Descartado</span></td>
+                  <td><span class="pill pill-priority low">Baja</span></td>
+                  <td>19/03/2026</td>
+                  <td>No agendada</td>
+                  <td><span class="owner"><span class="owner-avatar">A</span>Ana G.</span></td>
+                  <td>
+                    <span class="actions">
+                      <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="table-footer">
+          <p>Mostrando 1-10 de 100</p>
+          <div class="pagination">
+            <button type="button" aria-label="Página anterior">
+              <span class="pagination-arrow pagination-arrow-left" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="is-current">1</button>
+            <button type="button">2</button>
+            <button type="button" aria-label="Página siguiente">
+              <span class="pagination-arrow pagination-arrow-right" aria-hidden="true"></span>
+            </button>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="js/marketing.js"></script>
+  </body>
+</html>

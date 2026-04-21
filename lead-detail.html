@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Lead | ERP Adtech</title>
+    <link rel="stylesheet" href="css/lead-detail.css" />
+  </head>
+  <body>
+    <div class="lead-shell">
+      <aside class="sidebar is-expanded" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Contraer menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link is-active" href="marketing.html" aria-current="page">
+              <img src="Images/IconoMKTBlanco.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="lead-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="marketing.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de marketing">
+          <a class="top-tab is-active" href="marketing.html">Leads</a>
+          <a class="top-tab" href="campaigns.html">Campañas</a>
+          <a class="top-tab" href="automation.html">Automatización</a>
+        </section>
+
+        <section class="lead-header">
+          <div class="lead-title-row">
+            <h1>Ana García</h1>
+            <span class="tag">Estado: Nuevo</span>
+            <span class="tag">Prioridad: Alta</span>
+          </div>
+
+          <div class="lead-header-actions">
+            <button type="button" class="header-action secondary" id="openFollowupModal">Actualizar seguimiento</button>
+            <button type="button" class="header-action primary" id="convertOpportunityButton">Convertir a Oportunidad</button>
+          </div>
+        </section>
+
+        <section class="lead-grid">
+          <div class="lead-column">
+            <article class="detail-card">
+              <h2>DATOS GENERALES</h2>
+              <div class="detail-list">
+                <div class="detail-item"><span>Nombre</span><strong>Ana García</strong></div>
+                <div class="detail-item"><span>Empresa</span><strong>Agro Cultura</strong></div>
+                <div class="detail-item"><span>Email</span><strong>antonr@gmail.com</strong></div>
+                <div class="detail-item"><span>Teléfono</span><strong>+1 23457890</strong></div>
+                <div class="detail-item"><span>Servicio de interés</span><strong>Servicio de interés</strong></div>
+                <div class="detail-item detail-item-note">
+                  <span>Necesidad</span>
+                  <strong class="note-box">Necesidad especificate de consectatujo ponceoala, eslr. esto sertomilamiento...</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h2>INFORMACIÓN DE GESTIÓN</h2>
+              <div class="detail-list">
+                <div class="detail-item"><span>Estado del lead</span><strong>Nuevo</strong></div>
+                <div class="detail-item"><span>Prioridad</span><strong>Alta</strong></div>
+                <div class="detail-item"><span>Fuente</span><strong>Landing Page Agro</strong></div>
+                <div class="detail-item"><span>Responsable</span><strong class="owner"><span class="owner-avatar">C</span>Carlos P.</strong></div>
+                <div class="detail-item"><span>Fecha de registro</span><strong>23/01/2024</strong></div>
+              </div>
+            </article>
+          </div>
+
+          <article class="detail-card timeline-card">
+            <h2>HISTORIAL DE INTERACCIONES</h2>
+            <div class="timeline">
+              <div class="timeline-item">
+                <img src="Images/Telefono.png" alt="Teléfono" class="timeline-icon" />
+                <div class="timeline-body">
+                  <strong>Ana García</strong>
+                  <span>23/01/2024</span>
+                  <span>Resultado: Contactado</span>
+                  <span>Observaciones:</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <img src="Images/Correo.png" alt="Correo" class="timeline-icon" />
+                <div class="timeline-body">
+                  <strong>Ana García</strong>
+                  <span>23/11/2024</span>
+                  <span>Resultado: Contactado</span>
+                  <span>Observaciones:</span>
+                </div>
+              </div>
+              <div class="timeline-item">
+                <img src="Images/WhatsApp.png" alt="WhatsApp" class="timeline-icon" />
+                <div class="timeline-body">
+                  <strong>WhatsApp en mensajea contactado</strong>
+                  <span>23/01/2024</span>
+                  <span>Resultado: Exitoso</span>
+                  <span>Observaciones: Ponifio necoifico</span>
+                </div>
+              </div>
+            </div>
+            <button type="button" class="new-interaction-button" id="openInteractionModal">+ Nueva interacción</button>
+          </article>
+
+          <article class="detail-card followup-card">
+            <h2>HISTORIAL DE SEGUIMIENTO</h2>
+            <div class="followup-entry">
+              <strong>Cambio al estado del lead a Nuevo</strong>
+              <div class="followup-meta">
+                <span>Estado de lead</span>
+                <span>33/11/2024</span>
+                <span class="owner"><span class="owner-avatar">C</span>Carlos P.</span>
+                <span>Observaciones:</span>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="followupModal" hidden>
+      <div class="followup-modal" role="dialog" aria-modal="true" aria-labelledby="followupModalTitle">
+        <button type="button" class="modal-close" id="closeFollowupModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="followupModalTitle">Actualizar seguimiento</h2>
+        <p class="modal-subtitle">Juan Pérez from &lt;Image 0&gt;</p>
+
+        <div class="modal-grid">
+          <label class="modal-field">
+            <span>Estado del lead</span>
+            <div class="custom-select" data-select>
+              <button type="button" class="select-trigger" data-select-trigger aria-expanded="false">
+                <span class="option-chips" data-select-value>
+                  <span class="chip chip-blue"><span class="dot"></span>Nuevo</span>
+                </span>
+                <span class="select-arrow"></span>
+              </button>
+              <div class="select-menu" hidden>
+                <button type="button" class="select-option" data-select-option data-value="Nuevo" data-chip-class="chip-blue" data-dot-class="">
+                  <span class="chip chip-blue"><span class="dot"></span>Nuevo</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Contactado" data-chip-class="chip-yellow" data-dot-class="">
+                  <span class="chip chip-yellow"><span class="dot"></span>Contactado</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Calificado" data-chip-class="chip-green" data-dot-class="">
+                  <span class="chip chip-green"><span class="dot"></span>Calificado</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Descartado" data-chip-class="chip-red" data-dot-class="">
+                  <span class="chip chip-red"><span class="dot"></span>Descartado</span>
+                </button>
+              </div>
+            </div>
+          </label>
+
+          <label class="modal-field">
+            <span>Prioridad</span>
+            <div class="custom-select" data-select>
+              <button type="button" class="select-trigger" data-select-trigger aria-expanded="false">
+                <span class="option-chips" data-select-value>
+                  <span class="chip chip-light"><span class="dot dot-red"></span>Alta</span>
+                </span>
+                <span class="select-arrow"></span>
+              </button>
+              <div class="select-menu" hidden>
+                <button type="button" class="select-option" data-select-option data-value="Alta" data-chip-class="chip-light" data-dot-class="dot-red">
+                  <span class="chip chip-light"><span class="dot dot-red"></span>Alta</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Media" data-chip-class="chip-light" data-dot-class="dot-yellow">
+                  <span class="chip chip-light"><span class="dot dot-yellow"></span>Media</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Baja" data-chip-class="chip-light" data-dot-class="dot-green">
+                  <span class="chip chip-light"><span class="dot dot-green"></span>Baja</span>
+                </button>
+              </div>
+            </div>
+          </label>
+
+          <label class="modal-field">
+            <span>Fecha de actualización</span>
+            <div class="input-like input-like-datetime">
+              <span class="calendar-icon" aria-hidden="true"></span>
+              <input
+                type="datetime-local"
+                id="followupDateTime"
+                name="followupDateTime"
+                value="2024-05-27T15:45"
+              />
+            </div>
+          </label>
+
+          <label class="modal-field">
+            <span>Responsable</span>
+            <div class="custom-select" data-select>
+              <button type="button" class="select-trigger" data-select-trigger aria-expanded="false">
+                <span class="owner-list" data-select-value>
+                  <span class="owner"><span class="owner-avatar">C</span>Carlos P.</span>
+                </span>
+                <span class="select-arrow"></span>
+              </button>
+              <div class="select-menu select-menu-owners" hidden>
+                <button type="button" class="select-option" data-select-option data-value="Carlos P." data-avatar="C">
+                  <span class="owner"><span class="owner-avatar">C</span>Carlos P.</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Ana G." data-avatar="A">
+                  <span class="owner"><span class="owner-avatar">A</span>Ana G.</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Carlos A." data-avatar="C">
+                  <span class="owner"><span class="owner-avatar">C</span>Carlos A.</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Carrios P." data-avatar="C">
+                  <span class="owner"><span class="owner-avatar">C</span>Carrios P.</span>
+                </button>
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <label class="modal-field modal-field-full">
+          <span>Observaciones</span>
+          <textarea rows="4" placeholder="Describe el estado actual del lead..."></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" class="modal-button modal-button-primary" id="saveFollowupChanges">Guardar cambios</button>
+          <button type="button" class="modal-button modal-button-secondary" id="cancelFollowupModal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="interactionModal" hidden>
+      <div class="followup-modal" role="dialog" aria-modal="true" aria-labelledby="interactionModalTitle">
+        <button type="button" class="modal-close" id="closeInteractionModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="interactionModalTitle">Nueva interacción</h2>
+        <p class="modal-subtitle">Registrar contacto realizado con el lead</p>
+
+        <div class="modal-grid">
+          <label class="modal-field">
+            <span>Tipo de interacción</span>
+            <div class="custom-select" data-select>
+              <button type="button" class="select-trigger" data-select-trigger aria-expanded="false">
+                <span class="option-chips" data-select-value>
+                  <span class="chip chip-blue"><span class="dot"></span>Teléfono</span>
+                </span>
+                <span class="select-arrow"></span>
+              </button>
+              <div class="select-menu" hidden>
+                <button type="button" class="select-option" data-select-option data-value="Teléfono" data-chip-class="chip-blue" data-dot-class="">
+                  <span class="chip chip-blue"><span class="dot"></span>Teléfono</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="WhatsApp" data-chip-class="chip-green" data-dot-class="">
+                  <span class="chip chip-green"><span class="dot"></span>WhatsApp</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Correo" data-chip-class="chip-yellow" data-dot-class="">
+                  <span class="chip chip-yellow"><span class="dot"></span>Correo</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Reunión virtual" data-chip-class="chip-light" data-dot-class="dot-blue-dark">
+                  <span class="chip chip-light"><span class="dot dot-blue-dark"></span>Reunión virtual</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Reunión presencial" data-chip-class="chip-light" data-dot-class="dot-red">
+                  <span class="chip chip-light"><span class="dot dot-red"></span>Reunión presencial</span>
+                </button>
+              </div>
+            </div>
+          </label>
+
+          <label class="modal-field">
+            <span>Fecha</span>
+            <div class="input-like input-like-datetime">
+              <span class="calendar-icon" aria-hidden="true"></span>
+              <input
+                type="datetime-local"
+                id="interactionDateTime"
+                name="interactionDateTime"
+                value="2024-05-27T15:45"
+              />
+            </div>
+          </label>
+
+          <label class="modal-field">
+            <span>Resultado</span>
+            <div class="custom-select" data-select>
+              <button type="button" class="select-trigger" data-select-trigger aria-expanded="false">
+                <span class="option-chips" data-select-value>
+                  <span class="chip chip-light"><span class="dot dot-green"></span>Exitoso</span>
+                </span>
+                <span class="select-arrow"></span>
+              </button>
+              <div class="select-menu" hidden>
+                <button type="button" class="select-option" data-select-option data-value="Exitoso" data-chip-class="chip-light" data-dot-class="dot-green">
+                  <span class="chip chip-light"><span class="dot dot-green"></span>Exitoso</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Contactado" data-chip-class="chip-light" data-dot-class="dot-blue-dark">
+                  <span class="chip chip-light"><span class="dot dot-blue-dark"></span>Contactado</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Sin respuesta" data-chip-class="chip-light" data-dot-class="dot-yellow">
+                  <span class="chip chip-light"><span class="dot dot-yellow"></span>Sin respuesta</span>
+                </button>
+                <button type="button" class="select-option" data-select-option data-value="Reprogramado" data-chip-class="chip-light" data-dot-class="dot-red">
+                  <span class="chip chip-light"><span class="dot dot-red"></span>Reprogramado</span>
+                </button>
+              </div>
+            </div>
+          </label>
+        </div>
+
+        <label class="modal-field modal-field-full">
+          <span>Observaciones</span>
+          <textarea rows="4" placeholder="Describe el detalle de la interacción..."></textarea>
+        </label>
+
+        <div class="modal-actions">
+          <button type="button" class="modal-button modal-button-primary" id="saveInteractionChanges">Guardar interacción</button>
+          <button type="button" class="modal-button modal-button-secondary" id="cancelInteractionModal">Cancelar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="toast-message" id="opportunityToast" hidden>Lead convertido en oportunidad</div>
+
+    <script src="js/lead-detail.js"></script>
+  </body>
+</html>

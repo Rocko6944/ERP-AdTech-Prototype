@@ -1,0 +1,541 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Campañas | ERP Adtech</title>
+    <link rel="stylesheet" href="css/marketing.css" />
+  </head>
+  <body>
+    <div class="marketing-shell">
+      <aside class="sidebar is-expanded" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Contraer menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link is-active" href="marketing.html" aria-current="page">
+              <img src="Images/IconoMKTBlanco.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="marketing-content campaign-page">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="modules.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de marketing">
+          <a class="top-tab" href="marketing.html">Leads</a>
+          <a class="top-tab is-active" href="campaigns.html" aria-current="page">Campañas</a>
+          <a class="top-tab" href="automation.html">Automatización</a>
+        </section>
+
+        <section class="campaign-summary-row" aria-label="Indicadores de campañas">
+          <article class="summary-card">
+            <span>Campañas activas</span>
+            <strong>10</strong>
+          </article>
+          <article class="summary-card summary-card-wide">
+            <span>Leads generados</span>
+            <strong>80</strong>
+          </article>
+          <article class="summary-card">
+            <span>Conversiones</span>
+            <strong>80</strong>
+          </article>
+          <button type="button" class="new-lead-button campaign-button" id="openCampaignModal">+ Nueva campaña</button>
+        </section>
+
+        <section class="campaign-filters-row" aria-label="Filtros de campañas">
+          <label class="filter-group filter-group-search">
+            <span>Buscador de Leads</span>
+            <div class="input-box search-box">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input type="text" placeholder="Nombre, empresa, email..." />
+            </div>
+          </label>
+
+          <label class="filter-group">
+            <span>Estado</span>
+            <select class="input-box">
+              <option>Activa</option>
+              <option>Inactiva</option>
+              <option>Finalizada</option>
+            </select>
+          </label>
+
+          <label class="filter-group">
+            <span>Rango de Fechas</span>
+            <select class="input-box">
+              <option>Este Mes</option>
+              <option>Últimos 30 días</option>
+              <option>Este Año</option>
+            </select>
+          </label>
+
+          <button type="button" class="clear-filter-button">Limpiar filtro</button>
+        </section>
+
+        <section class="table-card campaign-table-card" aria-label="Tabla de campañas">
+          <div class="table-scroll">
+            <table class="leads-table campaigns-table">
+              <thead>
+                <tr>
+                  <th>Nombre de campaña</th>
+                  <th>Estado</th>
+                  <th>Fecha inicio</th>
+                  <th>Fecha fin</th>
+                  <th>Leads generados</th>
+                  <th>Conversiones</th>
+                  <th>Responsable</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="clickable-row" data-href="campaign-detail.html" tabindex="0">
+                  <td>Campaña Agro</td>
+                  <td><span class="pill campaign-status active">Activa</span></td>
+                  <td>23/01/2024</td>
+                  <td>27/01/2024</td>
+                  <td>12,450</td>
+                  <td>3,120</td>
+                  <td><span class="owner"><span class="owner-avatar photo-avatar">C</span>Carlos P.</span></td>
+                  <td>
+                    <span class="campaign-actions">
+                      <a href="campaign-detail.html" class="icon-action-button" aria-label="Ver detalle de campaña">
+                        <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      </a>
+                      <button type="button" class="icon-action-button open-edit-campaign-modal" aria-label="Editar campaña">
+                        <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="clickable-row" data-href="campaign-detail.html" tabindex="0">
+                  <td>Campaña Agro ampaña</td>
+                  <td><span class="pill campaign-status inactive">Inactiva</span></td>
+                  <td>23/01/2024</td>
+                  <td>27/01/2024</td>
+                  <td>6,450</td>
+                  <td>3,120</td>
+                  <td><span class="owner"><span class="owner-avatar photo-avatar photo-avatar-alt">C</span>Carlos P.</span></td>
+                  <td>
+                    <span class="campaign-actions">
+                      <a href="campaign-detail.html" class="icon-action-button" aria-label="Ver detalle de campaña">
+                        <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      </a>
+                      <button type="button" class="icon-action-button open-edit-campaign-modal" aria-label="Editar campaña">
+                        <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="clickable-row" data-href="campaign-detail.html" tabindex="0">
+                  <td>Campaña de campaña</td>
+                  <td><span class="pill campaign-status finished">Finalizada</span></td>
+                  <td>23/01/2024</td>
+                  <td>07/01/2024</td>
+                  <td>3,120</td>
+                  <td>1,120</td>
+                  <td><span class="owner"><span class="owner-avatar photo-avatar">C</span>Carlos P.</span></td>
+                  <td>
+                    <span class="campaign-actions">
+                      <a href="campaign-detail.html" class="icon-action-button" aria-label="Ver detalle de campaña">
+                        <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      </a>
+                      <button type="button" class="icon-action-button open-edit-campaign-modal" aria-label="Editar campaña">
+                        <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="clickable-row" data-href="campaign-detail.html" tabindex="0">
+                  <td>Campaña de campaña</td>
+                  <td><span class="pill campaign-status active">Activa</span></td>
+                  <td>23/01/2024</td>
+                  <td>27/01/2024</td>
+                  <td>3,120</td>
+                  <td>1,120</td>
+                  <td><span class="owner"><span class="owner-avatar photo-avatar photo-avatar-warm">C</span>Carlos P.</span></td>
+                  <td>
+                    <span class="campaign-actions">
+                      <a href="campaign-detail.html" class="icon-action-button" aria-label="Ver detalle de campaña">
+                        <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      </a>
+                      <button type="button" class="icon-action-button open-edit-campaign-modal" aria-label="Editar campaña">
+                        <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+                <tr class="clickable-row" data-href="campaign-detail.html" tabindex="0">
+                  <td>Campaña de campaña</td>
+                  <td><span class="pill campaign-status inactive">Inactiva</span></td>
+                  <td>23/01/2024</td>
+                  <td>07/01/2024</td>
+                  <td>220</td>
+                  <td>820</td>
+                  <td><span class="owner"><span class="owner-avatar photo-avatar">C</span>Carlos P.</span></td>
+                  <td>
+                    <span class="campaign-actions">
+                      <a href="campaign-detail.html" class="icon-action-button" aria-label="Ver detalle de campaña">
+                        <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      </a>
+                      <button type="button" class="icon-action-button open-edit-campaign-modal" aria-label="Editar campaña">
+                        <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+                <tr>
+                  <td>Campaña de campaña</td>
+                  <td><span class="pill campaign-status finished">Finalizada</span></td>
+                  <td>23/01/2024</td>
+                  <td>07/01/2024</td>
+                  <td>65</td>
+                  <td>55</td>
+                  <td><span class="owner"><span class="owner-avatar photo-avatar photo-avatar-alt">C</span>Carlos P.</span></td>
+                  <td>
+                    <span class="campaign-actions">
+                      <a href="campaign-detail.html" class="icon-action-button" aria-label="Ver detalle de campaña">
+                        <img src="Images/Ver.png" alt="Ver" class="action-icon-image" />
+                      </a>
+                      <button type="button" class="icon-action-button open-edit-campaign-modal" aria-label="Editar campaña">
+                        <img src="Images/Lapiz.png" alt="Editar" class="action-icon-image" />
+                      </button>
+                    </span>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="table-footer campaign-footer">
+          <p>Mostrando 1-10 de 100</p>
+          <div class="pagination">
+            <button type="button" aria-label="Página anterior">
+              <span class="pagination-arrow pagination-arrow-left" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="is-current">1</button>
+            <button type="button">2</button>
+            <button type="button" aria-label="Página siguiente">
+              <span class="pagination-arrow pagination-arrow-right" aria-hidden="true"></span>
+            </button>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <div class="campaign-modal-backdrop" id="campaignModal" hidden>
+      <div class="campaign-modal" role="dialog" aria-modal="true" aria-labelledby="campaignModalTitle">
+        <button type="button" class="campaign-modal-close" id="closeCampaignModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="campaignModalTitle">Nueva campaña</h2>
+
+        <form class="campaign-form" id="campaignForm" novalidate>
+          <label class="campaign-field campaign-field-full">
+            <span>Nombre</span>
+            <input type="text" id="campaignName" name="campaignName" class="campaign-input" placeholder="Ingresa el nombre de la campaña..." required />
+          </label>
+
+          <div class="campaign-grid">
+            <label class="campaign-field">
+              <span>Canal</span>
+              <select class="campaign-input" id="campaignPlatform" name="campaignPlatform" required>
+                <option value="google-ads">Google Ads</option>
+                <option value="meta-ads">Meta Ads</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Objetivo de campaña</span>
+              <select class="campaign-input" id="campaignObjective" name="campaignObjective" required>
+                <option value="leads">Generar leads</option>
+                <option value="trafico">Tráfico al sitio web</option>
+                <option value="conversiones">Conversiones</option>
+                <option value="awareness">Reconocimiento de marca</option>
+                <option value="mensajes">Mensajes</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Presupuesto</span>
+              <input type="number" id="campaignBudget" name="campaignBudget" class="campaign-input" placeholder="10000" min="0" step="0.01" required />
+            </label>
+
+            <fieldset class="campaign-field budget-type-field">
+              <span>Tipo de presupuesto</span>
+              <div class="budget-type-options">
+                <label class="budget-type-chip">
+                  <input type="radio" name="budgetType" value="diario" checked />
+                  <span>Diario</span>
+                </label>
+                <label class="budget-type-chip">
+                  <input type="radio" name="budgetType" value="total" />
+                  <span>Total</span>
+                </label>
+              </div>
+            </fieldset>
+
+            <label class="campaign-field">
+              <span>Inicio</span>
+              <input type="date" id="campaignStartDate" name="campaignStartDate" class="campaign-input" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Fin</span>
+              <input type="date" id="campaignEndDate" name="campaignEndDate" class="campaign-input" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Público objetivo</span>
+              <select class="campaign-input" id="audienceSelect" name="audienceSelect" required>
+                <option value="agro-exportadores">Agro exportadores</option>
+                <option value="gerentes-comerciales">Gerentes comerciales</option>
+                <option value="marketing-b2b">Equipos de marketing B2B</option>
+              </select>
+            </label>
+
+            <div class="campaign-field audience-action-field">
+              <span>Gestión de público</span>
+              <button type="button" class="secondary-inline-button" id="toggleAudienceCreator">Crear nuevo público</button>
+            </div>
+
+            <div class="campaign-field campaign-field-full audience-creator" id="audienceCreator" hidden>
+              <div class="campaign-subgrid">
+                <label class="campaign-field">
+                  <span>Nombre del público</span>
+                  <input type="text" id="newAudienceName" name="newAudienceName" class="campaign-input" placeholder="Ej. Dueños de agroindustrias" />
+                </label>
+
+                <label class="campaign-field">
+                  <span>Ubicación</span>
+                  <input type="text" id="audienceLocation" name="audienceLocation" class="campaign-input" placeholder="País, ciudad o región" />
+                </label>
+
+                <label class="campaign-field">
+                  <span>Rango de edad</span>
+                  <input type="text" id="audienceAgeRange" name="audienceAgeRange" class="campaign-input" placeholder="Ej. 28 - 50 años" />
+                </label>
+
+                <label class="campaign-field">
+                  <span>Intereses / segmentos</span>
+                  <input type="text" id="audienceInterests" name="audienceInterests" class="campaign-input" placeholder="Agrotech, CRM, automatización..." />
+                </label>
+              </div>
+
+              <div class="audience-creator-actions">
+                <button type="button" class="campaign-modal-button campaign-modal-button-primary audience-save-button" id="saveAudienceButton">
+                  Guardar nuevo público
+                </button>
+              </div>
+            </div>
+
+            <label class="campaign-field campaign-field-full">
+              <span>Copy principal</span>
+              <input type="text" id="campaignHeadline" name="campaignHeadline" class="campaign-input" placeholder="Título o propuesta principal de la campaña" required />
+            </label>
+
+            <label class="campaign-field campaign-field-full">
+              <span>Mensaje / descripción</span>
+              <textarea id="campaignCopy" name="campaignCopy" class="campaign-input campaign-textarea" placeholder="Describe la oferta, beneficio y enfoque del anuncio..." required></textarea>
+            </label>
+
+            <label class="campaign-field">
+              <span>CTA</span>
+              <select class="campaign-input" id="campaignCta" name="campaignCta" required>
+                <option value="registrate">Regístrate</option>
+                <option value="cotiza">Cotiza ahora</option>
+                <option value="mas-info">Más información</option>
+                <option value="whatsapp">Enviar mensaje</option>
+                <option value="agenda">Agenda una demo</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>URL de destino</span>
+              <input type="url" id="campaignUrl" name="campaignUrl" class="campaign-input" placeholder="https://tu-landing.com" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Estado</span>
+              <select class="campaign-input" id="campaignStatus" name="campaignStatus" required>
+                <option value="activa">Activa</option>
+                <option value="borrador">Borrador</option>
+                <option value="programada">Programada</option>
+                <option value="inactiva">Inactiva</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Evento de conversión</span>
+              <select class="campaign-input" id="campaignConversionEvent" name="campaignConversionEvent">
+                <option value="formulario">Formulario enviado</option>
+                <option value="whatsapp">Clic en WhatsApp</option>
+                <option value="compra">Compra</option>
+                <option value="llamada">Llamada agendada</option>
+              </select>
+            </label>
+
+            <label class="campaign-field campaign-field-full">
+              <span>Creativo</span>
+              <div class="campaign-upload-box">
+                <input type="file" id="campaignAsset" name="campaignAsset" accept="image/*,video/*" />
+                <label for="campaignAsset" class="upload-trigger">Subir imagen o video</label>
+                <p class="upload-hint" id="campaignAssetSummary">Sin archivos seleccionados</p>
+              </div>
+            </label>
+
+            <label class="campaign-field campaign-field-full">
+              <span>Observaciones</span>
+              <textarea id="campaignNotes" name="campaignNotes" class="campaign-input campaign-textarea campaign-textarea-small" placeholder="Notas internas, remarketing, pruebas A/B, segmentación adicional..."></textarea>
+            </label>
+          </div>
+
+          <div class="campaign-modal-actions">
+            <button type="button" class="campaign-modal-button campaign-modal-button-secondary" id="cancelCampaignModal">Cancelar</button>
+            <button type="submit" class="campaign-modal-button campaign-modal-button-primary">Crear campaña</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="campaign-toast" id="campaignToast" hidden>Campaña creada correctamente</div>
+
+    <div class="campaign-modal-backdrop" id="editCampaignModal" hidden>
+      <div class="campaign-modal campaign-edit-modal" role="dialog" aria-modal="true" aria-labelledby="editCampaignModalTitle">
+        <button type="button" class="campaign-modal-close" id="closeEditCampaignModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="editCampaignModalTitle">Editar campaña</h2>
+
+        <form class="campaign-form" id="editCampaignForm" novalidate>
+          <div class="edit-section-title">DATOS GENERALES</div>
+
+          <div class="campaign-grid">
+            <label class="campaign-field">
+              <span>Nombre de campaña</span>
+              <input type="text" class="campaign-input" id="editCampaignName" value="Campaña Agro" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Descripción</span>
+              <textarea class="campaign-input campaign-textarea campaign-textarea-small" id="editCampaignDescription">Generar leads para servicios de automatización y funnoro...</textarea>
+            </label>
+
+            <label class="campaign-field campaign-field-full">
+              <span>Objetivo</span>
+              <input type="text" class="campaign-input" id="editCampaignObjective" value="Generar leads para servicios de automatización" required />
+            </label>
+          </div>
+
+          <div class="edit-section-title">CONFIGURACIÓN Y ESTADO</div>
+
+          <div class="campaign-grid">
+            <label class="campaign-field">
+              <span>Fecha de inicio</span>
+              <input type="date" class="campaign-input" id="editCampaignStartDate" value="2026-01-23" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Fecha de fin</span>
+              <input type="date" class="campaign-input" id="editCampaignEndDate" value="2026-01-27" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Presupuesto</span>
+              <input type="number" class="campaign-input" id="editCampaignBudget" value="2500" min="0" step="0.01" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Público objetivo</span>
+              <select class="campaign-input" id="editCampaignAudience" required>
+                <option value="agro-exportadores" selected>Agro exportadores</option>
+                <option value="gerentes-comerciales">Gerentes comerciales</option>
+                <option value="marketing-b2b">Equipos de marketing B2B</option>
+                <option value="duenos-agro">Dueños de agroindustrias</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Estado de campaña</span>
+              <select class="campaign-input" id="editCampaignStatus" required>
+                <option value="activa" selected>Activa</option>
+                <option value="inactiva">Inactiva</option>
+                <option value="finalizada">Finalizada</option>
+                <option value="programada">Programada</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Responsable</span>
+              <select class="campaign-input" id="editCampaignOwner" required>
+                <option value="carlos" selected>Carlos P.</option>
+                <option value="ana">Ana G.</option>
+                <option value="maria">María T.</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="campaign-modal-actions">
+            <button type="submit" class="campaign-modal-button campaign-modal-button-primary">Guardar campaña</button>
+            <button type="button" class="campaign-modal-button campaign-modal-button-secondary" id="cancelEditCampaignModal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="campaign-toast" id="editCampaignToast" hidden>Campaña actualizada correctamente</div>
+
+    <script src="js/marketing.js"></script>
+  </body>
+</html>
