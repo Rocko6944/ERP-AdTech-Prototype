@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Nueva Oportunidad | ERP Adtech</title>
+    <link rel="stylesheet" href="css/new-opportunity.css" />
+  </head>
+  <body>
+    <div class="opportunity-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link is-active" href="sales.html" aria-current="page">
+              <img src="Images/IconoVentasBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="opportunity-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="sales.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de ventas">
+          <a class="top-tab is-active" href="sales.html">Oportunidades</a>
+          <a class="top-tab" href="clients.html">Clientes</a>
+          <button type="button" class="top-tab">Propuestas</button>
+        </section>
+
+        <section class="form-card">
+          <header class="form-header">
+            <h1>Nueva oportunidad</h1>
+            <p>Registra una oportunidad de manera manual.</p>
+          </header>
+
+          <form class="opportunity-form" id="newOpportunityForm">
+            <div class="form-grid">
+              <label class="form-field">
+                <span>Nombre de la oportunidad</span>
+                <input type="text" placeholder="Ej. Renovación Licencias Tech" />
+              </label>
+
+              <label class="form-field">
+                <span>Cliente</span>
+                <input type="text" placeholder="Nombre del cliente" />
+              </label>
+            </div>
+
+            <div class="form-grid">
+              <label class="form-field">
+                <span>Etapa</span>
+                <select>
+                  <option>Propuesta</option>
+                  <option>Negociación</option>
+                  <option>Cierre ganado</option>
+                  <option>Cierre perdido</option>
+                </select>
+              </label>
+
+              <label class="form-field">
+                <span>Monto estimado</span>
+                <div class="input-with-prefix">
+                  <span class="input-prefix">S/</span>
+                  <input type="text" placeholder="0.00" />
+                </div>
+              </label>
+            </div>
+
+            <div class="form-grid">
+              <label class="form-field">
+                <span>Fecha de cierre estimada</span>
+                <div class="input-with-icon">
+                  <span class="calendar-mini" aria-hidden="true"></span>
+                  <input type="date" />
+                </div>
+              </label>
+
+              <label class="form-field">
+                <span>Responsable</span>
+                <select>
+                  <option>Carlos P.</option>
+                  <option>Ana G.</option>
+                  <option>Andrea M.</option>
+                </select>
+              </label>
+            </div>
+
+            <label class="form-field">
+              <span>Comentarios</span>
+              <textarea rows="5" placeholder="Agrega contexto, próximos pasos o detalles relevantes..."></textarea>
+            </label>
+
+            <div class="form-actions">
+              <button type="submit" class="primary-button">Guardar oportunidad</button>
+              <button type="button" class="secondary-button" id="cancelNewOpportunity">Cancelar</button>
+            </div>
+          </form>
+        </section>
+      </main>
+    </div>
+
+    <div class="save-toast" id="newOpportunityToast" hidden>Guardado</div>
+
+    <script src="js/new-opportunity.js"></script>
+  </body>
+</html>

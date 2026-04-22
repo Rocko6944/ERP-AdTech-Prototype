@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ventas | ERP Adtech</title>
+    <link rel="stylesheet" href="css/sales.css" />
+  </head>
+  <body>
+    <div class="sales-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menú">
+            <img
+              src="Images/IconoCerrarBarra.png"
+              alt=""
+              class="toggle-icon toggle-icon-close"
+            />
+            <img
+              src="Images/iconoAbrirBarra.png"
+              alt=""
+              class="toggle-icon toggle-icon-open"
+            />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link is-active" href="sales.html" aria-current="page">
+              <img src="Images/IconoVentasBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="sales-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="modules.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de ventas">
+          <a class="top-tab is-active" href="sales.html" aria-current="page">Oportunidades</a>
+          <a class="top-tab" href="clients.html">Clientes</a>
+          <a class="top-tab" href="proposals.html">Propuestas</a>
+        </section>
+
+        <section class="summary-row" aria-label="Indicadores de oportunidades">
+          <article class="summary-card">
+            <span>Propuesta</span>
+            <strong>8</strong>
+          </article>
+          <article class="summary-card">
+            <span>Negociación</span>
+            <strong>12</strong>
+          </article>
+          <article class="summary-card">
+            <span>Cierre ganado</span>
+            <strong>6</strong>
+          </article>
+          <article class="summary-card">
+            <span>Cierre perdido</span>
+            <strong>4</strong>
+          </article>
+          <a class="new-opportunity-button" href="new-opportunity.html">+ Nueva Oportunidad</a>
+        </section>
+
+        <section class="filters-row" aria-label="Filtros de oportunidades">
+          <label class="filter-group filter-group-search">
+            <span>Buscador</span>
+            <div class="input-box search-box">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input type="text" placeholder="Nombre de oportunidad" />
+            </div>
+          </label>
+
+          <label class="filter-group">
+            <span>Etapa</span>
+            <select class="input-box">
+              <option>Todos</option>
+              <option>Propuesta</option>
+              <option>Negociación</option>
+              <option>Ganado</option>
+              <option>Perdido</option>
+            </select>
+          </label>
+
+          <label class="filter-group">
+            <span>Rango de Fechas</span>
+            <select class="input-box">
+              <option>Este Mes</option>
+              <option>Últimos 30 días</option>
+              <option>Este Trimestre</option>
+            </select>
+          </label>
+
+          <button type="button" class="clear-filter-button">Limpiar filtro</button>
+        </section>
+
+        <section class="table-card" aria-label="Tabla de oportunidades">
+          <div class="table-scroll">
+            <table class="opportunities-table">
+              <thead>
+                <tr>
+                  <th>Nombre de Oportunidad</th>
+                  <th>Cliente / Lead</th>
+                  <th>Etapa</th>
+                  <th>Monto Estimado</th>
+                  <th>Probabilidad (%)</th>
+                  <th>Fecha Cierre Estimada</th>
+                  <th>Responsable</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="clickable-row is-highlighted" data-href="opportunity-detail.html" tabindex="0">
+                  <td>Renovación Licencias Tech</td>
+                  <td><span class="client-cell"><span class="avatar">G</span>Global Tech Solutions Inc.</span></td>
+                  <td><span class="stage-pill stage-proposal">Propuesta</span></td>
+                  <td><span class="money-pill">$ 5,000</span></td>
+                  <td><span class="probability-pill probability-info">45%</span></td>
+                  <td>30/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                </tr>
+                <tr class="clickable-row" data-href="opportunity-detail.html" tabindex="0">
+                  <td>Renovación Licencias Tech</td>
+                  <td><span class="client-cell"><span class="avatar purple">G</span>Global Tech Solutions Inc.</span></td>
+                  <td><span class="stage-pill stage-negotiation">Negociación</span></td>
+                  <td><span class="money-pill">$ 5,000</span></td>
+                  <td><span class="probability-pill probability-warn">45%</span></td>
+                  <td>30/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                </tr>
+                <tr class="clickable-row" data-href="opportunity-detail.html" tabindex="0">
+                  <td>Renovación Licencias Tech</td>
+                  <td><span class="client-cell"><span class="avatar amber">G</span>Global Tech Solutions Inc.</span></td>
+                  <td><span class="stage-pill stage-negotiation">Negociación</span></td>
+                  <td><span class="money-pill">$ 2,000</span></td>
+                  <td><span class="probability-pill probability-warn">45%</span></td>
+                  <td>30/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                </tr>
+                <tr class="clickable-row" data-href="opportunity-detail.html" tabindex="0">
+                  <td>Renovación Licencias Tech</td>
+                  <td><span class="client-cell"><span class="avatar">G</span>Global Tech Solutions Inc.</span></td>
+                  <td><span class="stage-pill stage-proposal">Propuesta</span></td>
+                  <td><span class="money-pill">$ 5,000</span></td>
+                  <td><span class="probability-pill probability-info">45%</span></td>
+                  <td>30/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                </tr>
+                <tr class="clickable-row" data-href="opportunity-detail.html" tabindex="0">
+                  <td>Renovación Licencias Tech</td>
+                  <td><span class="client-cell"><span class="avatar purple">G</span>Global Tech Solutions Inc.</span></td>
+                  <td><span class="stage-pill stage-negotiation">Negociación</span></td>
+                  <td><span class="money-pill">$ 5,000</span></td>
+                  <td><span class="probability-pill probability-good">45%</span></td>
+                  <td>30/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                </tr>
+                <tr class="clickable-row" data-href="opportunity-detail.html" tabindex="0">
+                  <td>Renovación Licencias Tech</td>
+                  <td><span class="client-cell"><span class="avatar green">G</span>Global Tech Solutions Inc.</span></td>
+                  <td><span class="stage-pill stage-won">Ganado</span></td>
+                  <td><span class="money-pill">$ 5,000</span></td>
+                  <td><span class="probability-pill probability-danger">45%</span></td>
+                  <td>30/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                </tr>
+                <tr class="clickable-row" data-href="opportunity-detail.html" tabindex="0">
+                  <td>Renovación Licencias Tech</td>
+                  <td><span class="client-cell"><span class="avatar red">G</span>Global Tech Solutions Inc.</span></td>
+                  <td><span class="stage-pill stage-lost">Perdido</span></td>
+                  <td><span class="money-pill">$ 5,000</span></td>
+                  <td><span class="probability-pill probability-danger">45%</span></td>
+                  <td>30/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="table-footer">
+          <p>Mostrando 1-10 de 100</p>
+          <div class="pagination">
+            <button type="button" aria-label="Página anterior">
+              <span class="pagination-arrow pagination-arrow-left" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="is-current">1</button>
+            <button type="button">2</button>
+            <button type="button" aria-label="Página siguiente">
+              <span class="pagination-arrow pagination-arrow-right" aria-hidden="true"></span>
+            </button>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <script src="js/sales.js"></script>
+  </body>
+</html>

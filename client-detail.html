@@ -1,0 +1,429 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Cliente | ERP Adtech</title>
+    <link rel="stylesheet" href="css/client-detail.css" />
+  </head>
+  <body>
+    <div class="client-detail-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link is-active" href="sales.html" aria-current="page">
+              <img src="Images/IconoVentasBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="client-detail-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="clients.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de ventas">
+          <a class="top-tab" href="sales.html">Oportunidades</a>
+          <a class="top-tab is-active" href="clients.html" aria-current="page">Clientes</a>
+          <a class="top-tab" href="proposals.html">Propuestas</a>
+        </section>
+
+        <header class="client-header">
+          <div class="client-heading">
+            <h1>Carlos Ruiz</h1>
+            <div class="client-tags">
+              <span class="tag">Tech Solution Inc.</span>
+              <span class="tag">Estado: Activo</span>
+            </div>
+          </div>
+
+          <div class="header-actions">
+            <button type="button" class="header-action" id="openEditClientModal">Editar cliente</button>
+            <button type="button" class="header-action" id="openProjectsModal">Ver proyectos</button>
+          </div>
+        </header>
+
+        <section class="client-board">
+          <div class="board-column">
+            <article class="detail-card">
+              <h2>DATOS GENERALES</h2>
+              <div class="detail-list">
+                <div class="detail-row">
+                  <span>Nombre</span>
+                  <strong data-client-field="name">Carlos Ruiz</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Empresa</span>
+                  <strong data-client-field="company">Tech Solutions Inc.</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Email</span>
+                  <strong data-client-field="email">c.ruiz@techsolutions.com</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Teléfono</span>
+                  <strong data-client-field="phone">+34 612 345 678</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Fecha de conversión</span>
+                  <strong data-client-field="conversion-date">15/06/2024</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Responsable</span>
+                  <strong data-client-field="owner">Carlos P.</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h2>SERVICIOS CONTRATADOS</h2>
+              <div class="service-list">
+                <div class="service-item">
+                  <div>
+                    <strong>Marketing Digital</strong>
+                    <p>Proyecto asociado: Renovación Tech (Agro)</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <div>
+                    <strong>Branding estratégico</strong>
+                    <p>Proyecto asociado: Renovación Tech (Agro)</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <div>
+                    <strong>Dirección estratégica</strong>
+                    <p>Proyecto asociado: Renovación Tech (Agro)</p>
+                  </div>
+                </div>
+                <div class="service-item">
+                  <div>
+                    <strong>Activaciones y eventos</strong>
+                    <p>Proyecto asociado: Renovación Tech (Agro)</p>
+                  </div>
+                </div>
+              </div>
+            </article>
+          </div>
+
+          <div class="board-column">
+            <article class="detail-card">
+              <h2>LEAD DE ORIGEN</h2>
+              <div class="lead-origin">
+                <div class="detail-row">
+                  <span>Nombre</span>
+                  <a href="lead-detail.html">Carlos Ruiz</a>
+                </div>
+                <div class="detail-row">
+                  <span>Fecha de creación</span>
+                  <strong>10/06/2024</strong>
+                </div>
+                <div class="detail-row">
+                  <span>Fuente</span>
+                  <strong data-client-field="lead-source">Landing Page Agro</strong>
+                </div>
+                <a class="lead-link" href="lead-detail.html">Ver detalle del lead</a>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h2>PROYECTOS ACTIVOS</h2>
+              <div class="project-table">
+                <div class="project-head">
+                  <span>Proyectos</span>
+                  <span>Badge</span>
+                  <span>Fecha de inicio</span>
+                  <span>Responsable</span>
+                </div>
+                <div class="project-row">
+                  <div class="project-name">
+                    <span class="project-icon" aria-hidden="true"></span>
+                    <strong>Proyecto Renovación Tech (Agro)</strong>
+                  </div>
+                  <span class="project-badge">En ejecución</span>
+                  <strong>15/06/2024</strong>
+                  <strong class="owner"><span class="owner-avatar">C</span>Carlos P.</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h2>OBSERVACIONES</h2>
+              <textarea class="notes-box" rows="4" placeholder="Detalles adicionales, acuerdos, próximos pasos, etc..."></textarea>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="client-modal-backdrop" id="editClientModal" hidden>
+      <div class="client-modal" role="dialog" aria-modal="true" aria-labelledby="editClientModalTitle">
+        <div class="client-modal-header">
+          <div>
+            <h2 id="editClientModalTitle">Editar cliente</h2>
+            <p>Actualiza la información del cliente</p>
+          </div>
+          <button type="button" class="client-modal-close" id="closeEditClientModal" aria-label="Cerrar ventana">X</button>
+        </div>
+
+        <form class="client-edit-form" id="editClientForm">
+          <section class="client-modal-section">
+            <h3>INFORMACIÓN PERSONAL</h3>
+            <div class="client-form-grid client-form-grid-three">
+              <label class="client-field">
+                <span>Nombre completo</span>
+                <input type="text" name="fullName" value="Carlos Ruiz" />
+              </label>
+              <label class="client-field">
+                <span>Teléfono</span>
+                <input type="text" name="phone" value="+34 612 345 678" />
+              </label>
+              <label class="client-field">
+                <span>Teléfono alterno</span>
+                <input type="text" name="alternatePhone" value="+34 698 112 004" />
+              </label>
+              <label class="client-field">
+                <span>Correo electrónico</span>
+                <input type="email" name="email" value="c.ruiz@techsolutions.com" />
+              </label>
+              <label class="client-field">
+                <span>Empresa</span>
+                <input type="text" name="company" value="Tech Solutions Inc." />
+              </label>
+              <label class="client-field">
+                <span>Cargo</span>
+                <input type="text" name="position" value="Director Comercial" />
+              </label>
+            </div>
+          </section>
+
+          <section class="client-modal-section">
+            <h3>INFORMACIÓN COMERCIAL</h3>
+            <div class="client-form-grid client-form-grid-three">
+              <label class="client-field">
+                <span>Fuente del lead</span>
+                <select name="leadSource">
+                  <option>Meta Ads</option>
+                  <option>Google Ads</option>
+                  <option>Referido</option>
+                  <option selected>Landing Page Agro</option>
+                  <option>Orgánico</option>
+                </select>
+              </label>
+              <label class="client-field">
+                <span>Estado del cliente</span>
+                <select name="status">
+                  <option>Lead</option>
+                  <option>Prospecto</option>
+                  <option selected>Cliente activo</option>
+                  <option>Cliente inactivo</option>
+                </select>
+              </label>
+              <label class="client-field">
+                <span>Responsable / vendedor</span>
+                <select name="owner">
+                  <option selected>Carlos P.</option>
+                  <option>Ana G.</option>
+                  <option>Andrea M.</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="client-form-bottom">
+            <div class="client-modal-section">
+              <h3>INFORMACIÓN ADICIONAL</h3>
+              <label class="client-field client-field-textarea">
+                <span>Notas relevantes</span>
+                <textarea name="notes" rows="6" placeholder="Agregar notas relevantes sobre el cliente..."></textarea>
+              </label>
+            </div>
+
+            <div class="client-modal-section">
+              <h3>ACTIVIDAD RECIENTE (SOLO VISUAL)</h3>
+              <div class="client-activity-list" aria-hidden="true">
+                <div class="client-activity-item">
+                  <strong>Lead creado</strong>
+                  <span>hace 2 días</span>
+                </div>
+                <div class="client-activity-item">
+                  <strong>Correo enviado</strong>
+                  <span>hace 1 día</span>
+                </div>
+                <div class="client-activity-item">
+                  <strong>Llamada realizada</strong>
+                  <span>hoy</span>
+                </div>
+              </div>
+            </div>
+          </section>
+
+          <div class="client-modal-actions">
+            <button type="button" class="client-modal-button client-modal-button-secondary" id="cancelEditClientModal">Cancelar</button>
+            <button type="submit" class="client-modal-button client-modal-button-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="client-modal-backdrop" id="projectsModal" hidden>
+      <div class="client-modal client-projects-modal" role="dialog" aria-modal="true" aria-labelledby="projectsModalTitle">
+        <div class="client-modal-header">
+          <div>
+            <h2 id="projectsModalTitle">Proyectos del cliente</h2>
+            <p>Listado de proyectos asociados a este cliente</p>
+          </div>
+          <button type="button" class="client-modal-close" id="closeProjectsModal" aria-label="Cerrar ventana">X</button>
+        </div>
+
+        <div class="client-projects-body">
+          <section class="client-projects-summary">
+            <strong data-client-field="projects-name">Carlos Ruiz</strong>
+            <span data-client-field="projects-company">Tech Solution Inc.</span>
+            <span data-client-field="projects-status">Estado: Activo</span>
+          </section>
+
+          <section class="client-projects-filters">
+            <label class="client-field">
+              <span>Buscar proyecto</span>
+              <input type="text" placeholder="Buscar proyecto..." />
+            </label>
+            <label class="client-field">
+              <span>Estado</span>
+              <select>
+                <option>En progreso, Finalizado, Pendiente</option>
+                <option>En progreso</option>
+                <option>Finalizado</option>
+                <option>Pendiente</option>
+              </select>
+            </label>
+            <label class="client-field">
+              <span>Tipo</span>
+              <select>
+                <option>Marketing, Desarrollo, Consultoría</option>
+                <option>Marketing</option>
+                <option>Desarrollo</option>
+                <option>Consultoría</option>
+              </select>
+            </label>
+          </section>
+
+          <section class="client-projects-table-wrap">
+            <table class="client-projects-table">
+              <thead>
+                <tr>
+                  <th>Nombre del proyecto</th>
+                  <th>Tipo</th>
+                  <th>Estado</th>
+                  <th>Fecha inicio</th>
+                  <th>Fecha fin</th>
+                  <th>Responsable</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <td>Proyecto de proyecto 1</td>
+                  <td>Marketing</td>
+                  <td><span class="project-status-chip project-status-progress">Verde: En progreso</span></td>
+                  <td>09/12/2022</td>
+                  <td>08/13/2022</td>
+                  <td>Responsable</td>
+                  <td class="client-projects-actions"><button type="button">Ver</button><button type="button">Editar</button></td>
+                </tr>
+                <tr>
+                  <td>Proyecto de proyecto 2</td>
+                  <td>Desarrollo</td>
+                  <td><span class="project-status-chip project-status-pending">Amarillo: Pendiente</span></td>
+                  <td>03/12/2022</td>
+                  <td>03/13/2022</td>
+                  <td>Responsable</td>
+                  <td class="client-projects-actions"><button type="button">Ver</button><button type="button">Editar</button></td>
+                </tr>
+                <tr>
+                  <td>Proyecto de proyecto 3</td>
+                  <td>Desarrollo</td>
+                  <td><span class="project-status-chip project-status-pending">Amarillo: Pendiente</span></td>
+                  <td>03/12/2022</td>
+                  <td>03/13/2022</td>
+                  <td>Responsable</td>
+                  <td class="client-projects-actions"><button type="button">Ver</button><button type="button">Editar</button></td>
+                </tr>
+                <tr>
+                  <td>Proyecto de proyecto 4</td>
+                  <td>Consultoría</td>
+                  <td><span class="project-status-chip project-status-finished">Gris: Finalizado</span></td>
+                  <td>02/13/2022</td>
+                  <td>03/13/2022</td>
+                  <td>Responsable</td>
+                  <td class="client-projects-actions"><button type="button">Ver</button><button type="button">Editar</button></td>
+                </tr>
+                <tr>
+                  <td>Proyecto de proyecto 5</td>
+                  <td>Desarrollo</td>
+                  <td><span class="project-status-chip project-status-finished">Gris: Finalizado</span></td>
+                  <td>07/09/2022</td>
+                  <td>09/09/2022</td>
+                  <td>Responsable</td>
+                  <td class="client-projects-actions"><button type="button">Ver</button><button type="button">Editar</button></td>
+                </tr>
+              </tbody>
+            </table>
+          </section>
+
+          <div class="client-modal-actions">
+            <button type="button" class="client-modal-button client-modal-button-secondary" id="cancelProjectsModal">Cerrar</button>
+            <button type="button" class="client-modal-button client-modal-button-primary">Nuevo proyecto</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/client-detail.js"></script>
+  </body>
+</html>

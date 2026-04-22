@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Oportunidad | ERP Adtech</title>
+    <link rel="stylesheet" href="css/opportunity-detail.css" />
+  </head>
+  <body>
+    <div class="opportunity-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link is-active" href="sales.html" aria-current="page">
+              <img src="Images/IconoVentasBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="opportunity-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="sales.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de ventas">
+          <a class="top-tab is-active" href="sales.html">Oportunidades</a>
+          <a class="top-tab" href="clients.html">Clientes</a>
+          <a class="top-tab" href="proposals.html">Propuestas</a>
+        </section>
+
+        <header class="opportunity-header">
+          <h1>Renovación Licencias Tech</h1>
+          <div class="opportunity-tags">
+            <span class="tag">Cliente: GTS Inc.</span>
+            <span class="tag">Etapa: Negociación</span>
+          </div>
+          <div class="header-actions">
+            <button type="button" class="header-action secondary" id="openFollowupModal">Registrar seguimiento</button>
+            <button type="button" class="header-action primary" id="markOpportunityWon">Cerrar como ganado</button>
+          </div>
+        </header>
+
+        <section class="detail-board">
+          <div class="detail-column">
+            <article class="detail-card">
+              <h2>INFORMACIÓN GENERAL</h2>
+              <div class="detail-grid">
+                <div class="detail-item">
+                  <span>Cliente</span>
+                  <strong class="owner"><span class="owner-avatar">G</span>Global Tech Solutions Inc.</strong>
+                </div>
+                <div class="detail-item">
+                  <span>Lead de origen</span>
+                  <strong class="owner"><span class="owner-avatar">C</span>Campaña Agro</strong>
+                </div>
+                <div class="detail-item">
+                  <span>Responsable</span>
+                  <strong class="owner"><span class="owner-avatar">C</span>Carlos P.</strong>
+                </div>
+                <div class="detail-item">
+                  <span>Fecha de creación</span>
+                  <strong>15/05/2024</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h2>INFORMACIÓN COMERCIAL</h2>
+              <div class="commercial-grid">
+                <div class="detail-item">
+                  <span>Monto estimado</span>
+                  <strong class="money-value"><span class="money-icon">$</span>5,000</strong>
+                </div>
+                <div class="detail-item">
+                  <span>Probabilidad de cierre</span>
+                  <strong>45%</strong>
+                  <span class="progress-bar" aria-hidden="true"><span></span></span>
+                </div>
+                <div class="detail-item">
+                  <span>Fecha estimada de cierre</span>
+                  <strong class="date-value"><span class="calendar-icon" aria-hidden="true"></span>30/06/2024</strong>
+                </div>
+              </div>
+            </article>
+
+            <article class="detail-card">
+              <h2>OBSERVACIONES</h2>
+              <textarea class="notes-box" rows="4" placeholder="Detalles adicionales, acuerdos, próximos pasos..."></textarea>
+            </article>
+          </div>
+
+          <article class="detail-card timeline-card">
+            <h2>HISTORIAL DE SEGUIMIENTO</h2>
+            <div class="timeline-list">
+              <div class="timeline-entry">
+                <div class="timeline-top">
+                  <span class="stage-pill stage-proposal">Propuesta</span>
+                  <div class="timeline-summary">
+                    <div><span>Monto</span><strong>$5,000</strong></div>
+                    <div><span>Probabilidad</span><strong>45%</strong></div>
+                    <div><span>Fecha</span><strong>10/06/2024</strong></div>
+                  </div>
+                </div>
+                <div class="timeline-body">
+                  <span>Observaciones</span>
+                  <p>Reunión de seguimiento, cliente interesado con un monpen...</p>
+                </div>
+              </div>
+
+              <div class="timeline-entry">
+                <div class="timeline-top">
+                  <span class="stage-pill stage-negotiation">Negociación</span>
+                  <div class="timeline-summary">
+                    <div><span>Monto</span><strong>$5,000</strong></div>
+                    <div><span>Probabilidad</span><strong>45%</strong></div>
+                    <div><span>Fecha</span><strong>10/06/2024</strong></div>
+                  </div>
+                </div>
+                <div class="timeline-meta">
+                  <div><span>Usuario</span><strong class="owner"><span class="owner-avatar">C</span>Carlos P.</strong></div>
+                  <div><span>Fecha</span><strong>10/06/2024</strong></div>
+                </div>
+                <div class="timeline-body">
+                  <span>Observaciones</span>
+                  <p>Reunión de seguimiento, cliente interesado...</p>
+                </div>
+              </div>
+            </div>
+          </article>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="followupModal" hidden>
+      <div class="followup-modal" role="dialog" aria-modal="true" aria-labelledby="followupModalTitle">
+        <button type="button" class="modal-close" id="closeFollowupModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="followupModalTitle">Registrar seguimiento</h2>
+        <p class="modal-subtitle">Renovación Licencias Tech</p>
+
+        <form class="followup-form" id="followupForm">
+          <div class="modal-grid">
+            <label class="modal-field">
+              <span>Etapa</span>
+              <select class="modal-input">
+                <option>Propuesta</option>
+                <option selected>Negociación</option>
+                <option>Cierre ganado</option>
+                <option>Cierre perdido</option>
+              </select>
+            </label>
+
+            <label class="modal-field">
+              <span>Probabilidad de cierre</span>
+              <div class="probability-editor">
+                <input type="range" min="0" max="100" value="45" id="probabilityRange" />
+                <input class="probability-value" type="text" value="45%" id="probabilityValue" />
+              </div>
+            </label>
+          </div>
+
+          <div class="modal-grid">
+            <label class="modal-field">
+              <span>Fecha</span>
+              <div class="modal-input input-with-icon">
+                <span class="calendar-mini" aria-hidden="true"></span>
+                <input type="date" value="2024-06-30" />
+              </div>
+            </label>
+
+            <label class="modal-field">
+              <span>Responsable</span>
+              <select class="modal-input">
+                <option selected>Carlos P.</option>
+                <option>Ana G.</option>
+                <option>Andrea M.</option>
+              </select>
+            </label>
+          </div>
+
+          <label class="modal-field">
+            <span>Observación</span>
+            <textarea class="modal-textarea" rows="4" placeholder="Describe el avance o acuerdo alcanzado..."></textarea>
+          </label>
+
+          <div class="modal-actions">
+            <button type="submit" class="modal-button primary">Guardar seguimiento</button>
+            <button type="button" class="modal-button secondary" id="cancelFollowupModal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="save-toast" id="followupToast" hidden>Guardado</div>
+    <div class="save-toast" id="opportunityWonToast" hidden>Oportunidad ganada, ya es cliente!</div>
+
+    <script src="js/opportunity-detail.js"></script>
+  </body>
+</html>

@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Clientes | ERP Adtech</title>
+    <link rel="stylesheet" href="css/sales.css" />
+  </head>
+  <body>
+    <div class="sales-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link is-active" href="sales.html" aria-current="page">
+              <img src="Images/IconoVentasBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="sales-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="modules.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestañas de ventas">
+          <a class="top-tab" href="sales.html">Oportunidades</a>
+          <a class="top-tab is-active" href="clients.html" aria-current="page">Clientes</a>
+          <a class="top-tab" href="proposals.html">Propuestas</a>
+        </section>
+
+        <section class="summary-row clients-summary-row" aria-label="Indicadores de clientes">
+          <article class="summary-card">
+            <span>Clientes activos</span>
+            <strong>15</strong>
+          </article>
+          <article class="summary-card">
+            <span>Clientes inactivos</span>
+            <strong>7</strong>
+          </article>
+          <button type="button" class="new-opportunity-button" id="openClientModal">+ Nuevo cliente</button>
+        </section>
+
+        <section class="filters-row clients-filters-row" aria-label="Filtros de clientes">
+          <label class="filter-group filter-group-search">
+            <span>Buscador</span>
+            <div class="input-box search-box">
+              <span class="search-icon" aria-hidden="true"></span>
+              <input type="text" placeholder="Nombre, empresa, email..." />
+            </div>
+          </label>
+
+          <label class="filter-group">
+            <span>Estado</span>
+            <select class="input-box">
+              <option>Activo/Inactivo</option>
+              <option>Activo</option>
+              <option>Inactivo</option>
+            </select>
+          </label>
+
+          <label class="filter-group">
+            <span>Rango de Fechas</span>
+            <select class="input-box">
+              <option>Este Mes</option>
+              <option>Últimos 30 días</option>
+              <option>Este Trimestre</option>
+            </select>
+          </label>
+
+          <button type="button" class="clear-filter-button">Limpiar filtro</button>
+        </section>
+
+        <section class="table-card" aria-label="Tabla de clientes">
+          <div class="table-scroll">
+            <table class="opportunities-table clients-table">
+              <thead>
+                <tr>
+                  <th>Nombre del cliente</th>
+                  <th>Empresa</th>
+                  <th>Email</th>
+                  <th>Teléfono</th>
+                  <th>Fecha de conversión</th>
+                  <th>Responsable</th>
+                  <th>Estado</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="clickable-row is-highlighted" tabindex="0" data-href="client-detail.html">
+                  <td>Carlos Ruiz</td>
+                  <td>Tech Solutions Inc.</td>
+                  <td>c.ruiz@techsolutions.com</td>
+                  <td>+34 612 345 678</td>
+                  <td>15/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                  <td><span class="status-pill status-active">Activo</span></td>
+                </tr>
+                <tr class="clickable-row" tabindex="0" data-href="client-detail.html">
+                  <td>Ana García</td>
+                  <td>Creative Studio Co.</td>
+                  <td>a.garcia@creative.co</td>
+                  <td>+34 713 221 456</td>
+                  <td>22/01/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                  <td><span class="status-pill status-inactive">Inactivo</span></td>
+                </tr>
+                <tr class="clickable-row" tabindex="0" data-href="client-detail.html">
+                  <td>Ana García</td>
+                  <td>Creative Studio Co.</td>
+                  <td>a.garcia@creative.co</td>
+                  <td>+34 713 221 456</td>
+                  <td>22/01/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                  <td><span class="status-pill status-active">Activo</span></td>
+                </tr>
+                <tr class="clickable-row" tabindex="0" data-href="client-detail.html">
+                  <td>Carlos Ruiz</td>
+                  <td>Tech Solutions Inc.</td>
+                  <td>c.ruiz@richsolutions.com</td>
+                  <td>+34 612 345 678</td>
+                  <td>15/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                  <td><span class="status-pill status-active">Activo</span></td>
+                </tr>
+                <tr class="clickable-row" tabindex="0" data-href="client-detail.html">
+                  <td>Marhev Example</td>
+                  <td>Tech Solutions Inc.</td>
+                  <td>c.mair@example.com</td>
+                  <td>+34 612 345 678</td>
+                  <td>15/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                  <td><span class="status-pill status-active">Activo</span></td>
+                </tr>
+                <tr class="clickable-row" tabindex="0" data-href="client-detail.html">
+                  <td>Amnea Vannez</td>
+                  <td>Tech Solutions Inc.</td>
+                  <td>a.mmia@example.com</td>
+                  <td>+34 713 221 456</td>
+                  <td>22/01/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                  <td><span class="status-pill status-inactive">Inactivo</span></td>
+                </tr>
+                <tr class="clickable-row" tabindex="0" data-href="client-detail.html">
+                  <td>Ana García</td>
+                  <td>Creative Studio Co.</td>
+                  <td>a.garcia@creative.com</td>
+                  <td>+34 612 345 678</td>
+                  <td>15/06/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                  <td><span class="status-pill status-active">Activo</span></td>
+                </tr>
+                <tr class="clickable-row" tabindex="0" data-href="client-detail.html">
+                  <td>Carlos Ruiz</td>
+                  <td>Tech Solutions Inc.</td>
+                  <td>c.ruiz@exantone.com</td>
+                  <td>+34 713 221 456</td>
+                  <td>22/01/2024</td>
+                  <td><span class="client-cell"><span class="avatar owner">C</span>Carlos P.</span></td>
+                  <td><span class="status-pill status-active">Activo</span></td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="table-footer">
+          <p>Mostrando 1-10 de 100</p>
+          <div class="pagination">
+            <button type="button" aria-label="Página anterior">
+              <span class="pagination-arrow pagination-arrow-left" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="is-current">1</button>
+            <button type="button">2</button>
+            <button type="button" aria-label="Página siguiente">
+              <span class="pagination-arrow pagination-arrow-right" aria-hidden="true"></span>
+            </button>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="clientModal" hidden>
+      <div class="opportunity-modal" role="dialog" aria-modal="true" aria-labelledby="clientModalTitle">
+        <button type="button" class="modal-close" id="closeClientModal" aria-label="Cerrar ventana">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="clientModalTitle">Nuevo cliente</h2>
+        <p class="modal-subtitle">Registra un cliente de manera manual</p>
+
+        <form class="opportunity-form" id="clientForm">
+          <div class="modal-grid">
+            <label class="modal-field">
+              <span>Nombre</span>
+              <input class="modal-input" type="text" placeholder="Nombre del cliente" />
+            </label>
+
+            <label class="modal-field">
+              <span>Empresa</span>
+              <input class="modal-input" type="text" placeholder="Empresa" />
+            </label>
+          </div>
+
+          <div class="modal-grid">
+            <label class="modal-field">
+              <span>Email</span>
+              <input class="modal-input" type="email" placeholder="correo@empresa.com" />
+            </label>
+
+            <label class="modal-field">
+              <span>Teléfono</span>
+              <input class="modal-input" type="text" placeholder="+51 999 999 999" />
+            </label>
+          </div>
+
+          <div class="modal-grid">
+            <label class="modal-field">
+              <span>Fecha de conversión</span>
+              <div class="modal-input input-with-icon">
+                <span class="calendar-mini" aria-hidden="true"></span>
+                <input type="date" />
+              </div>
+            </label>
+
+            <label class="modal-field">
+              <span>Responsable</span>
+              <select class="modal-input">
+                <option>Carlos P.</option>
+                <option>Ana G.</option>
+                <option>Andrea M.</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="modal-grid">
+            <label class="modal-field">
+              <span>Estado</span>
+              <select class="modal-input">
+                <option>Activo</option>
+                <option>Inactivo</option>
+              </select>
+            </label>
+
+            <label class="modal-field">
+              <span>Servicios contratados</span>
+              <input class="modal-input" type="text" placeholder="Ej. Licencias, soporte, consultoría" />
+            </label>
+          </div>
+
+          <label class="modal-field">
+            <span>Comentarios</span>
+            <textarea class="modal-textarea" rows="4" placeholder="Agrega notas, acuerdos o contexto del cliente..."></textarea>
+          </label>
+
+          <div class="modal-actions">
+            <button type="submit" class="modal-button primary">Guardar cliente</button>
+            <button type="button" class="modal-button secondary" id="cancelClientModal">Cancelar</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="save-toast" id="clientSaveToast" hidden>Guardado</div>
+
+    <script src="js/sales.js"></script>
+  </body>
+</html>

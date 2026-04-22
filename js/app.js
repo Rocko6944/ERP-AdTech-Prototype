@@ -22,6 +22,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      if (moduleName === 'Ventas') {
+        window.location.href = 'sales.html';
+        return;
+      }
+
       alert(`Has seleccionado el módulo de ${moduleName}.`);
     });
   });

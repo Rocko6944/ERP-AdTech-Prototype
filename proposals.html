@@ -1,0 +1,814 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Propuestas | ERP Adtech</title>
+    <link rel="stylesheet" href="css/sales.css" />
+    <link rel="stylesheet" href="css/proposals.css" />
+  </head>
+  <body>
+    <div class="sales-shell proposals-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menú">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegación del módulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link is-active" href="sales.html" aria-current="page">
+              <img src="Images/IconoVentasBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Análisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuración</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesión</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="sales-content proposals-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="modules.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs proposals-top-tabs" aria-label="Pestañas de ventas">
+          <a class="top-tab" href="sales.html">Oportunidades</a>
+          <a class="top-tab" href="clients.html">Clientes</a>
+          <a class="top-tab is-active" href="proposals.html" aria-current="page">Propuestas</a>
+        </section>
+
+        <section class="proposals-summary-row" aria-label="Indicadores de propuestas">
+          <article class="proposal-stat-card">
+            <span>Enviadas</span>
+            <strong>12</strong>
+          </article>
+          <article class="proposal-stat-card">
+            <span>Aceptadas</span>
+            <strong>8</strong>
+          </article>
+          <article class="proposal-stat-card">
+            <span>Rechazadas</span>
+            <strong>3</strong>
+          </article>
+          <article class="proposal-stat-card">
+            <span>Borrador</span>
+            <strong>5</strong>
+          </article>
+          <button type="button" class="proposal-new-button" id="openNewProposalModal">+ Nueva propuesta</button>
+        </section>
+
+        <section class="proposals-filters" aria-label="Filtros de propuestas">
+          <label class="proposal-filter">
+            <span>Buscador</span>
+            <input type="text" placeholder="Nombre de propuesta" />
+          </label>
+
+          <label class="proposal-filter">
+            <span>Estado</span>
+            <select>
+              <option>Todos</option>
+              <option>Enviadas</option>
+              <option>Aceptadas</option>
+              <option>Rechazadas</option>
+              <option>Borrador</option>
+            </select>
+          </label>
+
+          <label class="proposal-filter">
+            <span>Rango de Fechas</span>
+            <select>
+              <option>Este Mes</option>
+              <option>Últimos 30 días</option>
+              <option>Este Trimestre</option>
+            </select>
+          </label>
+
+          <button type="button" class="proposal-clear-button">Limpiar filtro</button>
+        </section>
+
+        <section class="proposal-table-card" aria-label="Tabla de propuestas">
+          <div class="proposal-table-scroll">
+            <table class="proposal-table">
+              <thead>
+                <tr>
+                  <th>Nombre de propuesta</th>
+                  <th>Cliente</th>
+                  <th>Servicio</th>
+                  <th>Monto</th>
+                  <th>Estado</th>
+                  <th>Fecha envío</th>
+                  <th>Responsable</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-draft">Borrador</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-sent">Enviadas</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-sent">Enviadas</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-sent">Enviadas</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-accepted">Aceptada</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-accepted">Aceptada</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-accepted">Aceptada</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-rejected">Rechazada</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+                <tr class="proposal-row" tabindex="0" data-open-proposal-view>
+                  <td>Propuesta Campaña SEO Q3</td>
+                  <td>Global Tech Solutions</td>
+                  <td>Gestión de campañas</td>
+                  <td>$2,500</td>
+                  <td><span class="proposal-status-chip proposal-status-rejected">Rechazada</span></td>
+                  <td>10/06/2024</td>
+                  <td>Carlos P.</td>
+                  <td class="proposal-actions">
+                    <button type="button" class="proposal-icon-button" aria-label="Ver propuesta" data-open-proposal-view>
+                      <img src="Images/Ver.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                    <button type="button" class="proposal-icon-button" aria-label="Editar propuesta" data-open-proposal-modal>
+                      <img src="Images/Lapiz.png" alt="" class="proposal-action-image" aria-hidden="true" />
+                    </button>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <footer class="table-footer proposal-footer">
+          <p>Mostrando 1-10 de 100</p>
+          <div class="pagination">
+            <button type="button" aria-label="Página anterior">
+              <span class="pagination-arrow pagination-arrow-left" aria-hidden="true"></span>
+            </button>
+            <button type="button" class="is-current">1</button>
+            <button type="button">2</button>
+            <button type="button" aria-label="Página siguiente">
+              <span class="pagination-arrow pagination-arrow-right" aria-hidden="true"></span>
+            </button>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <div class="proposal-modal-backdrop" id="proposalDetailModal" hidden>
+      <div class="proposal-modal" role="dialog" aria-modal="true" aria-labelledby="proposalDetailTitle">
+        <div class="proposal-modal-header">
+          <div>
+            <h2 id="proposalDetailTitle">Editar propuesta</h2>
+            <p>Modifica la información de la propuesta</p>
+          </div>
+          <button type="button" class="proposal-modal-close" id="closeProposalDetailModal" aria-label="Cerrar ventana">X</button>
+        </div>
+
+        <form class="proposal-detail-form" id="proposalDetailForm">
+          <div class="proposal-modal-grid">
+            <section class="proposal-modal-card">
+              <h3>Cliente y Contexto</h3>
+              <div class="proposal-form-fields">
+                <label class="proposal-modal-field">
+                  <span>Cliente</span>
+                  <select>
+                    <option selected>Global Tech Solutions</option>
+                    <option>Creative Studio Co.</option>
+                    <option>Tech Solutions Inc.</option>
+                  </select>
+                </label>
+                <label class="proposal-modal-field">
+                  <span>Contacto</span>
+                  <select>
+                    <option selected>Luis García</option>
+                    <option>Carlos Ruiz</option>
+                    <option>Ana García</option>
+                  </select>
+                </label>
+                <label class="proposal-modal-field">
+                  <span>Oportunidad asociada</span>
+                  <select>
+                    <option selected>Campaña Q3</option>
+                    <option>Rebranding regional</option>
+                    <option>Lanzamiento producto</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+
+            <section class="proposal-modal-card">
+              <h3>Información de la Propuesta</h3>
+              <div class="proposal-form-fields proposal-form-fields-two">
+                <label class="proposal-modal-field proposal-modal-field-wide">
+                  <span>Nombre de propuesta</span>
+                  <input type="text" value="Propuesta Campaña SEO Q3" />
+                </label>
+                <label class="proposal-modal-field">
+                  <span>Tipo de servicio</span>
+                  <select>
+                    <option selected>Marketing</option>
+                    <option>Branding estratégico</option>
+                    <option>Dirección estratégica</option>
+                    <option>Activaciones y eventos</option>
+                  </select>
+                </label>
+                <label class="proposal-modal-field proposal-modal-field-full">
+                  <span>Descripción</span>
+                  <textarea rows="4">Propuesta Campaña SEO Q3: Mejora de meta tags y estructura, creación de contenidos, in creación de Contenidos. Contenidos a blog semanal de la propuesta de título on el efanrha y fecha.</textarea>
+                </label>
+              </div>
+            </section>
+          </div>
+
+          <div class="proposal-modal-grid proposal-modal-grid-services">
+            <section class="proposal-modal-card">
+              <h3>Servicios incluidos</h3>
+              <div class="proposal-services-wrap">
+                <table class="proposal-services-table">
+                  <thead>
+                    <tr>
+                      <th>Servicio</th>
+                      <th>Descripción</th>
+                      <th>Cantidad</th>
+                      <th>Precio unitario</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Optimización SEO On-Page</td>
+                      <td>Mejora de meta tags y estructura</td>
+                      <td>10</td>
+                      <td>$150</td>
+                      <td>$1,500</td>
+                    </tr>
+                    <tr>
+                      <td>Creación de Contenidos</td>
+                      <td>4 artículos de blog semanal</td>
+                      <td>1</td>
+                      <td>$1,000</td>
+                      <td>$1,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <aside class="proposal-side-column">
+              <section class="proposal-modal-card proposal-summary-card">
+                <h3>Resumen económico</h3>
+                <div class="proposal-summary-line">
+                  <span>Subtotal</span>
+                  <strong>$2,500</strong>
+                </div>
+                <div class="proposal-summary-line">
+                  <span>Impuestos</span>
+                  <strong>(opcional)</strong>
+                </div>
+                <div class="proposal-summary-total">
+                  <span>Total</span>
+                  <strong>$2,500</strong>
+                </div>
+              </section>
+
+              <section class="proposal-modal-card">
+                <h3>Estado</h3>
+                <label class="proposal-modal-field">
+                  <span>Estado inicial</span>
+                  <select>
+                    <option>Borrador</option>
+                    <option selected>Enviada</option>
+                    <option>Aceptada</option>
+                    <option>Rechazada</option>
+                  </select>
+                </label>
+              </section>
+            </aside>
+          </div>
+
+          <div class="proposal-modal-grid proposal-modal-grid-bottom">
+            <section class="proposal-modal-card">
+              <h3>Enviar propuesta</h3>
+              <div class="proposal-send-options">
+                <label class="proposal-toggle-row">
+                  <span class="proposal-toggle">
+                    <input type="checkbox" checked />
+                    <span class="proposal-toggle-slider"></span>
+                  </span>
+                  <span>Enviar por correo</span>
+                </label>
+                <label class="proposal-toggle-row">
+                  <span class="proposal-toggle">
+                    <input type="checkbox" checked />
+                    <span class="proposal-toggle-slider"></span>
+                  </span>
+                  <span>Enviar por WhatsApp</span>
+                </label>
+              </div>
+              <div class="proposal-form-fields proposal-form-fields-two">
+                <label class="proposal-modal-field">
+                  <span>Correo destinatario</span>
+                  <input type="email" value="luis.garcia@globaltech.com" />
+                </label>
+                <label class="proposal-modal-field">
+                  <span>Número</span>
+                  <input type="text" value="+525512345678" />
+                </label>
+              </div>
+            </section>
+
+            <section class="proposal-modal-card">
+              <h3>Historial</h3>
+              <div class="proposal-history-list">
+                <div class="proposal-history-item">
+                  <strong>Propuesta creada</strong>
+                  <span>hace 3 días</span>
+                </div>
+                <div class="proposal-history-item">
+                  <strong>Actualización interna</strong>
+                  <span>hace 1 día</span>
+                </div>
+                <div class="proposal-history-item">
+                  <strong>Envío realizado</strong>
+                  <span>hoy</span>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="proposal-modal-actions">
+            <button type="button" class="proposal-modal-button proposal-modal-button-secondary" id="cancelProposalDetailModal">Cancelar</button>
+            <button type="submit" class="proposal-modal-button proposal-modal-button-primary">Guardar cambios</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <div class="proposal-modal-backdrop" id="proposalViewModal" hidden>
+      <div class="proposal-modal proposal-view-modal" role="dialog" aria-modal="true" aria-labelledby="proposalViewTitle">
+        <div class="proposal-modal-header">
+          <div>
+            <h2 id="proposalViewTitle">Detalle de propuesta</h2>
+            <p>nombre de la propuesta (ej: "Propuesta Marketing Digital Q1")</p>
+          </div>
+          <div class="proposal-view-header-side">
+            <span class="proposal-view-status">Aceptada</span>
+            <button type="button" class="proposal-modal-close" id="closeProposalViewModal" aria-label="Cerrar ventana">X</button>
+          </div>
+        </div>
+
+        <div class="proposal-view-body">
+          <div class="proposal-view-grid">
+            <section class="proposal-modal-card">
+              <h3>Cliente</h3>
+              <div class="proposal-view-list">
+                <div><span>Nombre del cliente</span><strong>Global Tech Solutions</strong></div>
+                <div><span>Empresa</span><strong>Global Tech Solutions</strong></div>
+                <div><span>Contacto</span><strong>Luis García</strong></div>
+                <div><span>Responsable</span><strong>Luis García</strong></div>
+              </div>
+            </section>
+
+            <section class="proposal-modal-card">
+              <h3>Detalles</h3>
+              <div class="proposal-view-list">
+                <div><span>Tipo de servicio</span><strong>Marketing</strong></div>
+                <div><span>Descripción</span><strong>Propuesta Campaña SEO Q3: Mejora neta tags y estructura, creación contenidos, in Contenidos.</strong></div>
+                <div><span>Fecha de creación</span><strong>23/01/2022</strong></div>
+                <div><span>Fecha de envío</span><strong>25/01/2023</strong></div>
+              </div>
+            </section>
+
+            <section class="proposal-modal-card">
+              <h3>Documento adjunto</h3>
+              <div class="proposal-document-card">
+                <div class="proposal-document-name">Propuesta Marketing Digital Q1.pdf</div>
+                <div class="proposal-document-preview">
+                  <div class="proposal-document-sheet" aria-hidden="true">
+                    <span>PDF</span>
+                  </div>
+                </div>
+              </div>
+            </section>
+          </div>
+
+          <div class="proposal-view-grid proposal-view-grid-bottom">
+            <section class="proposal-modal-card">
+              <h3>Servicios</h3>
+              <div class="proposal-services-wrap">
+                <table class="proposal-services-table">
+                  <thead>
+                    <tr>
+                      <th>Servicio</th>
+                      <th>Descripción</th>
+                      <th>Cantidad</th>
+                      <th>Precio</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Optimización SEO On-Page</td>
+                      <td>Mejora de meta tags y estructura</td>
+                      <td>10</td>
+                      <td>$150</td>
+                      <td>$1,500</td>
+                    </tr>
+                    <tr>
+                      <td>Creación de Contenidos</td>
+                      <td>4 artículos de blog semanal</td>
+                      <td>1</td>
+                      <td>$1,000</td>
+                      <td>$1,000</td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+            </section>
+
+            <aside class="proposal-side-column">
+              <section class="proposal-modal-card">
+                <h3>Historial</h3>
+                <div class="proposal-history-list">
+                  <div class="proposal-history-item">
+                    <strong>Propuesta creada</strong>
+                    <span>+525512345678</span>
+                  </div>
+                  <div class="proposal-history-item">
+                    <strong>Enviada por correo</strong>
+                    <span>+525512345678</span>
+                  </div>
+                  <div class="proposal-history-item">
+                    <strong>Vista por cliente</strong>
+                    <span>+525512345678</span>
+                  </div>
+                  <div class="proposal-history-item">
+                    <strong>Última actualización</strong>
+                    <span>+52550 11/2022</span>
+                  </div>
+                </div>
+              </section>
+
+              <section class="proposal-modal-card proposal-summary-card">
+                <div class="proposal-summary-line">
+                  <span>Subtotal</span>
+                  <strong>$2,500</strong>
+                </div>
+                <div class="proposal-summary-line">
+                  <span>Impuestos</span>
+                  <strong>(opcional)</strong>
+                </div>
+                <div class="proposal-summary-total">
+                  <span>Total final</span>
+                  <strong>$2,500</strong>
+                </div>
+              </section>
+            </aside>
+          </div>
+
+          <div class="proposal-modal-actions proposal-view-actions">
+            <button type="button" class="proposal-modal-button proposal-modal-button-primary" id="cancelProposalViewModal">Cerrar</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="proposal-modal-backdrop" id="newProposalModal" hidden>
+      <div class="proposal-modal proposal-create-modal" role="dialog" aria-modal="true" aria-labelledby="newProposalTitle">
+        <div class="proposal-modal-header">
+          <div>
+            <h2 id="newProposalTitle">Nueva propuesta</h2>
+            <p>Crea una propuesta formal para un cliente</p>
+          </div>
+          <button type="button" class="proposal-modal-close" id="closeNewProposalModal" aria-label="Cerrar ventana">X</button>
+        </div>
+
+        <form class="proposal-detail-form" id="newProposalForm">
+          <div class="proposal-modal-grid">
+            <section class="proposal-modal-card">
+              <h3>Cliente y Contexto</h3>
+              <div class="proposal-form-fields">
+                <label class="proposal-modal-field">
+                  <span>Cliente</span>
+                  <select>
+                    <option selected>Global Tech Solutions</option>
+                    <option>Creative Studio Co.</option>
+                    <option>Tech Solutions Inc.</option>
+                  </select>
+                </label>
+                <label class="proposal-modal-field">
+                  <span>Contacto</span>
+                  <select>
+                    <option selected>Luis García</option>
+                    <option>Carlos Ruiz</option>
+                    <option>Ana García</option>
+                  </select>
+                </label>
+                <label class="proposal-modal-field">
+                  <span>Oportunidad asociada (opcional)</span>
+                  <select>
+                    <option selected>Campaña Q3</option>
+                    <option>Rebranding regional</option>
+                    <option>Lanzamiento producto</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+
+            <section class="proposal-modal-card">
+              <h3>Información de la Propuesta</h3>
+              <div class="proposal-form-fields proposal-form-fields-two">
+                <label class="proposal-modal-field proposal-modal-field-wide">
+                  <span>Nombre de propuesta</span>
+                  <input type="text" placeholder="Nombre de propuesta" />
+                </label>
+                <label class="proposal-modal-field proposal-modal-field-full">
+                  <span>Descripción</span>
+                  <textarea rows="4" placeholder="Describe el alcance y objetivo de la propuesta"></textarea>
+                </label>
+                <label class="proposal-modal-field">
+                  <span>Tipo de servicio</span>
+                  <select>
+                    <option selected>Marketing digital</option>
+                    <option>Branding estratégico</option>
+                    <option>Dirección estratégica</option>
+                    <option>Activaciones y eventos</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+          </div>
+
+          <div class="proposal-modal-grid proposal-modal-grid-services">
+            <section class="proposal-modal-card">
+              <h3>Servicios incluidos</h3>
+              <div class="proposal-services-wrap">
+                <table class="proposal-services-table">
+                  <thead>
+                    <tr>
+                      <th>Servicio</th>
+                      <th>Descripción</th>
+                      <th>Cantidad</th>
+                      <th>Precio unitario</th>
+                      <th>Total</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr>
+                      <td>Editable</td>
+                      <td>Descripción</td>
+                      <td>1</td>
+                      <td>S/ 2,500</td>
+                      <td>S/ 2,500</td>
+                    </tr>
+                  </tbody>
+                </table>
+                <button type="button" class="proposal-add-row-button">+ Agregar servicio</button>
+              </div>
+            </section>
+
+            <aside class="proposal-side-column">
+              <section class="proposal-modal-card proposal-summary-card">
+                <h3>Resumen económico</h3>
+                <div class="proposal-summary-line">
+                  <span>Subtotal</span>
+                  <strong>S/ 32,500</strong>
+                </div>
+                <div class="proposal-summary-line">
+                  <span>Impuestos</span>
+                  <strong>(opcional)</strong>
+                </div>
+                <div class="proposal-summary-total">
+                  <span>Total final</span>
+                  <strong>S/ 32,500</strong>
+                </div>
+              </section>
+            </aside>
+          </div>
+
+          <div class="proposal-modal-grid proposal-modal-grid-bottom">
+            <section class="proposal-modal-card">
+              <h3>Adjuntar PDF (opcional)</h3>
+              <div class="proposal-upload-box">
+                <button type="button" class="proposal-upload-button">Seleccionar archivo</button>
+                <div class="proposal-upload-text">Arrastra tu archivo PDF aquí o haz clic para subir</div>
+              </div>
+              <p class="proposal-upload-note">Tamaño máximo: 15MB. Formatos permitidos: .pdf</p>
+            </section>
+
+            <section class="proposal-modal-card">
+              <h3>Enviar propuesta</h3>
+              <div class="proposal-send-options">
+                <label class="proposal-toggle-row">
+                  <span class="proposal-toggle">
+                    <input type="checkbox" checked />
+                    <span class="proposal-toggle-slider"></span>
+                  </span>
+                  <span>Enviar por correo</span>
+                </label>
+                <label class="proposal-toggle-row">
+                  <span class="proposal-toggle">
+                    <input type="checkbox" />
+                    <span class="proposal-toggle-slider"></span>
+                  </span>
+                  <span>Enviar por WhatsApp</span>
+                </label>
+              </div>
+              <div class="proposal-form-fields proposal-form-fields-two">
+                <label class="proposal-modal-field">
+                  <span>Correo destinatario</span>
+                  <input type="email" placeholder="cliente@empresa.com" />
+                </label>
+                <label class="proposal-modal-field">
+                  <span>Número WhatsApp</span>
+                  <input type="text" placeholder="+51 999 999 999" />
+                </label>
+              </div>
+            </section>
+
+            <section class="proposal-modal-card">
+              <h3>Estado</h3>
+              <label class="proposal-modal-field">
+                <span>Estado inicial</span>
+                <select>
+                  <option selected>Enviada (por defecto recomendado)</option>
+                  <option>Borrador</option>
+                  <option>Aceptada</option>
+                  <option>Rechazada</option>
+                </select>
+              </label>
+            </section>
+          </div>
+
+          <div class="proposal-modal-actions">
+            <button type="button" class="proposal-modal-button proposal-modal-button-secondary" id="cancelNewProposalModal">Cancelar</button>
+            <button type="button" class="proposal-modal-button proposal-modal-button-secondary">Guardar como borrador</button>
+            <button type="submit" class="proposal-modal-button proposal-modal-button-primary">Crear y enviar propuesta</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+    <script src="js/sales.js"></script>
+    <script src="js/proposals.js"></script>
+  </body>
+</html>
