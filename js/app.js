@@ -27,6 +27,11 @@ document.addEventListener('DOMContentLoaded', () => {
         return;
       }
 
+      if (moduleName === 'Operaciones') {
+        window.location.href = 'operations.html';
+        return;
+      }
+
       alert(`Has seleccionado el módulo de ${moduleName}.`);
     });
   });

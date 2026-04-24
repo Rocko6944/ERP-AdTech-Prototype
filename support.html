@@ -1,0 +1,364 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Soporte | ERP Adtech</title>
+    <link rel="stylesheet" href="css/support.css" />
+  </head>
+  <body>
+    <div class="support-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menu">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegacion del modulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="sales.html">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link is-active" href="operations.html" aria-current="page">
+              <img src="Images/IconoOperacionesBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Analisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuracion</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesion</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="support-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="operations.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestanas de operaciones">
+          <a class="top-tab" href="operations.html">Proyectos</a>
+          <a class="top-tab is-active" href="support.html" aria-current="page">Soporte</a>
+          <a class="top-tab" href="#">Encuestas</a>
+        </section>
+
+        <header class="support-header">
+          <div>
+            <h1>Soporte</h1>
+            <p>Gestiona los tickets de tus clientes</p>
+          </div>
+        </header>
+
+        <section class="support-kpis" aria-label="Resumen de tickets">
+          <article class="support-kpi-card">
+            <span>Tickets abiertos</span>
+            <strong id="ticketsOpenCount">15</strong>
+          </article>
+          <article class="support-kpi-card">
+            <span>En proceso</span>
+            <strong id="ticketsProgressCount">8</strong>
+          </article>
+          <article class="support-kpi-card">
+            <span>Pendientes</span>
+            <strong id="ticketsPendingCount">3</strong>
+          </article>
+          <article class="support-kpi-card">
+            <span>Cerrados</span>
+            <strong id="ticketsClosedCount">74</strong>
+          </article>
+        </section>
+
+        <div class="support-actions-row">
+          <button type="button" class="support-primary-button" id="openTicketCreateButton">Nuevo ticket</button>
+        </div>
+
+        <section class="support-table-area">
+          <div class="support-filters-panel">
+            <div class="support-filter-title">Filtros</div>
+
+            <label class="support-filter support-filter-search">
+              <span>Buscar ticket</span>
+              <div class="support-search-box">
+                <span class="support-search-icon" aria-hidden="true"></span>
+                <input type="text" id="ticketSearchInput" placeholder="Buscar ticket..." />
+              </div>
+            </label>
+
+            <label class="support-filter">
+              <span>Estado</span>
+              <select id="ticketStatusFilter">
+                <option value="Todos">Todos</option>
+                <option value="Abierto">Abierto</option>
+                <option value="En proceso">En proceso</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Cerrado">Cerrado</option>
+              </select>
+            </label>
+
+            <label class="support-filter">
+              <span>Prioridad</span>
+              <select id="ticketPriorityFilter">
+                <option value="Todos">Todos</option>
+                <option value="Alta">Alta</option>
+                <option value="Media">Media</option>
+                <option value="Baja">Baja</option>
+              </select>
+            </label>
+
+            <button type="button" class="support-clear-button" id="clearTicketFilters">Limpiar filtro</button>
+          </div>
+
+          <div class="support-table-card">
+            <div class="support-table-header">
+              <span>Codigo del ticket</span>
+              <span>Asunto</span>
+              <span>Cliente</span>
+              <span>Prioridad</span>
+              <span>Estado</span>
+              <span>Fecha creacion</span>
+              <span>Responsable</span>
+              <span>Acciones</span>
+            </div>
+            <div id="supportTicketsTable"></div>
+          </div>
+
+          <div class="support-pagination">
+            <p id="supportPaginationLabel">Mostrando 1-10 de 100</p>
+            <div class="support-pagination-controls">
+              <button type="button" class="support-page-button" id="prevTicketsPage" aria-label="Pagina anterior">Anterior</button>
+              <button type="button" class="support-page-button is-active" data-page="1">1</button>
+              <button type="button" class="support-page-button" data-page="2">2</button>
+              <button type="button" class="support-page-button" id="nextTicketsPage" aria-label="Pagina siguiente">Siguiente</button>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="ticketViewModal" hidden>
+      <div class="ticket-view-modal" role="dialog" aria-modal="true" aria-labelledby="ticketViewModalTitle">
+        <button type="button" class="ticket-view-close" id="closeTicketViewModal" aria-label="Cerrar">X</button>
+
+        <header class="ticket-view-header">
+          <div class="ticket-view-title-row">
+            <div>
+              <span class="ticket-view-eyebrow">Ver ticket</span>
+              <h2 id="ticketViewModalTitle">Error en reporte de campañas</h2>
+            </div>
+            <span class="ticket-view-status-pill" id="ticketViewStatusPill">Abierto</span>
+          </div>
+        </header>
+
+        <div class="ticket-view-body">
+          <section class="ticket-view-card">
+            <h3>Descripcion</h3>
+
+            <div class="ticket-view-info-grid">
+              <article class="ticket-view-field">
+                <span>Cliente</span>
+                <strong id="ticketViewClient">Tech Solutions Inc.</strong>
+              </article>
+
+              <article class="ticket-view-field">
+                <span>Contacto</span>
+                <strong id="ticketViewContact">Ana Garcia</strong>
+              </article>
+
+              <article class="ticket-view-field">
+                <span>Prioridad</span>
+                <div><span class="ticket-priority-pill" id="ticketViewPriorityPill">Alta</span></div>
+              </article>
+
+              <article class="ticket-view-field">
+                <span>Tipo de ticket</span>
+                <strong id="ticketViewType">Incidencia</strong>
+              </article>
+
+              <article class="ticket-view-field">
+                <span>Responsable</span>
+                <strong id="ticketViewOwner">Carlos Perez</strong>
+              </article>
+
+              <article class="ticket-view-field">
+                <span>Fecha de creacion</span>
+                <strong id="ticketViewCreatedAt">15/06/2024</strong>
+              </article>
+
+              <article class="ticket-view-field">
+                <span>Estado</span>
+                <div><span class="ticket-view-inline-status" id="ticketViewInlineStatus">Abierto</span></div>
+              </article>
+            </div>
+
+            <article class="ticket-view-section">
+              <span>Descripcion</span>
+              <p id="ticketViewDescription">Describe el problema o solicitud del cliente...</p>
+            </article>
+
+            <article class="ticket-view-section">
+              <span>Archivos adjuntos</span>
+              <div class="ticket-view-file-box">
+                <strong id="ticketViewFileName">Guia_Desarrollo_SEO_Q3.pdf</strong>
+                <p id="ticketViewFileMeta">1.2 MB · PDF</p>
+                <div class="ticket-view-file-actions">
+                  <button type="button" class="ticket-view-file-button">Ver</button>
+                  <button type="button" class="ticket-view-file-button">Descargar</button>
+                </div>
+              </div>
+            </article>
+          </section>
+        </div>
+
+        <div class="ticket-view-footer">
+          <button type="button" class="ticket-view-back-button" id="closeTicketViewFooter">Volver</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="ticketEditModal" hidden>
+      <div class="ticket-edit-modal" role="dialog" aria-modal="true" aria-labelledby="ticketEditModalTitle">
+        <button type="button" class="ticket-view-close" id="closeTicketEditModal" aria-label="Cerrar">X</button>
+
+        <header class="ticket-edit-header">
+          <h2 id="ticketEditModalTitle">Editar ticket</h2>
+          <p>Modifica la informacion del ticket</p>
+        </header>
+
+        <div class="ticket-edit-grid">
+          <section class="ticket-edit-card ticket-edit-card-large">
+            <h3>Informacion general</h3>
+            <label class="ticket-edit-field">
+              <span>Asunto</span>
+              <input type="text" id="ticketEditSubject" />
+            </label>
+            <label class="ticket-edit-field">
+              <span>Descripcion</span>
+              <textarea id="ticketEditDescription" rows="6"></textarea>
+            </label>
+          </section>
+
+          <div class="ticket-edit-stack">
+            <section class="ticket-edit-card">
+              <h3>Cliente</h3>
+              <div class="ticket-edit-two-columns">
+                <label class="ticket-edit-field">
+                  <span>Cliente</span>
+                  <input type="text" id="ticketEditClient" />
+                </label>
+                <label class="ticket-edit-field">
+                  <span>Contacto</span>
+                  <input type="text" id="ticketEditContact" />
+                </label>
+              </div>
+            </section>
+
+            <section class="ticket-edit-card">
+              <h3>Clasificacion</h3>
+              <div class="ticket-edit-two-columns">
+                <label class="ticket-edit-field">
+                  <span>Tipo de ticket</span>
+                  <select id="ticketEditType">
+                    <option>Incidencia</option>
+                    <option>Consulta</option>
+                    <option>Solicitud</option>
+                  </select>
+                </label>
+                <label class="ticket-edit-field">
+                  <span>Prioridad</span>
+                  <select id="ticketEditPriority">
+                    <option>Alta</option>
+                    <option>Media</option>
+                    <option>Baja</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+
+            <section class="ticket-edit-card">
+              <h3>Seguimiento</h3>
+              <label class="ticket-edit-field">
+                <span>Notas internas</span>
+                <input type="text" id="ticketEditNotes" />
+              </label>
+            </section>
+          </div>
+
+          <section class="ticket-edit-card ticket-edit-card-wide">
+            <div class="ticket-edit-split">
+              <div>
+                <h3>Asignacion</h3>
+                <div class="ticket-edit-two-columns">
+                  <label class="ticket-edit-field">
+                    <span>Responsable</span>
+                    <select id="ticketEditOwner">
+                      <option>Carlos Perez</option>
+                      <option>Carlos</option>
+                      <option>Sariar</option>
+                      <option>Retomoro</option>
+                    </select>
+                  </label>
+                  <label class="ticket-edit-field">
+                    <span>Estado</span>
+                    <select id="ticketEditStatus">
+                      <option>Abierto</option>
+                      <option>En proceso</option>
+                      <option>Pendiente</option>
+                      <option>Cerrado</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <h3>Archivos</h3>
+                <div class="ticket-edit-upload-box">
+                  <p>Adjunta evidencias o documentos relacionados</p>
+                  <button type="button" class="ticket-edit-upload-button">Subir archivo</button>
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="ticket-edit-footer">
+          <button type="button" class="ticket-edit-secondary" id="cancelTicketEdit">Cancelar</button>
+          <button type="button" class="ticket-edit-danger" id="deleteTicketEdit">Eliminar ticket</button>
+          <button type="button" class="ticket-edit-primary" id="saveTicketEdit">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/support.js"></script>
+  </body>
+</html>

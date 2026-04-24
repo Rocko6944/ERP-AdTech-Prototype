@@ -1,0 +1,298 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Entregable | ERP Adtech</title>
+    <link rel="stylesheet" href="css/deliverable-detail.css" />
+  </head>
+  <body>
+    <div class="deliverable-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menu">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegacion del modulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="sales.html">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link is-active" href="operations.html" aria-current="page">
+              <img src="Images/IconoOperacionesBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Analisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuracion</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesion</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="deliverable-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="project-detail.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestanas de operaciones">
+          <a class="top-tab is-active" href="operations.html" aria-current="page">Proyectos</a>
+          <a class="top-tab" href="support.html">Soporte</a>
+          <a class="top-tab" href="#">Encuestas</a>
+        </section>
+
+        <header class="deliverable-header">
+          <h1 id="deliverableTitle">Reporte campaña junio</h1>
+          <div class="deliverable-meta">
+            <p>Cliente: <span id="deliverableClient">Tech Solution Inc.</span></p>
+            <p>Proyecto: <span id="deliverableProject">Renovación Tech</span></p>
+          </div>
+        </header>
+
+        <section class="deliverable-kpis">
+          <article class="deliverable-kpi-card">
+            <span>Fecha de entrega</span>
+            <strong id="deliverableDueDateCard">30/06/26</strong>
+          </article>
+          <article class="deliverable-kpi-card">
+            <span>Responsable</span>
+            <strong id="deliverableOwnerCard">Carlos P.</strong>
+          </article>
+          <article class="deliverable-kpi-card">
+            <span>Progreso</span>
+            <strong id="deliverableProgressCard">65%</strong>
+          </article>
+          <article class="deliverable-kpi-card">
+            <span>Tipo</span>
+            <strong id="deliverableTypeCard">Documento</strong>
+          </article>
+        </section>
+
+        <div class="deliverable-actions-bar">
+          <button type="button" class="deliverable-page-button primary" id="markDeliverableDelivered">Marcar como Entregado</button>
+          <button type="button" class="deliverable-page-button secondary" id="openDeliverableEditModal">Editar entregable</button>
+        </div>
+
+        <section class="deliverable-section-block">
+          <h2 class="deliverable-section-title">Resumen</h2>
+        </section>
+
+        <section class="deliverable-detail-board">
+          <div class="deliverable-detail-columns">
+            <article class="deliverable-detail-card">
+              <h2>Descripción</h2>
+              <p id="deliverableDescription">
+                Lorem ipsum dolor sit amet, consectetur adipisicing elit, et sodala euismod nonigium.
+              </p>
+            </article>
+
+            <article class="deliverable-detail-card">
+              <h2>Contenido principal</h2>
+              <div class="deliverable-content-box" id="deliverableContent">
+                Docu-typeStructured
+              </div>
+            </article>
+          </div>
+
+          <div class="deliverable-detail-columns bottom">
+            <article class="deliverable-detail-card">
+              <h2>Estado</h2>
+              <div class="deliverable-state-block">
+                <span class="deliverable-state-pill" id="deliverableStatePill">Entregado</span>
+                <p id="deliverableStateNote">Entregado al cliente</p>
+              </div>
+            </article>
+
+            <article class="deliverable-detail-card">
+              <h2>Progreso</h2>
+              <div class="deliverable-progress-panel">
+                <div class="deliverable-progress-top">
+                  <span>% completado</span>
+                  <strong id="deliverableProgressLabel">65%</strong>
+                </div>
+                <div class="deliverable-progress-track" aria-hidden="true">
+                  <div class="deliverable-progress-fill" id="deliverableProgressFill"></div>
+                </div>
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="deliverable-section-block">
+          <h2 class="deliverable-section-title">Tareas</h2>
+        </section>
+
+        <section class="deliverable-tasks-board">
+          <div class="deliverable-task-column">
+            <h2>Pendiente</h2>
+            <div class="deliverable-task-list">
+              <article class="deliverable-task-card">
+                <strong>Reporte de avance</strong>
+                <span>30/06/2026</span>
+                <p>Responsable: Carlos P.</p>
+                <p>Prioridad: Alta</p>
+              </article>
+              <article class="deliverable-task-card">
+                <strong>Reporte campaña</strong>
+                <span>30/06/2026</span>
+                <p>Responsable: Carlos P.</p>
+                <p>Prioridad: Media</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="deliverable-task-column">
+            <h2>En proceso</h2>
+            <div class="deliverable-task-list">
+              <article class="deliverable-task-card">
+                <strong>Reporte de diseño</strong>
+                <span>30/06/2026</span>
+                <p>Responsable: Carlos P.</p>
+                <p>Prioridad: Alta</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="deliverable-task-column">
+            <h2>En revisión</h2>
+            <div class="deliverable-task-list">
+              <article class="deliverable-task-card">
+                <strong>Reporte campaña</strong>
+                <span>30/06/2026</span>
+                <p>Responsable: Carlos P.</p>
+                <p>Prioridad: Media</p>
+              </article>
+            </div>
+          </div>
+
+          <div class="deliverable-task-column">
+            <h2>Completada</h2>
+            <div class="deliverable-task-list">
+              <article class="deliverable-task-card">
+                <strong>Reporte campaña</strong>
+                <span>30/06/2026</span>
+                <p>Responsable: Carlos P.</p>
+                <p>Prioridad: Baja</p>
+              </article>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="deliverableEditModal" hidden>
+      <div class="team-edit-modal deliverable-edit-modal" role="dialog" aria-modal="true" aria-labelledby="deliverableEditModalTitle">
+        <button type="button" class="team-edit-close" id="closeDeliverableEditModal" aria-label="Cerrar">X</button>
+        <header class="team-edit-header">
+          <h2 id="deliverableEditModalTitle">Editar entregable</h2>
+          <p>Modifica la información del entregable</p>
+        </header>
+
+        <div class="deliverable-edit-grid">
+          <section class="team-edit-section">
+            <h3>Información del entregable</h3>
+            <label class="team-edit-field">
+              <span>Nombre del entregable</span>
+              <input type="text" id="deliverableEditName" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Descripción</span>
+              <textarea id="deliverableEditDescription" class="deliverable-edit-textarea" rows="5"></textarea>
+            </label>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Tipo</h3>
+            <label class="team-edit-field">
+              <span>Tipo</span>
+              <select id="deliverableEditType">
+                <option>Documento</option>
+                <option>Multimedia</option>
+                <option>Software</option>
+                <option>Otro</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Contenido del documento</span>
+              <textarea id="deliverableEditContent" class="deliverable-edit-textarea" rows="9"></textarea>
+            </label>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Contenido (Dinámico)</h3>
+            <label class="team-edit-field">
+              <span>Responsable</span>
+              <select id="deliverableEditOwner">
+                <option>Carlos P.</option>
+                <option>Ana G.</option>
+                <option>Juan C.</option>
+                <option>Beatriz L.</option>
+                <option>Pedro M.</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Fecha de entrega</span>
+              <input type="text" id="deliverableEditDueDate" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Estado</span>
+              <select id="deliverableEditStatus">
+                <option>Entregado</option>
+                <option>Pendiente</option>
+                <option>Aprobado</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Progreso (Opcional)</span>
+              <div class="deliverable-progress-box">
+                <input type="range" id="deliverableEditProgress" min="0" max="100" value="65" />
+                <strong id="deliverableEditProgressValue">65%</strong>
+              </div>
+            </label>
+          </section>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="cancelDeliverableEdit">Cancelar</button>
+          <button type="button" class="team-edit-button primary" id="saveDeliverableEdit">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="detail-toast" id="deliverableStatusToast" hidden>Entregable marcado como entregado.</div>
+
+    <script src="js/deliverable-detail.js"></script>
+  </body>
+</html>

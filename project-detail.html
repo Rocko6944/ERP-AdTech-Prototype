@@ -1,0 +1,1094 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Detalle de Proyecto | ERP Adtech</title>
+    <link rel="stylesheet" href="css/project-detail.css" />
+  </head>
+  <body>
+    <div class="project-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menu">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegacion del modulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="sales.html">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link is-active" href="operations.html" aria-current="page">
+              <img src="Images/IconoOperacionesBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="#">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Analisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuracion</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </button>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <span class="sidebar-label">Cerrar sesion</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="project-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="operations.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestanas de operaciones">
+          <a class="top-tab is-active" href="operations.html" aria-current="page">Proyectos</a>
+          <a class="top-tab" href="support.html">Soporte</a>
+          <a class="top-tab" href="#">Encuestas</a>
+        </section>
+
+        <header class="project-header">
+          <div class="project-header-copy">
+            <h1 id="projectTitle">Renovacion Licencias Tech</h1>
+            <p>Cliente: <span id="projectClient">Tech Solution Inc.</span></p>
+          </div>
+
+          <section class="project-kpis" aria-label="Resumen principal">
+            <article class="project-kpi-card">
+              <span>Progreso</span>
+              <strong id="projectProgressCard">65%</strong>
+            </article>
+            <article class="project-kpi-card">
+              <span>Fecha inicio</span>
+              <strong id="projectStartDate">15/06/24</strong>
+            </article>
+            <article class="project-kpi-card">
+              <span>Fecha fin estimada</span>
+              <strong id="projectEndDate">15/07/26</strong>
+            </article>
+            <article class="project-kpi-card">
+              <span>Responsable</span>
+              <strong id="projectOwner">Carlos P.</strong>
+            </article>
+            <article class="project-kpi-card">
+              <span>Presupuesto</span>
+              <strong id="projectBudget">S/ 5000</strong>
+            </article>
+          </section>
+        </header>
+
+        <nav class="project-subtabs" aria-label="Submenu del proyecto">
+          <button type="button" class="project-subtab is-active" data-project-tab-trigger="summary">Resumen</button>
+          <button type="button" class="project-subtab" data-project-tab-trigger="team">Equipo</button>
+          <button type="button" class="project-subtab" data-project-tab-trigger="deliverables">Entregables</button>
+          <button type="button" class="project-subtab" data-project-tab-trigger="tasks">Tareas</button>
+        </nav>
+
+        <section class="project-summary-board" data-project-tab-panel="summary">
+          <article class="summary-section">
+            <h2>Progreso</h2>
+            <div class="progress-bar-shell" aria-hidden="true">
+              <div class="progress-bar-fill" id="projectProgressFill"></div>
+              <span class="progress-bar-label" id="projectProgressLabel">65%</span>
+            </div>
+          </article>
+
+          <article class="summary-section">
+            <h2>Servicios / alcance</h2>
+            <div class="project-service-table">
+              <div class="project-service-header">
+                <span>Servicio</span>
+                <span>Descripcion</span>
+                <span>Cantidad</span>
+              </div>
+              <div id="projectServicesTable"></div>
+            </div>
+          </article>
+
+          <article class="summary-section">
+            <h2>Notas</h2>
+            <div class="project-notes-box" id="projectNotes">
+              Detalles internos del proyecto y observaciones de seguimiento.
+            </div>
+          </article>
+        </section>
+
+        <section class="project-team-board" data-project-tab-panel="team" hidden>
+          <div class="team-header-row">
+            <div>
+              <h2>Equipo del proyecto</h2>
+              <p>Gestiona los miembros asignados al proyecto</p>
+            </div>
+            <button type="button" class="team-add-button" id="openTeamAddModal">Agregar miembro</button>
+          </div>
+
+          <div class="team-top-grid">
+            <article class="team-card team-lead-card">
+              <span class="team-card-title">Responsable principal</span>
+              <div class="team-lead-content">
+                <img src="Images/IconoUsuarioNegro.png" alt="Responsable principal" class="team-avatar team-avatar-large" />
+                <div>
+                  <strong id="teamLeadName">Carlos P.</strong>
+                  <p>Project Manager (Responsable)</p>
+                  <span id="teamLeadEmail">carlos.p@adtech.com</span>
+                </div>
+              </div>
+            </article>
+
+            <article class="team-card team-distribution-card">
+              <span class="team-card-title">Distribucion del equipo</span>
+              <div class="team-distribution-list">
+                <p>1 Project Manager</p>
+                <p>2 Marketing Specialist</p>
+                <p>1 Developer</p>
+              </div>
+              <strong>Total: 4 Miembros</strong>
+            </article>
+          </div>
+
+          <article class="team-members-section">
+            <h3>Miembros del equipo</h3>
+            <div class="team-members-table">
+              <div class="team-members-header">
+                <span>Avatar</span>
+                <span>Nombre</span>
+                <span>Rol</span>
+                <span>Area</span>
+                <span>Estado</span>
+                <span>Acciones</span>
+              </div>
+              <div id="teamMembersList"></div>
+            </div>
+          </article>
+        </section>
+
+        <section class="project-deliverables-board" data-project-tab-panel="deliverables" hidden>
+          <div class="deliverables-header-row">
+            <button type="button" class="deliverables-add-button" id="openDeliverableCreateModal">Nuevo Entregable</button>
+          </div>
+
+          <div class="deliverables-filters-row">
+            <label class="deliverables-filter deliverables-filter-search">
+              <span>Buscador</span>
+              <div class="deliverables-search-box">
+                <span class="deliverables-search-icon" aria-hidden="true"></span>
+                <input type="text" id="deliverablesSearchInput" placeholder="Buscar entregable..." />
+              </div>
+            </label>
+
+            <label class="deliverables-filter">
+              <span>Estado</span>
+              <select id="deliverablesStatusFilter">
+                <option value="Todos">Todos</option>
+                <option value="Entregado">Entregado</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="Aprobado">Aprobado</option>
+              </select>
+            </label>
+
+            <label class="deliverables-filter">
+              <span>Tipo Documento</span>
+              <select id="deliverablesTypeFilter">
+                <option value="Todos">Todos</option>
+                <option value="Documento">Documento</option>
+                <option value="Archivo">Archivo</option>
+                <option value="Link">Link</option>
+              </select>
+            </label>
+
+            <button type="button" class="deliverables-clear-button" id="clearDeliverablesFilters">Limpiar filtro</button>
+          </div>
+
+          <div class="deliverables-table-card">
+            <div class="deliverables-table-header">
+              <span>Nombre del entregable</span>
+              <span>Tipo</span>
+              <span>Responsable</span>
+              <span>Fecha de entrega</span>
+              <span>Estado</span>
+              <span>Acciones</span>
+            </div>
+            <div id="deliverablesTableBody"></div>
+          </div>
+        </section>
+
+        <section class="project-tasks-board" data-project-tab-panel="tasks" hidden>
+          <div class="tasks-header-row">
+            <button type="button" class="deliverables-add-button" id="openTaskCreateModal">Nueva tarea</button>
+          </div>
+
+          <div class="tasks-filters-row">
+            <label class="deliverables-filter deliverables-filter-search">
+              <span>Buscador</span>
+              <div class="deliverables-search-box">
+                <span class="deliverables-search-icon" aria-hidden="true"></span>
+                <input type="text" id="projectTasksSearchInput" placeholder="Buscar tarea..." />
+              </div>
+            </label>
+
+            <label class="deliverables-filter">
+              <span>Estado</span>
+              <select id="projectTasksStatusFilter">
+                <option value="Todos">Todos</option>
+                <option value="Pendiente">Pendiente</option>
+                <option value="En proceso">En proceso</option>
+                <option value="En revisión">En revisión</option>
+                <option value="Completado">Completado</option>
+              </select>
+            </label>
+
+            <label class="deliverables-filter">
+              <span>Responsable</span>
+              <select id="projectTasksOwnerFilter">
+                <option value="Todos">Todos</option>
+                <option value="Carlos P.">Carlos P.</option>
+                <option value="Ana G.">Ana G.</option>
+                <option value="Juan C.">Juan C.</option>
+                <option value="Beatriz L.">Beatriz L.</option>
+              </select>
+            </label>
+
+            <button type="button" class="deliverables-clear-button" id="clearProjectTasksFilters">Limpiar filtro</button>
+          </div>
+
+          <div class="task-board-columns">
+            <section class="task-column" data-task-column="Pendiente">
+              <header class="task-column-header">
+                <h3>Pendiente</h3>
+                <span id="tasksCountPending">0 Tareas</span>
+              </header>
+              <div class="task-card-list" id="tasksColumnPending"></div>
+            </section>
+
+            <section class="task-column" data-task-column="En proceso">
+              <header class="task-column-header">
+                <h3>En proceso</h3>
+                <span id="tasksCountInProgress">0 Tareas</span>
+              </header>
+              <div class="task-card-list" id="tasksColumnInProgress"></div>
+            </section>
+
+            <section class="task-column" data-task-column="En revisión">
+              <header class="task-column-header">
+                <h3>En revisión</h3>
+                <span id="tasksCountInReview">0 Tareas</span>
+              </header>
+              <div class="task-card-list" id="tasksColumnInReview"></div>
+            </section>
+
+            <section class="task-column" data-task-column="Completado">
+              <header class="task-column-header">
+                <h3>Completado</h3>
+                <span id="tasksCountCompleted">0 Tareas</span>
+              </header>
+              <div class="task-card-list" id="tasksColumnCompleted"></div>
+            </section>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="teamDeleteModal" hidden>
+      <div class="team-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="teamDeleteModalTitle">
+        <h2 id="teamDeleteModalTitle">Eliminar del proyecto</h2>
+        <p id="teamDeleteMessage">¿Deseas eliminar a este usuario del proyecto?</p>
+        <div class="team-confirm-actions">
+          <button type="button" class="team-confirm-button secondary" id="cancelTeamDelete">Cancelar</button>
+          <button type="button" class="team-confirm-button danger" id="confirmTeamDelete">Eliminar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="teamEditModal" hidden>
+      <div class="team-edit-modal" role="dialog" aria-modal="true" aria-labelledby="teamEditModalTitle">
+        <button type="button" class="team-edit-close" id="closeTeamEditModal" aria-label="Cerrar">X</button>
+        <header class="team-edit-header">
+          <h2 id="teamEditModalTitle">Editar miembro</h2>
+          <p>Modifica el rol y permisos del usuario en el proyecto</p>
+        </header>
+
+        <div class="team-edit-grid">
+          <section class="team-edit-section">
+            <h3>Usuario</h3>
+            <div class="team-user-card">
+              <span class="team-user-readonly">solo lectura</span>
+              <div class="team-user-list" id="teamEditUserList"></div>
+            </div>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Rol</h3>
+            <label class="team-edit-field">
+              <select id="teamEditRole">
+                <option>Project Manager</option>
+                <option>Marketing Specialist</option>
+                <option>Developer</option>
+                <option>Analista</option>
+                <option>Otro</option>
+              </select>
+            </label>
+
+            <div class="team-edit-permissions-inline">
+              <h3>Permisos</h3>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamPermissionAssignInline" checked />
+                <span>Puede asignar tareas</span>
+              </label>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamPermissionUploadInline" checked />
+                <span>Puede subir entregables</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Estado</h3>
+            <label class="team-edit-field">
+              <select id="teamEditStatus">
+                <option>Activo</option>
+                <option>Inactivo</option>
+              </select>
+            </label>
+
+            <div class="team-edit-permissions-inline">
+              <h3>Permisos</h3>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamPermissionEditTasks" checked />
+                <span>Puede editar tareas</span>
+              </label>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamPermissionAssignTasks" checked />
+                <span>Puede asignar tareas</span>
+              </label>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamPermissionUploadDeliverables" checked />
+                <span>Puede subir entregables</span>
+              </label>
+            </div>
+
+            <div class="team-edit-extra">
+              <h3>Bloque extra</h3>
+              <p>Los cambios afectarán la participación del usuario en este proyecto</p>
+            </div>
+          </section>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="cancelTeamEdit">Cancelar</button>
+          <button type="button" class="team-edit-button secondary" id="deleteFromEditModal">Eliminar del proyecto</button>
+          <button type="button" class="team-edit-button primary" id="saveTeamEdit">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="teamProfileModal" hidden>
+      <div class="team-profile-modal" role="dialog" aria-modal="true" aria-labelledby="teamProfileModalTitle">
+        <button type="button" class="team-edit-close" id="closeTeamProfileModal" aria-label="Cerrar">X</button>
+        <header class="team-profile-header">
+          <h2 id="teamProfileModalTitle">Ver perfil de integrante del equipo</h2>
+        </header>
+
+        <div class="team-profile-grid">
+          <aside class="team-profile-identity">
+            <img src="Images/IconoUsuarioNegro.png" alt="Perfil del integrante" class="team-profile-avatar" />
+            <strong id="teamProfileName">Luis Garcia G.</strong>
+            <span id="teamProfileRole">Project Manager</span>
+            <span id="teamProfileArea">Marketing</span>
+          </aside>
+
+          <div class="team-profile-main">
+            <div class="team-profile-top">
+              <article class="team-profile-card">
+                <h3>Informacion general</h3>
+                <div class="team-profile-info-list">
+                  <div>
+                    <span>Correo electronico</span>
+                    <strong id="teamProfileEmail">luis.g@adtech.com</strong>
+                  </div>
+                  <div>
+                    <span>Telefono</span>
+                    <strong id="teamProfilePhone">+52 55 1234 5678</strong>
+                  </div>
+                  <div>
+                    <span>Area</span>
+                    <strong id="teamProfileAreaDetail">Marketing</strong>
+                  </div>
+                  <div>
+                    <span>Estado</span>
+                    <strong id="teamProfileStatus">Activo</strong>
+                  </div>
+                </div>
+              </article>
+
+              <div class="team-profile-side">
+                <article class="team-profile-card">
+                  <h3>Rol en el proyecto</h3>
+                  <div class="team-profile-info-list">
+                    <div>
+                      <span>Rol actual</span>
+                      <strong id="teamProfileRoleDetail">Project Manager</strong>
+                    </div>
+                    <div>
+                      <span>Fecha de asignacion</span>
+                      <strong id="teamProfileAssignedDate">01/01/2026</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="team-profile-card">
+                  <h3>Permisos</h3>
+                  <ul class="team-profile-permissions" id="teamProfilePermissions"></ul>
+                </article>
+              </div>
+            </div>
+
+            <div class="team-profile-bottom">
+              <article class="team-profile-card">
+                <h3>Participacion en el proyecto</h3>
+                <div class="team-profile-info-list">
+                  <div>
+                    <span>Numero de tareas asignadas</span>
+                    <strong id="teamProfileAssignedTasks">12</strong>
+                  </div>
+                  <div>
+                    <span>Numero de tareas completadas</span>
+                    <strong id="teamProfileCompletedTasks">8</strong>
+                  </div>
+                  <div>
+                    <span>Ultima actividad</span>
+                    <strong id="teamProfileLastActivity">Hace 2 dias</strong>
+                  </div>
+                </div>
+              </article>
+
+              <article class="team-profile-card">
+                <h3>Proyectos asociados</h3>
+                <div class="team-profile-projects" id="teamProfileProjects"></div>
+              </article>
+            </div>
+          </div>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="closeTeamProfileFooter">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="teamAddModal" hidden>
+      <div class="team-edit-modal team-add-modal" role="dialog" aria-modal="true" aria-labelledby="teamAddModalTitle">
+        <button type="button" class="team-edit-close" id="closeTeamAddModal" aria-label="Cerrar">X</button>
+        <header class="team-edit-header">
+          <h2 id="teamAddModalTitle">Agregar miembro</h2>
+          <p>Asigna un usuario al proyecto</p>
+        </header>
+
+        <div class="team-edit-grid">
+          <section class="team-edit-section">
+            <h3>Usuario</h3>
+            <div class="team-add-select">
+              <button type="button" class="team-add-select-trigger" id="teamAddSelectTrigger">
+                <span id="teamAddSelectedUserLabel">Seleccionar usuario...</span>
+              </button>
+              <div class="team-user-card team-add-user-card" id="teamAddDropdown" hidden>
+                <label class="team-edit-field">
+                  <input type="text" id="teamAddSearch" class="team-add-search" placeholder="Buscar usuario..." />
+                </label>
+                <div class="team-user-list" id="teamAddUserList"></div>
+              </div>
+            </div>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Rol</h3>
+            <label class="team-edit-field">
+              <select id="teamAddRole">
+                <option>Project Manager</option>
+                <option>Marketing Specialist</option>
+                <option>Developer</option>
+                <option>Analista</option>
+                <option>Otro</option>
+              </select>
+            </label>
+
+            <div class="team-edit-permissions-inline">
+              <h3>Permisos</h3>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamAddAssignTasks" />
+                <span>Puede asignar tareas</span>
+              </label>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamAddUploadDeliverables" />
+                <span>Puede subir entregables</span>
+              </label>
+            </div>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Estado</h3>
+            <label class="team-edit-field">
+              <select id="teamAddStatus">
+                <option>Activo</option>
+                <option>Inactivo</option>
+              </select>
+            </label>
+
+            <div class="team-edit-permissions-inline">
+              <h3>Permisos</h3>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamAddEditTasks" />
+                <span>Puede editar tareas</span>
+              </label>
+              <label class="team-permission-check">
+                <input type="checkbox" id="teamAddAssignTasksRight" />
+                <span>Puede asignar tareas</span>
+              </label>
+            </div>
+          </section>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="cancelTeamAdd">Cancelar</button>
+          <button type="button" class="team-edit-button primary" id="confirmTeamAdd">Agregar miembro</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="deliverableEditModal" hidden>
+      <div class="team-edit-modal deliverable-edit-modal" role="dialog" aria-modal="true" aria-labelledby="deliverableEditModalTitle">
+        <button type="button" class="team-edit-close" id="closeDeliverableEditModal" aria-label="Cerrar">X</button>
+        <header class="team-edit-header">
+          <h2 id="deliverableEditModalTitle">Editar entregable</h2>
+          <p>Modifica la información del entregable</p>
+        </header>
+
+        <div class="deliverable-edit-grid">
+          <section class="team-edit-section">
+            <h3>Información del entregable</h3>
+            <label class="team-edit-field">
+              <span>Nombre del entregable</span>
+              <input type="text" id="deliverableEditName" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Descripción</span>
+              <textarea id="deliverableEditDescription" class="deliverable-edit-textarea" rows="5"></textarea>
+            </label>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Tipo</h3>
+            <label class="team-edit-field">
+              <span>Tipo</span>
+              <select id="deliverableEditType">
+                <option>Documento</option>
+                <option>Multimedia</option>
+                <option>Software</option>
+                <option>Otro</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Contenido del documento</span>
+              <textarea id="deliverableEditContent" class="deliverable-edit-textarea" rows="9"></textarea>
+            </label>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Contenido (Dinámico)</h3>
+            <label class="team-edit-field">
+              <span>Responsable</span>
+              <select id="deliverableEditOwner">
+                <option>Carlos P.</option>
+                <option>Ana G.</option>
+                <option>Juan C.</option>
+                <option>Beatriz L.</option>
+                <option>Pedro M.</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Fecha de entrega</span>
+              <input type="text" id="deliverableEditDueDate" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Estado</span>
+              <select id="deliverableEditStatus">
+                <option>Entregado</option>
+                <option>Pendiente</option>
+                <option>Aprobado</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Progreso (Opcional)</span>
+              <div class="deliverable-progress-box">
+                <input type="range" id="deliverableEditProgress" min="0" max="100" value="65" />
+                <strong id="deliverableEditProgressValue">65%</strong>
+              </div>
+            </label>
+          </section>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="cancelDeliverableEdit">Cancelar</button>
+          <button type="button" class="team-edit-button primary" id="saveDeliverableEdit">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="deliverableViewModal" hidden>
+      <div class="team-edit-modal deliverable-view-modal" role="dialog" aria-modal="true" aria-labelledby="deliverableViewModalTitle">
+        <button type="button" class="team-edit-close" id="closeDeliverableViewModal" aria-label="Cerrar">X</button>
+
+        <header class="deliverable-view-header">
+          <div>
+            <span class="deliverable-view-eyebrow">Nombre del entregable</span>
+            <div class="deliverable-view-title-row">
+              <h2 id="deliverableViewModalTitle">Reporte de campaña junio</h2>
+              <span class="deliverable-status-pill is-delivered" id="deliverableViewStatusPill">Entregado</span>
+            </div>
+            <p>Proyecto: <span id="deliverableViewProjectName">Proyecto Renovación Tech</span></p>
+          </div>
+        </header>
+
+        <div class="deliverable-view-grid">
+          <section class="team-edit-section">
+            <h3>Información general</h3>
+            <div class="deliverable-view-info-grid">
+              <div class="deliverable-view-field">
+                <span>Tipo</span>
+                <strong id="deliverableViewType">Documento</strong>
+              </div>
+              <div class="deliverable-view-field">
+                <span>Responsable</span>
+                <strong id="deliverableViewOwner">Ana G.</strong>
+              </div>
+              <div class="deliverable-view-field">
+                <span>Fecha de entrega</span>
+                <strong id="deliverableViewDueDate">30/06/2026</strong>
+              </div>
+            </div>
+
+            <div class="deliverable-view-panels">
+              <article class="deliverable-view-panel">
+                <h3>Descripción</h3>
+                <div class="deliverable-view-box" id="deliverableViewDescription"></div>
+              </article>
+
+              <article class="deliverable-view-panel">
+                <h3>Contenido principal</h3>
+                <div class="deliverable-view-box" id="deliverableViewContent"></div>
+              </article>
+            </div>
+          </section>
+
+          <aside class="team-edit-section">
+            <article class="deliverable-view-panel">
+              <h3>Progreso</h3>
+              <div class="deliverable-progress-box deliverable-view-progress-box">
+                <input type="range" id="deliverableViewProgress" min="0" max="100" value="65" disabled />
+                <strong id="deliverableViewProgressValue">65%</strong>
+              </div>
+            </article>
+
+            <article class="deliverable-view-panel">
+              <h3>Estado descriptivo</h3>
+              <div class="deliverable-view-status-text">
+                <p>Estado actual: <strong id="deliverableViewStatusText">Entregado</strong></p>
+                <p>Última actualización: <strong id="deliverableViewUpdated">hace 2 días</strong></p>
+              </div>
+            </article>
+          </aside>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="closeDeliverableViewFooter">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="deliverableDeleteModal" hidden>
+      <div class="team-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="deliverableDeleteModalTitle">
+        <h2 id="deliverableDeleteModalTitle">Eliminar entregable</h2>
+        <p id="deliverableDeleteMessage">¿Deseas eliminar este entregable?</p>
+        <div class="team-confirm-actions">
+          <button type="button" class="team-confirm-button secondary" id="cancelDeliverableDelete">Cancelar</button>
+          <button type="button" class="team-confirm-button danger" id="confirmDeliverableDelete">Eliminar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="deliverableCreateModal" hidden>
+      <div class="team-edit-modal deliverable-edit-modal" role="dialog" aria-modal="true" aria-labelledby="deliverableCreateModalTitle">
+        <button type="button" class="team-edit-close" id="closeDeliverableCreateModal" aria-label="Cerrar">X</button>
+        <header class="team-edit-header">
+          <h2 id="deliverableCreateModalTitle">Nuevo entregable</h2>
+          <p>Registra un nuevo resultado del proyecto</p>
+        </header>
+
+        <div class="deliverable-edit-grid">
+          <section class="team-edit-section">
+            <h3>Información del entregable</h3>
+            <label class="team-edit-field">
+              <span>Nombre del entregable</span>
+              <input type="text" id="deliverableCreateName" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Tipo</span>
+              <select id="deliverableCreateType">
+                <option>Documento</option>
+                <option>Multimedia</option>
+                <option>Software</option>
+                <option>Otro</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Descripción</span>
+              <textarea id="deliverableCreateDescription" class="deliverable-edit-textarea" rows="5"></textarea>
+            </label>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Tipo de entregable</h3>
+            <div class="deliverable-assign-options">
+              <label class="deliverable-choice-chip">
+                <input type="radio" name="deliverableAssignmentType" value="Documento" checked />
+                <span>Documento</span>
+              </label>
+              <label class="deliverable-choice-chip">
+                <input type="radio" name="deliverableAssignmentType" value="Multimedia" />
+                <span>Multimedia</span>
+              </label>
+              <label class="deliverable-choice-chip">
+                <input type="radio" name="deliverableAssignmentType" value="Software" />
+                <span>Software</span>
+              </label>
+              <label class="deliverable-choice-chip">
+                <input type="radio" name="deliverableAssignmentType" value="Otro" />
+                <span>Otro</span>
+              </label>
+            </div>
+
+            <div class="team-edit-section">
+              <h3>Contenido (Dinámico)</h3>
+              <label class="team-edit-field">
+                <span>Contenido principal</span>
+                <textarea id="deliverableCreateContent" class="deliverable-edit-textarea" rows="6"></textarea>
+              </label>
+              <label class="team-edit-field">
+                <span>URL del entregable</span>
+                <input type="text" id="deliverableCreateUrl" class="team-add-search" placeholder="URL del entregable" />
+              </label>
+            </div>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Asignación</h3>
+            <label class="team-edit-field">
+              <span>Responsable</span>
+              <select id="deliverableCreateOwner">
+                <option>Ana G.</option>
+                <option>Juan C.</option>
+                <option>Carlos P.</option>
+                <option>Beatriz L.</option>
+                <option>Pedro M.</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Fecha de entrega</span>
+              <input type="text" id="deliverableCreateDueDate" class="team-add-search" value="30/06/2026" />
+            </label>
+            <label class="team-edit-field">
+              <span>Estado</span>
+              <select id="deliverableCreateStatus">
+                <option>Pendiente</option>
+                <option>Entregado</option>
+                <option>Aprobado</option>
+              </select>
+            </label>
+          </section>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="saveDeliverableDraft">Guardar como borrador</button>
+          <button type="button" class="team-edit-button primary" id="confirmDeliverableCreate">Crear entregable</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="taskEditModal" hidden>
+      <div class="team-edit-modal task-edit-modal" role="dialog" aria-modal="true" aria-labelledby="taskEditModalTitle">
+        <button type="button" class="team-edit-close" id="closeTaskEditModal" aria-label="Cerrar">X</button>
+        <header class="team-edit-header">
+          <h2 id="taskEditModalTitle">Editar tarea</h2>
+          <p>Modifica la informacion de la tarea</p>
+          <div class="task-edit-context">
+            <span>Proyecto: <strong id="taskEditProjectName">Proyecto Renovacion Tech</strong></span>
+            <span>Entregable: <strong id="taskEditDeliverableName">Reporte de campana junio</strong></span>
+          </div>
+        </header>
+
+        <div class="task-edit-grid">
+          <section class="team-edit-section">
+            <h3>Informacion de la tarea</h3>
+            <label class="team-edit-field">
+              <span>Nombre de la tarea</span>
+              <input type="text" id="taskEditName" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Descripcion breve</span>
+              <textarea id="taskEditDescription" class="deliverable-edit-textarea" rows="5"></textarea>
+            </label>
+            <label class="team-edit-field">
+              <span>Notas</span>
+              <textarea id="taskEditNotes" class="deliverable-edit-textarea" rows="4"></textarea>
+            </label>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Asignacion</h3>
+            <label class="team-edit-field">
+              <span>Estado</span>
+              <select id="taskEditStatus">
+                <option>Pendiente</option>
+                <option>En proceso</option>
+                <option>En revision</option>
+                <option>Completado</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Entregable asociado</span>
+              <input type="text" id="taskEditDeliverableReadonly" class="team-add-search" readonly />
+            </label>
+            <label class="team-edit-field">
+              <span>Responsable</span>
+              <select id="taskEditOwner">
+                <option>Carlos P.</option>
+                <option>Ana G.</option>
+                <option>Juan C.</option>
+                <option>Beatriz L.</option>
+              </select>
+            </label>
+            <div class="task-edit-dates">
+              <label class="team-edit-field">
+                <span>Fecha de inicio</span>
+                <input type="text" id="taskEditStartDate" class="team-add-search" />
+              </label>
+              <label class="team-edit-field">
+                <span>Fecha limite</span>
+                <input type="text" id="taskEditDueDate" class="team-add-search" />
+              </label>
+            </div>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Proyecto</h3>
+            <label class="team-edit-field">
+              <span>Proyecto</span>
+              <input type="text" id="taskEditProjectReadonly" class="team-add-search" readonly />
+            </label>
+            <label class="team-edit-field">
+              <span>Entregable asociado</span>
+              <select id="taskEditDeliverableSelect">
+                <option>Reporte de campaña junio</option>
+                <option>Logo vectorizado</option>
+                <option>Link a dashboard de analitica</option>
+                <option>Informe de KPIs Q2</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Notas e indicaciones</span>
+              <input type="text" id="taskEditReference" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Archivo de apoyo</span>
+              <div class="task-edit-file-box">
+                <strong id="taskEditFileName">Guia_Desarrollo_SEO_Q3.pdf</strong>
+                <span id="taskEditFileMeta">Tamano: 1.2 MB</span>
+                <div class="task-edit-file-actions">
+                  <button type="button" class="task-file-action">Ver</button>
+                  <button type="button" class="task-file-action">Descargar</button>
+                  <button type="button" class="task-file-action">Eliminar</button>
+                </div>
+              </div>
+            </label>
+            <button type="button" class="task-replace-file-button">Reemplazar archivo</button>
+          </section>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="deleteTaskEdit">Eliminar tarea</button>
+          <button type="button" class="team-edit-button primary" id="saveTaskEdit">Guardar cambios</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="taskViewModal" hidden>
+      <div class="team-edit-modal task-view-modal" role="dialog" aria-modal="true" aria-labelledby="taskViewModalTitle">
+        <button type="button" class="team-edit-close" id="closeTaskViewModal" aria-label="Cerrar">X</button>
+        <header class="task-view-header">
+          <div class="task-view-title-row">
+            <h2 id="taskViewModalTitle">Diseñar estructura de campaña digital</h2>
+            <span class="task-view-status-pill" id="taskViewStatusPill">En proceso</span>
+          </div>
+        </header>
+
+        <div class="task-view-content">
+          <article class="task-view-section">
+            <span>Proyecto</span>
+            <strong id="taskViewProject">Proyecto Renovacion Tech</strong>
+          </article>
+
+          <article class="task-view-section">
+            <span>Responsable</span>
+            <strong id="taskViewOwner">Carlos Perez</strong>
+          </article>
+
+          <article class="task-view-section">
+            <span>Fechas</span>
+            <p>Fecha de inicio: <strong id="taskViewStartDate">15/06/2024</strong></p>
+            <p>Fecha limite: <strong id="taskViewDueDate">20/06/2024</strong></p>
+          </article>
+
+          <article class="task-view-section">
+            <span>Estado</span>
+            <div>
+              <span class="task-view-status-pill" id="taskViewInlineStatus">En proceso</span>
+            </div>
+          </article>
+
+          <article class="task-view-section">
+            <span>Archivo de apoyo</span>
+            <strong id="taskViewFileName">Guia_Desarrollo_SEO_Q3.pdf</strong>
+            <p id="taskViewFileMeta">1.2 MB</p>
+            <div class="task-view-actions">
+              <button type="button" class="team-edit-button secondary" id="taskViewOpenFile">Ver</button>
+              <button type="button" class="team-edit-button secondary" id="taskViewDownloadFile">Descargar</button>
+            </div>
+          </article>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="taskCreateModal" hidden>
+      <div class="team-edit-modal task-edit-modal" role="dialog" aria-modal="true" aria-labelledby="taskCreateModalTitle">
+        <button type="button" class="team-edit-close" id="closeTaskCreateModal" aria-label="Cerrar">X</button>
+        <header class="team-edit-header">
+          <h2 id="taskCreateModalTitle">Agregar tarea</h2>
+          <p>Registra una nueva tarea para el entregable</p>
+          <div class="task-edit-context">
+            <span>Proyecto: <strong id="taskCreateProjectName">Proyecto Renovacion Tech</strong></span>
+            <span>Entregable: <strong id="taskCreateDeliverableName">Reporte de campaña junio</strong></span>
+          </div>
+        </header>
+
+        <div class="task-edit-grid">
+          <section class="team-edit-section">
+            <h3>Informacion de la tarea</h3>
+            <label class="team-edit-field">
+              <span>Nombre de la tarea</span>
+              <input type="text" id="taskCreateName" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Descripcion breve</span>
+              <textarea id="taskCreateDescription" class="deliverable-edit-textarea" rows="5"></textarea>
+            </label>
+            <label class="team-edit-field">
+              <span>Notas</span>
+              <textarea id="taskCreateNotes" class="deliverable-edit-textarea" rows="4"></textarea>
+            </label>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Asignacion</h3>
+            <label class="team-edit-field">
+              <span>Estado</span>
+              <select id="taskCreateStatus">
+                <option>Pendiente</option>
+                <option>En proceso</option>
+                <option>En revision</option>
+                <option>Completado</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Entregable asociado</span>
+              <input type="text" id="taskCreateDeliverableReadonly" class="team-add-search" value="Reporte de campaña junio" readonly />
+            </label>
+            <label class="team-edit-field">
+              <span>Responsable</span>
+              <select id="taskCreateOwner">
+                <option>Ana G.</option>
+                <option>Carlos P.</option>
+                <option>Juan C.</option>
+                <option>Beatriz L.</option>
+              </select>
+            </label>
+            <div class="task-edit-dates">
+              <label class="team-edit-field">
+                <span>Fecha de inicio</span>
+                <input type="text" id="taskCreateStartDate" class="team-add-search" value="30/06/2026" />
+              </label>
+              <label class="team-edit-field">
+                <span>Fecha limite</span>
+                <input type="text" id="taskCreateDueDate" class="team-add-search" value="30/06/2026" />
+              </label>
+            </div>
+          </section>
+
+          <section class="team-edit-section">
+            <h3>Usuario</h3>
+            <label class="team-edit-field">
+              <span>Entregable asociado</span>
+              <select id="taskCreateDeliverableSelect">
+                <option>Reporte de campaña junio</option>
+                <option>Logo vectorizado</option>
+                <option>Link a dashboard de analitica</option>
+                <option>Informe de KPIs Q2</option>
+              </select>
+            </label>
+            <label class="team-edit-field">
+              <span>Notas e indicaciones</span>
+              <input type="text" id="taskCreateReference" class="team-add-search" />
+            </label>
+            <label class="team-edit-field">
+              <span>Archivo de apoyo</span>
+              <div class="task-upload-box">
+                <p>Adjunta un archivo que sirva como guia para desarrollar la tarea</p>
+              </div>
+            </label>
+          </section>
+        </div>
+
+        <div class="team-edit-actions">
+          <button type="button" class="team-edit-button secondary" id="saveTaskDraft">Guardar como borrador</button>
+          <button type="button" class="team-edit-button primary" id="confirmTaskCreate">Agregar tarea</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/project-detail.js"></script>
+  </body>
+</html>
