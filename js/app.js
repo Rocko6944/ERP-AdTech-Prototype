@@ -1,5 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
   const moduleButtons = document.querySelectorAll('.module-button');
+  const moduleCards = document.querySelectorAll('.module-card');
   const languageSelect = document.querySelector('#languageSelect');
   const savedLanguage = localStorage.getItem('erpPrototypeLanguage');
 
@@ -13,26 +14,46 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  const navigateToModule = (moduleName) => {
+    if (moduleName === 'Marketing') {
+      window.location.href = 'marketing.html';
+      return;
+    }
+
+    if (moduleName === 'Ventas') {
+      window.location.href = 'sales.html';
+      return;
+    }
+
+    if (moduleName === 'Operaciones') {
+      window.location.href = 'operations.html';
+      return;
+    }
+
+    if (moduleName === 'Análisis') {
+      window.location.href = 'analysis.html';
+      return;
+    }
+
+    alert(`Has seleccionado el módulo de ${moduleName}.`);
+  };
+
   moduleButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      const moduleName = button.dataset.module;
+    button.addEventListener('click', (event) => {
+      event.stopPropagation();
+      navigateToModule(button.dataset.module);
+    });
+  });
 
-      if (moduleName === 'Marketing') {
-        window.location.href = 'marketing.html';
-        return;
-      }
+  moduleCards.forEach((card) => {
+    const button = card.querySelector('.module-button');
 
-      if (moduleName === 'Ventas') {
-        window.location.href = 'sales.html';
-        return;
-      }
+    if (!button) {
+      return;
+    }
 
-      if (moduleName === 'Operaciones') {
-        window.location.href = 'operations.html';
-        return;
-      }
-
-      alert(`Has seleccionado el módulo de ${moduleName}.`);
+    card.addEventListener('click', () => {
+      navigateToModule(button.dataset.module);
     });
   });
 });

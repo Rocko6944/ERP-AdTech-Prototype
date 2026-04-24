@@ -1,0 +1,140 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Ayuda | ERP Adtech</title>
+    <link rel="stylesheet" href="css/help.css" />
+  </head>
+  <body>
+    <div class="help-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menu">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegacion del modulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="sales.html">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="operations.html">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="analysis.html">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Analisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <a class="sidebar-link sidebar-action" href="notifications.html">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </a>
+          <a class="sidebar-link sidebar-action" href="settings.html">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuracion</span>
+          </a>
+          <a class="sidebar-link sidebar-action is-active" href="help.html" aria-current="page">
+            <img src="Images/IconoAyudaBlanco.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </a>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <img src="Images/IconoSesionNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Cerrar sesion</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="help-content">
+        <header class="help-header">
+          <h1>Ayuda</h1>
+          <p>Encuentra respuestas rapidas sobre el uso del sistema.</p>
+        </header>
+
+        <section class="help-board" aria-label="Preguntas frecuentes">
+          <div class="help-board-head">
+            <h2>Listado de preguntas</h2>
+          </div>
+
+          <div class="help-grid">
+            <article class="help-column">
+              <h3>Marketing</h3>
+              <details class="help-item" open>
+                <summary>¿Como registrar leads?</summary>
+                <p>Entra a Marketing, crea el lead y completa los datos basicos.</p>
+              </details>
+              <details class="help-item">
+                <summary>¿Como crear una oportunidad?</summary>
+                <p>Convierte el lead desde su detalle y asigna responsable.</p>
+              </details>
+            </article>
+
+            <article class="help-column">
+              <h3>Ventas</h3>
+              <details class="help-item">
+                <summary>¿Como crear una oportunidad?</summary>
+                <p>Usa el boton `Nueva oportunidad` y define cliente, valor y etapa.</p>
+              </details>
+              <details class="help-item">
+                <summary>¿Como registrar clientes?</summary>
+                <p>Crea el cliente desde Ventas o desde la ficha de oportunidad.</p>
+              </details>
+            </article>
+
+            <article class="help-column">
+              <h3>Soporte</h3>
+              <details class="help-item">
+                <summary>¿Como crear un ticket?</summary>
+                <p>En Soporte registra asunto, prioridad y responsable.</p>
+              </details>
+              <details class="help-item">
+                <summary>¿Como cerrar un caso?</summary>
+                <p>Actualiza el estado del ticket a cerrado cuando finalice.</p>
+              </details>
+            </article>
+
+            <article class="help-column">
+              <h3>Analisis</h3>
+              <details class="help-item">
+                <summary>¿Como crear un analisis?</summary>
+                <p>Entra a Analisis y revisa el bloque del modulo que necesitas.</p>
+              </details>
+              <details class="help-item">
+                <summary>¿Como exportar un reporte?</summary>
+                <p>Haz clic en `Exportar reporte` y elige PDF o Excel.</p>
+              </details>
+            </article>
+
+            <article class="help-column">
+              <h3>Configuracion</h3>
+              <details class="help-item">
+                <summary>¿Como crear un usuario?</summary>
+                <p>Ve a Configuracion, Usuarios y usa `+ Nuevo Usuario`.</p>
+              </details>
+              <details class="help-item">
+                <summary>¿Como crear un equipo?</summary>
+                <p>Ve a Configuracion, Equipos y usa `+ Nuevo Equipo`.</p>
+              </details>
+            </article>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <script src="js/help.js"></script>
+  </body>
+</html>

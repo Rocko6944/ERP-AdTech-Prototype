@@ -3,32 +3,33 @@ document.addEventListener('DOMContentLoaded', () => {
   const sidebarToggle = document.querySelector('#sidebarToggle');
   const logoutButton = document.querySelector('#logoutButton');
   const backButton = document.querySelector('[data-back-target]');
-  const followupModal = document.querySelector('#followupModal');
-  const openFollowupModalButton = document.querySelector('#openFollowupModal');
-  const closeFollowupModalButton = document.querySelector('#closeFollowupModal');
-  const cancelFollowupModalButton = document.querySelector('#cancelFollowupModal');
-  const followupForm = document.querySelector('#followupForm');
-  const probabilityRange = document.querySelector('#probabilityRange');
-  const probabilityValue = document.querySelector('#probabilityValue');
-  const followupToast = document.querySelector('#followupToast');
-  const markOpportunityWonButton = document.querySelector('#markOpportunityWon');
-  const opportunityWonToast = document.querySelector('#opportunityWonToast');
-  const collapseKey = 'erpSalesSidebarCollapsed';
-
-  if (followupModal) {
-    followupModal.hidden = true;
-  }
+  const filterClearButtons = document.querySelectorAll('.filter-clear');
+  const tabButtons = document.querySelectorAll('[data-tab-target]');
+  const tabPanels = document.querySelectorAll('[data-tab-panel]');
+  const exportTriggerButtons = document.querySelectorAll('[data-export-trigger]');
+  const exportModal = document.querySelector('#exportModal');
+  const closeExportModalButton = document.querySelector('#closeExportModal');
+  const cancelExportModalButton = document.querySelector('#cancelExportModal');
+  const confirmExportModalButton = document.querySelector('#confirmExportModal');
+  const exportFormatCards = document.querySelectorAll('[data-export-format]');
+  const exportFilteredOnly = document.querySelector('#exportFilteredOnly');
+  const collapseKey = 'erpAnalysisSidebarCollapsed';
+  let selectedExportFormat = 'pdf';
+  let currentExportSection = '';
 
   if (sidebar) {
-    const isCollapsed = localStorage.getItem(collapseKey) !== 'false';
+    const savedState = localStorage.getItem(collapseKey);
+    const isCollapsed = savedState === null ? true : savedState === 'true';
+    sidebar.classList.toggle('is-collapsed', isCollapsed);
     sidebar.classList.toggle('is-expanded', !isCollapsed);
   }
 
   if (sidebar && sidebarToggle) {
     sidebarToggle.addEventListener('click', () => {
-      const expanded = sidebar.classList.toggle('is-expanded');
-      sidebarToggle.setAttribute('aria-label', expanded ? 'Contraer menú' : 'Expandir menú');
-      localStorage.setItem(collapseKey, String(!expanded));
+      const collapsed = sidebar.classList.toggle('is-collapsed');
+      sidebar.classList.toggle('is-expanded', !collapsed);
+      sidebarToggle.setAttribute('aria-label', collapsed ? 'Expandir menu' : 'Contraer menu');
+      localStorage.setItem(collapseKey, String(collapsed));
     });
   }
 
@@ -144,82 +145,111 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  const hideFollowupModal = () => {
-    if (followupModal) {
-      followupModal.hidden = true;
-    }
+  const activateTab = (target) => {
+    tabButtons.forEach((button) => {
+      const isActive = button.dataset.tabTarget === target;
+      button.classList.toggle('is-active', isActive);
+      button.setAttribute('aria-selected', String(isActive));
+    });
+
+    tabPanels.forEach((panel) => {
+      panel.hidden = panel.dataset.tabPanel !== target;
+    });
   };
 
-  const showFollowupModal = () => {
-    if (followupModal) {
-      followupModal.hidden = false;
-    }
-  };
-
-  if (openFollowupModalButton) {
-    openFollowupModalButton.addEventListener('click', showFollowupModal);
-  }
-
-  if (closeFollowupModalButton) {
-    closeFollowupModalButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      hideFollowupModal();
+  tabButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      activateTab(button.dataset.tabTarget);
     });
-  }
-
-  if (cancelFollowupModalButton) {
-    cancelFollowupModalButton.addEventListener('click', (event) => {
-      event.preventDefault();
-      event.stopPropagation();
-      hideFollowupModal();
-    });
-  }
-
-  if (followupForm) {
-    followupForm.addEventListener('submit', (event) => {
-      event.preventDefault();
-      hideFollowupModal();
-
-      if (followupToast) {
-        followupToast.hidden = false;
-        window.clearTimeout(window.followupToastTimeout);
-        window.followupToastTimeout = window.setTimeout(() => {
-          followupToast.hidden = true;
-        }, 2200);
-      }
-    });
-  }
-
-  if (markOpportunityWonButton) {
-    markOpportunityWonButton.addEventListener('click', () => {
-      if (opportunityWonToast) {
-        opportunityWonToast.hidden = false;
-        window.clearTimeout(window.opportunityWonToastTimeout);
-        window.opportunityWonToastTimeout = window.setTimeout(() => {
-          opportunityWonToast.hidden = true;
-        }, 2600);
-      }
-    });
-  }
-
-  if (followupModal) {
-    followupModal.addEventListener('click', (event) => {
-      if (event.target === followupModal) {
-        hideFollowupModal();
-      }
-    });
-  }
-
-  if (probabilityRange && probabilityValue) {
-    probabilityRange.addEventListener('input', () => {
-      probabilityValue.value = `${probabilityRange.value}%`;
-    });
-  }
-
-  document.addEventListener('keydown', (event) => {
-    if (event.key === 'Escape' && followupModal && !followupModal.hidden) {
-      hideFollowupModal();
-    }
   });
+
+  filterClearButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      const view = button.closest('.analysis-view');
+
+      if (!view) {
+        return;
+      }
+
+      const inputs = view.querySelectorAll('input[type="date"], select');
+      inputs.forEach((input) => {
+        if (input.tagName === 'SELECT') {
+          input.selectedIndex = 0;
+          return;
+        }
+
+        input.value = '';
+      });
+    });
+  });
+
+  const syncExportFormats = () => {
+    exportFormatCards.forEach((card) => {
+      const isSelected = card.dataset.exportFormat === selectedExportFormat;
+      card.classList.toggle('is-selected', isSelected);
+      card.setAttribute('aria-checked', String(isSelected));
+    });
+  };
+
+  const hideExportModal = () => {
+    if (exportModal) {
+      exportModal.hidden = true;
+    }
+  };
+
+  const showExportModal = (section) => {
+    if (!exportModal) {
+      return;
+    }
+
+    currentExportSection = section;
+    selectedExportFormat = 'pdf';
+    syncExportFormats();
+
+    if (exportFilteredOnly) {
+      exportFilteredOnly.checked = true;
+    }
+
+    exportModal.hidden = false;
+  };
+
+  exportTriggerButtons.forEach((button) => {
+    button.addEventListener('click', () => {
+      showExportModal(button.dataset.exportTrigger || '');
+    });
+  });
+
+  exportFormatCards.forEach((card) => {
+    card.addEventListener('click', () => {
+      selectedExportFormat = card.dataset.exportFormat || 'pdf';
+      syncExportFormats();
+    });
+  });
+
+  if (closeExportModalButton) {
+    closeExportModalButton.addEventListener('click', hideExportModal);
+  }
+
+  if (cancelExportModalButton) {
+    cancelExportModalButton.addEventListener('click', hideExportModal);
+  }
+
+  if (exportModal) {
+    exportModal.addEventListener('click', (event) => {
+      if (event.target === exportModal) {
+        hideExportModal();
+      }
+    });
+  }
+
+  if (confirmExportModalButton) {
+    confirmExportModalButton.addEventListener('click', () => {
+      const scope = exportFilteredOnly && exportFilteredOnly.checked ? 'segun filtros actuales' : 'con todos los datos';
+      const sectionLabel = currentExportSection ? `de ${currentExportSection}` : 'del reporte';
+      const formatLabel = selectedExportFormat === 'xlsx' ? 'Excel (.xlsx)' : 'PDF';
+
+      hideExportModal();
+      window.alert(`Se preparó la exportación ${sectionLabel} en formato ${formatLabel}, ${scope}.`);
+    });
+  }
 });

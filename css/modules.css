@@ -112,6 +112,13 @@ body {
   background: #ebffff;
   box-shadow: 0 3px 8px rgba(0, 0, 0, 0.2);
   text-align: center;
+  cursor: pointer;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+}
+
+.module-card:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 12px 22px rgba(70, 90, 130, 0.16);
 }
 
 .module-icon {

@@ -1,0 +1,299 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Notificaciones | ERP Adtech</title>
+    <link rel="stylesheet" href="css/notifications.css" />
+  </head>
+  <body>
+    <div class="notifications-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menu">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegacion del modulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="sales.html">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="operations.html">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="analysis.html">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Analisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <a class="sidebar-link sidebar-action is-active" href="notifications.html" aria-current="page">
+            <img src="Images/IconoNotificacionesBlanco.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </a>
+          <a class="sidebar-link sidebar-action" href="settings.html">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuracion</span>
+          </a>
+          <a class="sidebar-link sidebar-action" href="help.html">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </a>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <img src="Images/IconoSesionNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Cerrar sesion</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="notifications-content">
+        <header class="notifications-header">
+          <h1>Notificaciones</h1>
+          <p>Revisa las notificaciones del sistema</p>
+        </header>
+
+        <section class="notifications-toolbar" aria-label="Filtros de notificaciones">
+          <div class="notifications-filter-group">
+            <label class="notifications-filter-field">
+              <span class="notifications-filter-label">Filtrar notificaciones</span>
+              <select id="notificationStatusFilter">
+                <option value="all">Todos</option>
+                <option value="unread">Sin leer</option>
+              </select>
+            </label>
+
+            <label class="notifications-filter-field">
+              <span class="notifications-filter-label">Tipo</span>
+              <select id="notificationTypeFilter">
+                <option value="all">Todos</option>
+                <option value="lead">Leads</option>
+                <option value="venta">Ventas</option>
+                <option value="proyecto">Proyecto</option>
+                <option value="soporte">Soporte</option>
+              </select>
+            </label>
+          </div>
+
+          <div class="notifications-actions">
+            <button type="button" class="notifications-soft-button" id="clearNotificationFilters">Limpiar filtro</button>
+            <button type="button" class="notifications-soft-button" id="markAllAsRead">Marcas todo como leidas</button>
+          </div>
+        </section>
+
+        <section class="notifications-panel">
+          <div class="notifications-table-head">
+            <span>Hoy</span>
+            <span>Mensaje</span>
+            <span>Sin leer</span>
+            <span>Acciones</span>
+          </div>
+
+          <div
+            class="notification-row"
+            data-status="unread"
+            data-type="lead"
+            data-category="Lead"
+            data-title="Nuevo lead registrado desde formulario web"
+            data-detail="Empresa: AgroTech Solutions"
+            data-time="Hace 5 minutos"
+          >
+            <div class="notification-icon-box">Lead</div>
+            <div class="notification-message">
+              <strong>Nuevo lead registrado desde formulario web</strong>
+              <p>Empresa: AgroTech Solutions</p>
+              <small>Hace 5 minutos</small>
+            </div>
+            <div class="notification-unread">
+              <span class="notification-dot" aria-label="Sin leer"></span>
+            </div>
+            <div class="notification-actions">
+              <button type="button" class="notification-action-button notification-view-button">Ver</button>
+              <button type="button" class="notification-action-button notification-read-button">Marcar como leida</button>
+            </div>
+          </div>
+
+          <div
+            class="notification-row"
+            data-status="unread"
+            data-type="venta"
+            data-category="Venta"
+            data-title="Reunion agendada"
+            data-detail="Cliente: Globex"
+            data-time="Hace 6 minutos"
+          >
+            <div class="notification-icon-box">Venta</div>
+            <div class="notification-message">
+              <strong>Reunion agendada</strong>
+              <p>Cliente: Globex</p>
+              <small>Hace 6 minutos</small>
+            </div>
+            <div class="notification-unread">
+              <span class="notification-dot" aria-label="Sin leer"></span>
+            </div>
+            <div class="notification-actions">
+              <button type="button" class="notification-action-button notification-view-button">Ver</button>
+              <button type="button" class="notification-action-button notification-read-button">Marcar como leida</button>
+            </div>
+          </div>
+
+          <div
+            class="notification-row"
+            data-status="unread"
+            data-type="proyecto"
+            data-category="Proyecto"
+            data-title="Proyecto actualizado"
+            data-detail="Portal Cliente Q3, Status: En Progreso"
+            data-time="Hace 5 minutos"
+          >
+            <div class="notification-icon-box">Proyecto</div>
+            <div class="notification-message">
+              <strong>Proyecto actualizado</strong>
+              <p>Portal Cliente Q3, Status: En Progreso</p>
+              <small>Hace 5 minutos</small>
+            </div>
+            <div class="notification-unread">
+              <span class="notification-dot" aria-label="Sin leer"></span>
+            </div>
+            <div class="notification-actions">
+              <button type="button" class="notification-action-button notification-view-button">Ver</button>
+              <button type="button" class="notification-action-button notification-read-button">Marcar como leida</button>
+            </div>
+          </div>
+
+          <div class="notifications-section-label">Ayer</div>
+
+          <div
+            class="notification-row"
+            data-status="unread"
+            data-type="soporte"
+            data-category="Soporte"
+            data-title="Ticket creado"
+            data-detail="T0001, Globex, Error Integration Q4"
+            data-time="Hace 5 minutos"
+          >
+            <div class="notification-icon-box">Ticket</div>
+            <div class="notification-message">
+              <strong>Ticket creado</strong>
+              <p>T0001, Globex, Error Integration Q4</p>
+              <small>Hace 5 minutos</small>
+            </div>
+            <div class="notification-unread">
+              <span class="notification-dot" aria-label="Sin leer"></span>
+            </div>
+            <div class="notification-actions">
+              <button type="button" class="notification-action-button notification-view-button">Ver</button>
+              <button type="button" class="notification-action-button notification-read-button">Marcar como leida</button>
+            </div>
+          </div>
+
+          <div
+            class="notification-row"
+            data-status="read"
+            data-type="soporte"
+            data-category="Soporte"
+            data-title="Ticket cerrado"
+            data-detail="T0002, Carlos Perez"
+            data-time="Hace 5 minutos"
+          >
+            <div class="notification-icon-box">Ticket</div>
+            <div class="notification-message">
+              <strong>Ticket cerrado</strong>
+              <p>T0002, Carlos Perez</p>
+              <small>Hace 5 minutos</small>
+            </div>
+            <div class="notification-unread">
+              <span class="notification-dot is-hidden" aria-hidden="true"></span>
+            </div>
+            <div class="notification-actions">
+              <button type="button" class="notification-action-button notification-view-button">Ver</button>
+              <button type="button" class="notification-action-button notification-read-button">Marcar como leida</button>
+            </div>
+          </div>
+
+          <div
+            class="notification-row"
+            data-status="unread"
+            data-type="soporte"
+            data-category="Soporte"
+            data-title="Encuesta respondida"
+            data-detail="Satisfaccion Q4, Tech Solution"
+            data-time="Hace 5 minutos"
+          >
+            <div class="notification-icon-box">Ticket</div>
+            <div class="notification-message">
+              <strong>Encuesta respondida</strong>
+              <p>Satisfaccion Q4, Tech Solution</p>
+              <small>Hace 5 minutos</small>
+            </div>
+            <div class="notification-unread">
+              <span class="notification-dot" aria-label="Sin leer"></span>
+            </div>
+            <div class="notification-actions">
+              <button type="button" class="notification-action-button notification-view-button">Ver</button>
+              <button type="button" class="notification-action-button notification-read-button">Marcar como leida</button>
+            </div>
+          </div>
+
+          <div class="notifications-section-label">Anteriores</div>
+        </section>
+
+        <footer class="notifications-footer">
+          <span>Mostrando 1-10 de 100</span>
+          <div class="notifications-pagination">
+            <button type="button" class="pagination-button">‹</button>
+            <button type="button" class="pagination-button is-active">1</button>
+            <button type="button" class="pagination-button">2</button>
+            <button type="button" class="pagination-button">›</button>
+          </div>
+        </footer>
+      </main>
+    </div>
+
+    <div class="notification-modal-backdrop" id="notificationDetailModal" hidden>
+      <section class="notification-modal" aria-labelledby="notificationDetailTitle" aria-modal="true" role="dialog">
+        <button type="button" class="notification-modal-close" id="closeNotificationDetail" aria-label="Cerrar detalle">
+          X
+        </button>
+        <p class="notification-modal-eyebrow" id="notificationDetailCategory">Notificacion</p>
+        <h2 id="notificationDetailTitle">Detalle de la notificacion</h2>
+        <div class="notification-modal-grid">
+          <div class="notification-modal-field">
+            <span class="notification-modal-label">Resumen</span>
+            <p id="notificationDetailSummary"></p>
+          </div>
+          <div class="notification-modal-field">
+            <span class="notification-modal-label">Detalle general</span>
+            <p id="notificationDetailDescription"></p>
+          </div>
+          <div class="notification-modal-field">
+            <span class="notification-modal-label">Momento</span>
+            <p id="notificationDetailTime"></p>
+          </div>
+          <div class="notification-modal-field">
+            <span class="notification-modal-label">Estado</span>
+            <p id="notificationDetailStatus"></p>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <script src="js/notifications.js"></script>
+  </body>
+</html>
+
+
+
+

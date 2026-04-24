@@ -29,10 +29,10 @@
               <span class="sidebar-label">Ventas</span>
             </a>
             <a class="sidebar-link is-active" href="operations.html" aria-current="page">
-              <img src="Images/IconoOperacionesBlanco.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
               <span class="sidebar-label">Operaciones</span>
             </a>
-            <a class="sidebar-link" href="#">
+            <a class="sidebar-link" href="analysis.html">
               <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
               <span class="sidebar-label">Analisis</span>
             </a>
@@ -40,20 +40,20 @@
         </div>
 
         <div class="sidebar-bottom">
-          <button type="button" class="sidebar-link sidebar-action">
+          <a class="sidebar-link sidebar-action" href="notifications.html">
             <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
             <span class="sidebar-label">Notificaciones</span>
-          </button>
-          <button type="button" class="sidebar-link sidebar-action">
+          </a>
+          <a class="sidebar-link sidebar-action" href="settings.html">
             <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
             <span class="sidebar-label">Configuracion</span>
-          </button>
-          <button type="button" class="sidebar-link sidebar-action">
+          </a>
+          <a class="sidebar-link sidebar-action" href="help.html">
             <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
             <span class="sidebar-label">Ayuda</span>
-          </button>
+          </a>
           <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
-            <span class="sidebar-icon sidebar-power" aria-hidden="true"></span>
+            <img src="Images/IconoSesionNegro.png" alt="" class="sidebar-icon" />
             <span class="sidebar-label">Cerrar sesion</span>
           </button>
         </div>
@@ -70,7 +70,7 @@
         <section class="top-tabs" aria-label="Pestanas de operaciones">
           <a class="top-tab" href="operations.html">Proyectos</a>
           <a class="top-tab is-active" href="support.html" aria-current="page">Soporte</a>
-          <a class="top-tab" href="#">Encuestas</a>
+          <a class="top-tab" href="surveys.html">Encuestas</a>
         </section>
 
         <header class="support-header">
@@ -289,9 +289,11 @@
                 <label class="ticket-edit-field">
                   <span>Tipo de ticket</span>
                   <select id="ticketEditType">
+                    <option>Soporte tecnico</option>
                     <option>Incidencia</option>
                     <option>Consulta</option>
                     <option>Solicitud</option>
+                    <option>Requerimiento</option>
                   </select>
                 </label>
                 <label class="ticket-edit-field">
@@ -324,6 +326,7 @@
                     <select id="ticketEditOwner">
                       <option>Carlos Perez</option>
                       <option>Carlos</option>
+                      <option>Darlo</option>
                       <option>Sariar</option>
                       <option>Retomoro</option>
                     </select>
@@ -359,6 +362,123 @@
       </div>
     </div>
 
+    <div class="modal-backdrop" id="ticketCreateModal" hidden>
+      <div class="ticket-create-modal" role="dialog" aria-modal="true" aria-labelledby="ticketCreateModalTitle">
+        <button type="button" class="ticket-view-close" id="closeTicketCreateModal" aria-label="Cerrar">X</button>
+
+        <header class="ticket-create-header">
+          <h2 id="ticketCreateModalTitle">Nuevo ticket</h2>
+          <p>Registra una nueva solicitud o incidencia</p>
+        </header>
+
+        <div class="ticket-create-grid">
+          <section class="ticket-create-card ticket-create-card-large">
+            <h3>Informacion del ticket</h3>
+            <label class="ticket-edit-field">
+              <span>Asunto</span>
+              <input type="text" id="ticketCreateSubject" autocomplete="off" />
+            </label>
+            <label class="ticket-edit-field">
+              <span>Descripcion</span>
+              <textarea id="ticketCreateDescription" rows="6" placeholder="Describe el problema o solicitud del cliente..."></textarea>
+            </label>
+          </section>
+
+          <div class="ticket-create-stack">
+            <section class="ticket-create-card">
+              <h3>Cliente</h3>
+              <div class="ticket-edit-two-columns">
+                <label class="ticket-edit-field">
+                  <span>Cliente</span>
+                  <input type="text" id="ticketCreateClient" placeholder="Buscar..." list="ticketCreateClientList" autocomplete="off" />
+                </label>
+                <label class="ticket-edit-field">
+                  <span>Contacto (opcional)</span>
+                  <input type="text" id="ticketCreateContact" placeholder="Contacto" autocomplete="off" />
+                </label>
+              </div>
+              <datalist id="ticketCreateClientList">
+                <option value="Tech Solutions Inc."></option>
+                <option value="San Dianzo"></option>
+                <option value="Carlos Perez"></option>
+                <option value="Carlos"></option>
+              </datalist>
+            </section>
+
+            <section class="ticket-create-card">
+              <h3>Clasificacion</h3>
+              <div class="ticket-edit-two-columns">
+                <label class="ticket-edit-field">
+                  <span>Tipo de ticket</span>
+                  <select id="ticketCreateType">
+                    <option>Soporte tecnico</option>
+                    <option>Consulta</option>
+                    <option>Incidencia</option>
+                    <option>Requerimiento</option>
+                  </select>
+                </label>
+                <label class="ticket-edit-field">
+                  <span>Prioridad</span>
+                  <select id="ticketCreatePriority">
+                    <option>Alta</option>
+                    <option>Media</option>
+                    <option>Baja</option>
+                  </select>
+                </label>
+              </div>
+            </section>
+          </div>
+
+          <section class="ticket-create-card ticket-create-card-wide">
+            <div class="ticket-edit-split">
+              <div>
+                <h3>Asignacion</h3>
+                <div class="ticket-edit-two-columns">
+                  <label class="ticket-edit-field">
+                    <span>Responsable</span>
+                    <select id="ticketCreateOwner">
+                      <option>Carlos</option>
+                      <option>Darlo</option>
+                      <option>Carlos Perez</option>
+                      <option>Retomoro</option>
+                    </select>
+                  </label>
+                  <label class="ticket-edit-field">
+                    <span>Estado</span>
+                    <select id="ticketCreateStatus">
+                      <option>Abierto</option>
+                      <option>En proceso</option>
+                      <option>Pendiente</option>
+                      <option>Cerrado</option>
+                    </select>
+                  </label>
+                </div>
+              </div>
+
+              <div>
+                <h3>Archivos</h3>
+                <div class="ticket-edit-upload-box">
+                  <p id="ticketCreateFileName">Adjunta evidencias o documentos relacionados</p>
+                  <label class="ticket-edit-upload-button" for="ticketCreateFile">Subir archivo</label>
+                  <input type="file" id="ticketCreateFile" class="ticket-create-file-input" />
+                </div>
+              </div>
+            </div>
+          </section>
+        </div>
+
+        <div class="ticket-edit-footer">
+          <button type="button" class="ticket-edit-secondary" id="cancelTicketCreate">Cancelar</button>
+          <button type="button" class="ticket-edit-primary" id="saveTicketCreate">Crear ticket</button>
+        </div>
+      </div>
+    </div>
+
     <script src="js/support.js"></script>
   </body>
 </html>
+
+
+
+
+

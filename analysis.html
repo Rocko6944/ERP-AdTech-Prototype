@@ -1,0 +1,1371 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Analisis | ERP Adtech</title>
+    <link rel="stylesheet" href="css/analysis.css" />
+  </head>
+  <body>
+    <div class="analysis-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menu">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegacion del modulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="sales.html">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="operations.html">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link is-active" href="analysis.html" aria-current="page">
+              <img src="Images/IconoAnalisisBlancopng.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Analisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <a class="sidebar-link sidebar-action" href="notifications.html">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </a>
+          <a class="sidebar-link sidebar-action" href="settings.html">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuracion</span>
+          </a>
+          <a class="sidebar-link sidebar-action" href="help.html">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </a>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <img src="Images/IconoSesionNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Cerrar sesion</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="analysis-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="modules.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <header class="analysis-header">
+          <div>
+            <h1>Analisis</h1>
+            <p>Visualiza metrica claves del negocio</p>
+          </div>
+        </header>
+
+        <section class="analysis-tabs" aria-label="Pestanas de analisis" role="tablist">
+          <button
+            type="button"
+            class="analysis-tab is-active"
+            id="tab-general"
+            data-tab-target="general"
+            role="tab"
+            aria-selected="true"
+            aria-controls="panel-general"
+          >
+            General
+          </button>
+          <button
+            type="button"
+            class="analysis-tab"
+            id="tab-ventas"
+            data-tab-target="ventas"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-ventas"
+          >
+            Ventas
+          </button>
+          <button
+            type="button"
+            class="analysis-tab"
+            id="tab-proyectos"
+            data-tab-target="proyectos"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-proyectos"
+          >
+            Proyectos
+          </button>
+          <button
+            type="button"
+            class="analysis-tab"
+            id="tab-soporte"
+            data-tab-target="soporte"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-soporte"
+          >
+            Soporte
+          </button>
+          <button
+            type="button"
+            class="analysis-tab"
+            id="tab-satisfaccion"
+            data-tab-target="satisfaccion"
+            role="tab"
+            aria-selected="false"
+            aria-controls="panel-satisfaccion"
+          >
+            Satisfaccion
+          </button>
+        </section>
+
+        <section
+          class="analysis-view"
+          id="panel-general"
+          data-tab-panel="general"
+          role="tabpanel"
+          aria-labelledby="tab-general"
+        >
+          <section class="metric-grid" aria-label="Indicadores generales">
+            <article class="metric-card">
+              <span>Ingresos generados:</span>
+              <strong>S/ 30000</strong>
+            </article>
+            <article class="metric-card">
+              <span>Proyectos activos:</span>
+              <strong>32</strong>
+            </article>
+            <article class="metric-card">
+              <span>Tickets abiertos:</span>
+              <strong>45</strong>
+            </article>
+            <article class="metric-card">
+              <span>Satisfaccion promedio:</span>
+              <strong>4.3/5</strong>
+            </article>
+            <article class="metric-card">
+              <span>Tasa de conversion:</span>
+              <strong>70.2%</strong>
+            </article>
+          </section>
+
+          <section class="filter-section" aria-label="Filtros del tablero general">
+            <div class="filter-heading">Filtrar datos</div>
+            <div class="filter-row">
+              <label class="filter-field">
+                <span class="filter-label">Fecha inicio</span>
+                <input type="date" value="2026-04-01" />
+              </label>
+              <label class="filter-field">
+                <span class="filter-label">Fecha fin</span>
+                <input type="date" value="2026-04-24" />
+              </label>
+              <label class="filter-field filter-field-select">
+                <span class="filter-label">Cliente</span>
+                <select>
+                  <option>Todos</option>
+                  <option>Tech Solutions Inc.</option>
+                  <option>Nova Growth</option>
+                  <option>Grupo Delta</option>
+                </select>
+              </label>
+              <button type="button" class="filter-clear">Limpiar filtro</button>
+            </div>
+          </section>
+
+          <section class="dashboard-grid">
+            <article class="panel panel-chart">
+              <div class="panel-head">
+                <span class="panel-kicker">GRAFICO SIMPLE</span>
+                <h2>Ingresos por Tiempo</h2>
+              </div>
+
+              <div class="chart-box" aria-hidden="true">
+                <div class="chart-scale">
+                  <span>$600</span>
+                  <span>$400</span>
+                  <span>$200</span>
+                  <span>$0</span>
+                </div>
+                <svg viewBox="0 0 720 260" class="chart-svg" role="img" aria-label="Ingresos por tiempo">
+                  <defs>
+                    <linearGradient id="lineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#83c6f5" />
+                      <stop offset="100%" stop-color="#245d92" />
+                    </linearGradient>
+                  </defs>
+                  <line x1="48" y1="28" x2="48" y2="214" class="chart-axis" />
+                  <line x1="48" y1="214" x2="684" y2="214" class="chart-axis" />
+                  <line x1="48" y1="72" x2="684" y2="72" class="chart-grid" />
+                  <line x1="48" y1="118" x2="684" y2="118" class="chart-grid" />
+                  <line x1="48" y1="166" x2="684" y2="166" class="chart-grid" />
+                  <polyline
+                    points="48,198 148,174 262,180 364,152 474,140 582,126 684,86"
+                    class="chart-line"
+                  />
+                  <g class="chart-points">
+                    <circle cx="48" cy="198" r="5" />
+                    <circle cx="148" cy="174" r="5" />
+                    <circle cx="262" cy="180" r="5" />
+                    <circle cx="364" cy="152" r="5" />
+                    <circle cx="474" cy="140" r="5" />
+                    <circle cx="582" cy="126" r="5" />
+                    <circle cx="684" cy="86" r="5" />
+                  </g>
+                  <g class="chart-labels">
+                    <text x="48" y="244">01/04</text>
+                    <text x="136" y="244">05/04</text>
+                    <text x="248" y="244">10/04</text>
+                    <text x="350" y="244">15/04</text>
+                    <text x="462" y="244">18/04</text>
+                    <text x="570" y="244">21/04</text>
+                    <text x="668" y="244">24/04</text>
+                  </g>
+                </svg>
+              </div>
+            </article>
+
+            <article class="panel panel-satisfaction">
+              <div class="panel-head">
+                <span class="panel-kicker">RESUMEN SATISFACCION</span>
+                <h2>Satisfaccion</h2>
+              </div>
+
+              <div class="rating-score">
+                <strong>4.3</strong>
+                <span class="rating-star">&#9733;</span>
+              </div>
+              <p class="rating-caption">4.3/5</p>
+
+              <div class="feedback-list">
+                <article class="feedback-item">
+                  <div class="feedback-title">
+                    <strong>Tech Solutions Inc.</strong>
+                    <span>(4/5)</span>
+                  </div>
+                  <p>El servicio fue bueno, pero podria mejorar el tiempo de respuesta.</p>
+                </article>
+                <article class="feedback-item">
+                  <div class="feedback-title">
+                    <strong>Carlos Perez</strong>
+                    <span>(5/5)</span>
+                  </div>
+                  <p>Excelente soporte y comunicacion.</p>
+                </article>
+                <article class="feedback-item">
+                  <div class="feedback-title">
+                    <strong>Darlo Retomoro</strong>
+                    <span>(3/5)</span>
+                  </div>
+                  <p>Necesitamos mas capacitacion en la entrega.</p>
+                </article>
+              </div>
+            </article>
+
+            <article class="panel panel-table">
+              <div class="panel-head">
+                <span class="panel-kicker">RESUMEN PROYECTOS</span>
+                <h2>Top 5 Proyectos</h2>
+              </div>
+
+              <table class="summary-table">
+                <thead>
+                  <tr>
+                    <th>Proyecto</th>
+                    <th>Status</th>
+                    <th>Encargado</th>
+                    <th>Progreso</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Proyecto Renovacion Tech</td>
+                    <td><span class="status-pill">Enviada</span></td>
+                    <td>Carlos</td>
+                    <td>80%</td>
+                  </tr>
+                  <tr>
+                    <td>Cierre de ticket de soporte</td>
+                    <td><span class="status-pill status-pill-positive">Respondida</span></td>
+                    <td>Carlos</td>
+                    <td>100%</td>
+                  </tr>
+                  <tr>
+                    <td>Evaluacion de entrega Q3</td>
+                    <td><span class="status-pill">Enviada</span></td>
+                    <td>Tech Solution</td>
+                    <td>50%</td>
+                  </tr>
+                  <tr>
+                    <td>Campanas Digitales Q4</td>
+                    <td><span class="status-pill">Enviada</span></td>
+                    <td>Hana</td>
+                    <td>90%</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="panel panel-support">
+              <div class="panel-head">
+                <span class="panel-kicker">RESUMEN SOPORTE</span>
+                <h2>Resumen Simple de Soporte</h2>
+              </div>
+
+              <dl class="support-stats">
+                <div>
+                  <dt>Tickets Abiertos:</dt>
+                  <dd>45</dd>
+                </div>
+                <div>
+                  <dt>Tickets Cerrados:</dt>
+                  <dd>74</dd>
+                </div>
+                <div>
+                  <dt>Tiempo Promedio de Respuesta:</dt>
+                  <dd>1.2 hrs</dd>
+                </div>
+              </dl>
+            </article>
+          </section>
+        </section>
+
+        <section
+          class="analysis-view"
+          id="panel-ventas"
+          data-tab-panel="ventas"
+          role="tabpanel"
+          aria-labelledby="tab-ventas"
+          hidden
+        >
+          <section class="analysis-toolbar">
+            <div class="filter-section analysis-toolbar-filters" aria-label="Filtros del tablero de ventas">
+              <div class="filter-heading">Filtrar datos</div>
+              <div class="filter-row filter-row-sales">
+                <label class="filter-field">
+                  <span class="filter-label">Fecha inicio</span>
+                  <input type="date" value="2026-04-01" />
+                </label>
+                <label class="filter-field">
+                  <span class="filter-label">Fecha fin</span>
+                  <input type="date" value="2026-04-24" />
+                </label>
+                <label class="filter-field filter-field-select">
+                  <span class="filter-label">Cliente</span>
+                  <select>
+                    <option>Todos</option>
+                    <option>Tech Solutions Inc.</option>
+                    <option>Carlos Perez</option>
+                    <option>Innova Media</option>
+                  </select>
+                </label>
+                <button type="button" class="filter-clear">Limpiar filtro</button>
+              </div>
+            </div>
+
+            <button type="button" class="analysis-action-button" data-export-trigger="ventas">Exportar reporte</button>
+          </section>
+
+          <section class="metric-grid metric-grid-sales" aria-label="Indicadores de ventas">
+            <article class="metric-card">
+              <span>Ingresos generados:</span>
+              <strong>S/ 30000</strong>
+            </article>
+            <article class="metric-card">
+              <span>Oportunidades cerradas:</span>
+              <strong>180</strong>
+            </article>
+            <article class="metric-card">
+              <span>Valor promedio por venta:</span>
+              <strong>S/ 6500</strong>
+            </article>
+            <article class="metric-card">
+              <span>Leads generados:</span>
+              <strong>250</strong>
+            </article>
+            <article class="metric-card">
+              <span>Tasa de conversion:</span>
+              <strong>70.2%</strong>
+            </article>
+          </section>
+
+          <section class="sales-dashboard-grid">
+            <article class="panel panel-chart panel-sales-chart">
+              <div class="panel-head panel-head-split">
+                <div>
+                  <span class="panel-kicker">GRAFICOS SIMPLE</span>
+                  <h2>Ingresos por Periodo</h2>
+                </div>
+                <div class="panel-chip">Este mes - 15/06/2024</div>
+              </div>
+
+              <div class="chart-box chart-box-sales" aria-hidden="true">
+                <div class="chart-scale chart-scale-sales">
+                  <span>S/ 1,250k</span>
+                  <span>S/ 1,000k</span>
+                  <span>S/ 500k</span>
+                  <span>0</span>
+                </div>
+                <svg viewBox="0 0 760 260" class="chart-svg" role="img" aria-label="Ingresos por periodo">
+                  <defs>
+                    <linearGradient id="salesLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                      <stop offset="0%" stop-color="#8ec6f6" />
+                      <stop offset="100%" stop-color="#1e5f91" />
+                    </linearGradient>
+                    <linearGradient id="salesAreaGradient" x1="0%" y1="0%" x2="0%" y2="100%">
+                      <stop offset="0%" stop-color="rgba(102, 180, 240, 0.35)" />
+                      <stop offset="100%" stop-color="rgba(102, 180, 240, 0)" />
+                    </linearGradient>
+                  </defs>
+                  <line x1="54" y1="28" x2="54" y2="214" class="chart-axis" />
+                  <line x1="54" y1="214" x2="720" y2="214" class="chart-axis" />
+                  <line x1="54" y1="78" x2="720" y2="78" class="chart-grid" />
+                  <line x1="54" y1="128" x2="720" y2="128" class="chart-grid" />
+                  <line x1="54" y1="172" x2="720" y2="172" class="chart-grid" />
+                  <path
+                    d="M54 198 L160 184 L280 160 L406 142 L530 120 L630 108 L720 76 L720 214 L54 214 Z"
+                    class="chart-area"
+                  />
+                  <polyline
+                    points="54,198 160,184 280,160 406,142 530,120 630,108 720,76"
+                    class="chart-line sales-chart-line"
+                  />
+                  <g class="chart-points">
+                    <circle cx="54" cy="198" r="5" />
+                    <circle cx="160" cy="184" r="5" />
+                    <circle cx="280" cy="160" r="5" />
+                    <circle cx="406" cy="142" r="5" />
+                    <circle cx="530" cy="120" r="5" />
+                    <circle cx="630" cy="108" r="5" />
+                    <circle cx="720" cy="76" r="5" />
+                  </g>
+                  <g class="chart-labels">
+                    <text x="54" y="244">05/06/24</text>
+                    <text x="160" y="244">06/06/24</text>
+                    <text x="280" y="244">10/06/24</text>
+                    <text x="406" y="244">15/06/24</text>
+                    <text x="530" y="244">18/06/24</text>
+                    <text x="630" y="244">21/06/24</text>
+                    <text x="720" y="244">24/06/24</text>
+                  </g>
+                </svg>
+              </div>
+            </article>
+
+            <article class="panel panel-funnel">
+              <div class="panel-head">
+                <span class="panel-kicker">FUNNEL DE VENTAS</span>
+                <h2>Funnel de Ventas</h2>
+              </div>
+
+              <div class="funnel-list">
+                <div class="funnel-item">
+                  <div class="funnel-label-row">
+                    <span>Leads (520)</span>
+                  </div>
+                  <div class="funnel-bar-wrap">
+                    <span class="funnel-bar funnel-bar-1"></span>
+                  </div>
+                </div>
+                <div class="funnel-item">
+                  <div class="funnel-label-row">
+                    <span>Oportunidades (310)</span>
+                  </div>
+                  <div class="funnel-bar-wrap">
+                    <span class="funnel-bar funnel-bar-2"></span>
+                  </div>
+                </div>
+                <div class="funnel-item">
+                  <div class="funnel-label-row">
+                    <span>Propuestas Enviadas (240)</span>
+                  </div>
+                  <div class="funnel-bar-wrap">
+                    <span class="funnel-bar funnel-bar-3"></span>
+                  </div>
+                </div>
+                <div class="funnel-item">
+                  <div class="funnel-label-row">
+                    <span>Ventas Cerradas (180)</span>
+                  </div>
+                  <div class="funnel-bar-wrap">
+                    <span class="funnel-bar funnel-bar-4"></span>
+                  </div>
+                </div>
+              </div>
+            </article>
+
+            <article class="panel panel-mini-table">
+              <div class="panel-head">
+                <span class="panel-kicker">TOP 5 CLIENTES</span>
+                <h2>Top 5 Clientes</h2>
+              </div>
+
+              <table class="summary-table summary-table-compact">
+                <thead>
+                  <tr>
+                    <th>Cliente</th>
+                    <th>N° Ventas</th>
+                    <th>Ingresos Generados</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Tech Solutions Inc.</td>
+                    <td>15</td>
+                    <td>S/ 105k</td>
+                  </tr>
+                  <tr>
+                    <td>Carlos Perez</td>
+                    <td>12</td>
+                    <td>S/ 83k</td>
+                  </tr>
+                  <tr>
+                    <td>Tech Solutions Inc.</td>
+                    <td>10</td>
+                    <td>S/ 72k</td>
+                  </tr>
+                  <tr>
+                    <td>Tech Solutions Inc.</td>
+                    <td>8</td>
+                    <td>S/ 80k</td>
+                  </tr>
+                  <tr>
+                    <td>Carlos Perez</td>
+                    <td>4</td>
+                    <td>S/ 30k</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="panel panel-mini-table">
+              <div class="panel-head">
+                <span class="panel-kicker">OPORTUNIDADES RECIENTES</span>
+                <h2>Oportunidades Recientes</h2>
+              </div>
+
+              <table class="summary-table summary-table-compact">
+                <thead>
+                  <tr>
+                    <th>Nombre de Oportunidad</th>
+                    <th>Estado</th>
+                    <th>Responsable</th>
+                    <th>Valor Estimado</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Campanas Q4</td>
+                    <td><span class="status-pill status-pill-positive">Respondida</span></td>
+                    <td>Hana</td>
+                    <td>S/ 15k</td>
+                  </tr>
+                  <tr>
+                    <td>Campanas Q4</td>
+                    <td><span class="status-pill status-pill-positive">Respondida</span></td>
+                    <td>Tech Solution</td>
+                    <td>S/ 10k</td>
+                  </tr>
+                  <tr>
+                    <td>Campanas Q4</td>
+                    <td><span class="status-pill status-pill-positive">Respondida</span></td>
+                    <td>Tech Solution</td>
+                    <td>S/ 10k</td>
+                  </tr>
+                  <tr>
+                    <td>Campanas Q4</td>
+                    <td><span class="status-pill status-pill-positive">Respondida</span></td>
+                    <td>Hana</td>
+                    <td>S/ 10k</td>
+                  </tr>
+                  <tr>
+                    <td>Campanas Q4</td>
+                    <td><span class="status-pill status-pill-positive">Respondida</span></td>
+                    <td>Hana</td>
+                    <td>S/ 15k</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="panel panel-mini-table">
+              <div class="panel-head">
+                <span class="panel-kicker">RENDIMIENTO POR RESPONSABLE</span>
+                <h2>Rendimiento por Responsable</h2>
+              </div>
+
+              <table class="summary-table summary-table-compact">
+                <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Ventas Cerradas</th>
+                    <th>Ingresos Generados</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Carlos</td>
+                    <td>70</td>
+                    <td>S/ 480k</td>
+                  </tr>
+                  <tr>
+                    <td>Darlo</td>
+                    <td>55</td>
+                    <td>S/ 380k</td>
+                  </tr>
+                  <tr>
+                    <td>Hana</td>
+                    <td>50</td>
+                    <td>S/ 350k</td>
+                  </tr>
+                  <tr>
+                    <td>Jurie</td>
+                    <td>46</td>
+                    <td>S/ 280k</td>
+                  </tr>
+                  <tr>
+                    <td>Darlo</td>
+                    <td>27</td>
+                    <td>S/ 150k</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+          </section>
+        </section>
+
+        <section
+          class="analysis-view"
+          id="panel-proyectos"
+          data-tab-panel="proyectos"
+          role="tabpanel"
+          aria-labelledby="tab-proyectos"
+          hidden
+        >
+          <section class="analysis-toolbar">
+            <div class="filter-section analysis-toolbar-filters" aria-label="Filtros del tablero de proyectos">
+              <div class="filter-heading">Filtrar datos</div>
+              <div class="filter-row filter-row-projects">
+                <label class="filter-field">
+                  <span class="filter-label">Fecha inicio</span>
+                  <input type="date" value="2026-04-01" />
+                </label>
+                <label class="filter-field">
+                  <span class="filter-label">Fecha fin</span>
+                  <input type="date" value="2026-04-24" />
+                </label>
+                <label class="filter-field filter-field-select">
+                  <span class="filter-label">Cliente</span>
+                  <select>
+                    <option>Todos</option>
+                    <option>Globex</option>
+                    <option>Tech Solutions Inc.</option>
+                    <option>Innova Media</option>
+                  </select>
+                </label>
+                <button type="button" class="filter-clear">Limpiar filtro</button>
+              </div>
+            </div>
+
+            <button type="button" class="analysis-action-button" data-export-trigger="proyectos">Exportar reporte</button>
+          </section>
+
+          <section class="metric-grid metric-grid-projects" aria-label="Indicadores de proyectos">
+            <article class="metric-card">
+              <span>Proyectos activos</span>
+              <strong>25</strong>
+            </article>
+            <article class="metric-card">
+              <span>Proyectos completados:</span>
+              <strong>18</strong>
+            </article>
+            <article class="metric-card">
+              <span>Proyectos en riesgo</span>
+              <strong>3</strong>
+            </article>
+            <article class="metric-card">
+              <span>Tiempo promedio (dias):</span>
+              <strong>42</strong>
+            </article>
+          </section>
+
+          <section class="projects-dashboard-grid">
+            <article class="panel panel-project-status">
+              <div class="panel-head panel-head-split">
+                <div>
+                  <span class="panel-kicker">ESTADO DE PROYECTOS</span>
+                </div>
+                <div class="panel-chip">Este mes - 15/06/2024</div>
+              </div>
+
+              <div class="project-status-track" aria-label="Distribucion del estado de proyectos">
+                <div class="project-status-segment project-status-segment-pending">25%</div>
+                <div class="project-status-segment project-status-segment-progress">45%</div>
+                <div class="project-status-segment project-status-segment-paused">10%</div>
+                <div class="project-status-segment project-status-segment-completed">20%</div>
+              </div>
+
+              <div class="project-status-legend">
+                <span><i class="legend-dot legend-dot-pending"></i>25% Pendiente</span>
+                <span><i class="legend-dot legend-dot-progress"></i>45% En Progreso</span>
+                <span><i class="legend-dot legend-dot-paused"></i>10% Pausado</span>
+                <span><i class="legend-dot legend-dot-completed"></i>20% Completado</span>
+              </div>
+            </article>
+
+            <article class="panel panel-progress-general">
+              <div class="panel-head">
+                <span class="panel-kicker">PROGRESO GENERAL</span>
+                <h2>72.3%</h2>
+              </div>
+              <p class="progress-caption">Promedio de Avance</p>
+              <div class="progress-bar-shell" aria-hidden="true">
+                <span class="progress-bar-fill"></span>
+              </div>
+            </article>
+
+            <article class="panel panel-mini-table">
+              <div class="panel-head">
+                <span class="panel-kicker">PROYECTOS RECIENTES</span>
+                <h2>Proyectos Recientes</h2>
+              </div>
+
+              <table class="summary-table summary-table-compact">
+                <thead>
+                  <tr>
+                    <th>Nombre del Proyecto</th>
+                    <th>Cliente</th>
+                    <th>Estado</th>
+                    <th>Progreso (%)</th>
+                    <th>Responsable</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Portal Cliente Q3</td>
+                    <td>Globex</td>
+                    <td><span class="status-pill status-pill-progress">En Progreso</span></td>
+                    <td>65%</td>
+                    <td>Carlos</td>
+                  </tr>
+                  <tr>
+                    <td>Portal Cliente Q3</td>
+                    <td>Globex</td>
+                    <td><span class="status-pill status-pill-completed">Completado</span></td>
+                    <td>65%</td>
+                    <td>Carlos</td>
+                  </tr>
+                  <tr>
+                    <td>Portal Cliente Q3</td>
+                    <td>Globex</td>
+                    <td><span class="status-pill">Pendiente</span></td>
+                    <td>43%</td>
+                    <td>Carlos</td>
+                  </tr>
+                  <tr>
+                    <td>Portal Cliente Q3</td>
+                    <td>Globex</td>
+                    <td><span class="status-pill status-pill-paused">Pausado</span></td>
+                    <td>40%</td>
+                    <td>Carlos</td>
+                  </tr>
+                  <tr>
+                    <td>Portal Cliente Q3</td>
+                    <td>Globex</td>
+                    <td><span class="status-pill status-pill-risk">En Riesgo</span></td>
+                    <td>10%</td>
+                    <td>Carlos</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="panel panel-mini-table">
+              <div class="panel-head">
+                <span class="panel-kicker">RENDIMIENTO POR RESPONSABLE</span>
+                <h2>Rendimiento por Responsable</h2>
+              </div>
+
+              <table class="summary-table summary-table-compact">
+                <thead>
+                  <tr>
+                    <th>Usuario</th>
+                    <th>Proyectos Asignados</th>
+                    <th>Proyectos Completados</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr>
+                    <td>Carlos</td>
+                    <td>8</td>
+                    <td>6</td>
+                  </tr>
+                  <tr>
+                    <td>Hana</td>
+                    <td>6</td>
+                    <td>5</td>
+                  </tr>
+                  <tr>
+                    <td>Tech Solution</td>
+                    <td>4</td>
+                    <td>3</td>
+                  </tr>
+                </tbody>
+              </table>
+            </article>
+
+            <article class="panel panel-alerts">
+              <div class="panel-head">
+                <span class="panel-kicker">ALERTAS (IMPORTANTE)</span>
+                <h2>Alertas</h2>
+              </div>
+
+              <div class="alert-list">
+                <div class="alert-item">Retrasado (4 dias): ERP Integration Q4</div>
+                <div class="alert-item">Sin avance (7 dias): CRM Migration</div>
+                <div class="alert-item">Sin avance (7 dias): CRM Migration</div>
+                <div class="alert-item">Sin avance (7 dias): CRM Migration</div>
+                <div class="alert-item">Sin avance (7 dias): CRM Migration</div>
+              </div>
+            </article>
+          </section>
+        </section>
+
+        <section
+          class="analysis-view analysis-view-support"
+          id="panel-soporte"
+          data-tab-panel="soporte"
+          role="tabpanel"
+          aria-labelledby="tab-soporte"
+          hidden
+        >
+          <div class="support-surface">
+            <div class="support-centered">
+              <section class="analysis-toolbar">
+                <div class="filter-section analysis-toolbar-filters" aria-label="Filtros del tablero de soporte">
+                  <div class="filter-heading">Filtrar datos</div>
+                  <div class="filter-row filter-row-support">
+                    <label class="filter-field">
+                      <span class="filter-label">Fecha inicio</span>
+                      <input type="date" value="2026-04-01" />
+                    </label>
+                    <label class="filter-field">
+                      <span class="filter-label">Fecha fin</span>
+                      <input type="date" value="2026-04-24" />
+                    </label>
+                    <label class="filter-field filter-field-select">
+                      <span class="filter-label">Cliente</span>
+                      <select>
+                        <option>Todos</option>
+                        <option>Globex</option>
+                        <option>ERP Integration Q4</option>
+                        <option>CRM Migration</option>
+                      </select>
+                    </label>
+                    <button type="button" class="filter-clear">Limpiar filtro</button>
+                  </div>
+                </div>
+
+                <button type="button" class="analysis-action-button" data-export-trigger="soporte">Exportar reporte</button>
+              </section>
+
+              <section class="metric-grid metric-grid-support" aria-label="Indicadores de soporte">
+                <article class="metric-card">
+                  <span>Tickets abiertos:</span>
+                  <strong>110</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Tickets en proceso:</span>
+                  <strong>65</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Tickets pendientes</span>
+                  <strong>15</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Tickets cerrados:</span>
+                  <strong>850</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Tiempo promedio de respuesta: (horas)</span>
+                  <strong>24</strong>
+                </article>
+              </section>
+
+              <section class="support-dashboard-grid">
+                <article class="panel panel-chart panel-support-volume">
+                  <div class="panel-head panel-head-split">
+                    <div>
+                      <span class="panel-kicker">VOLUMEN DE TICKETS</span>
+                      <h2>Tickets por Periodo</h2>
+                    </div>
+                    <div class="panel-chip">Este mes - 15/06/2024</div>
+                  </div>
+
+                  <div class="chart-box chart-box-sales" aria-hidden="true">
+                    <div class="chart-scale chart-scale-sales">
+                      <span>30</span>
+                      <span>20</span>
+                      <span>10</span>
+                      <span>0</span>
+                    </div>
+                    <svg viewBox="0 0 760 260" class="chart-svg" role="img" aria-label="Tickets por periodo">
+                      <defs>
+                        <linearGradient id="supportLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="#93c8ea" />
+                          <stop offset="100%" stop-color="#215f8f" />
+                        </linearGradient>
+                      </defs>
+                      <line x1="54" y1="28" x2="54" y2="214" class="chart-axis" />
+                      <line x1="54" y1="214" x2="720" y2="214" class="chart-axis" />
+                      <line x1="54" y1="78" x2="720" y2="78" class="chart-grid" />
+                      <line x1="54" y1="128" x2="720" y2="128" class="chart-grid" />
+                      <line x1="54" y1="172" x2="720" y2="172" class="chart-grid" />
+                      <polyline
+                        points="54,190 144,150 234,156 324,144 414,176 504,108 594,128 654,114 720,176"
+                        class="chart-line support-chart-line"
+                      />
+                      <g class="chart-labels">
+                        <text x="54" y="244">mes</text>
+                        <text x="144" y="244">Febrero</text>
+                        <text x="234" y="244">Mars</text>
+                        <text x="324" y="244">Abril</text>
+                        <text x="414" y="244">Mayo</text>
+                        <text x="504" y="244">Junio</text>
+                        <text x="594" y="244">Julio</text>
+                        <text x="654" y="244">morro</text>
+                        <text x="720" y="244">mes</text>
+                      </g>
+                    </svg>
+                  </div>
+                </article>
+
+                <article class="panel panel-support-distribution">
+                  <div class="panel-head">
+                    <span class="panel-kicker">DISTRIBUCION POR ESTADO</span>
+                    <h2>Estado</h2>
+                  </div>
+
+                  <div class="support-distribution-grid">
+                    <div class="support-distribution-item">
+                      <span>Abierto:</span>
+                      <strong>110</strong>
+                    </div>
+                    <div class="support-distribution-item support-distribution-item-accent">
+                      <span>En Proceso:</span>
+                      <strong>65</strong>
+                    </div>
+                    <div class="support-distribution-item support-distribution-item-muted">
+                      <span>Pendiente:</span>
+                      <strong>15</strong>
+                    </div>
+                    <div class="support-distribution-item">
+                      <span>Cerrado:</span>
+                      <strong>850</strong>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="panel panel-mini-table">
+                  <div class="panel-head">
+                    <span class="panel-kicker">TICKETS RECIENTES</span>
+                    <h2>Tickets Recientes</h2>
+                  </div>
+
+                  <table class="summary-table summary-table-compact">
+                    <thead>
+                      <tr>
+                        <th>Codigo</th>
+                        <th>Cliente</th>
+                        <th>Asunto</th>
+                        <th>Estado</th>
+                        <th>Prioridad</th>
+                        <th>Responsable</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>T0001</td>
+                        <td>Globex</td>
+                        <td>Error Integration Q4</td>
+                        <td><span class="status-pill status-pill-completed">Cerrado</span></td>
+                        <td><span class="status-pill status-pill-priority-high">Alta</span></td>
+                        <td>Carlos</td>
+                      </tr>
+                      <tr>
+                        <td>T0002</td>
+                        <td>Globex</td>
+                        <td>Error Integration Q4</td>
+                        <td><span class="status-pill status-pill-completed">Cerrado</span></td>
+                        <td><span class="status-pill status-pill-priority-high">Alta</span></td>
+                        <td>Carlos</td>
+                      </tr>
+                      <tr>
+                        <td>T0003</td>
+                        <td>Globex</td>
+                        <td>Error Integration Q4</td>
+                        <td><span class="status-pill status-pill-progress">En Proceso</span></td>
+                        <td><span class="status-pill status-pill-priority-critical">Alta prior</span></td>
+                        <td>Carlos</td>
+                      </tr>
+                      <tr>
+                        <td>T0004</td>
+                        <td>Globex</td>
+                        <td>Error Integration Q4</td>
+                        <td><span class="status-pill">Pendiente</span></td>
+                        <td><span class="status-pill status-pill-priority-high">Alta prior</span></td>
+                        <td>Carlos</td>
+                      </tr>
+                      <tr>
+                        <td>T0005</td>
+                        <td>Globex</td>
+                        <td>Error Integration Q4</td>
+                        <td><span class="status-pill status-pill-completed">Cerrado</span></td>
+                        <td><span class="status-pill status-pill-priority-high">Alta</span></td>
+                        <td>Carlos</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="panel panel-mini-table">
+                  <div class="panel-head">
+                    <span class="panel-kicker">RENDIMIENTO POR RESPONSABLE</span>
+                    <h2>Rendimiento por Responsable</h2>
+                  </div>
+
+                  <table class="summary-table summary-table-compact">
+                    <thead>
+                      <tr>
+                        <th>Usuario</th>
+                        <th>Tickets Asignados</th>
+                        <th>Tickets Cerrados</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Carlos</td>
+                        <td>10</td>
+                        <td>20</td>
+                      </tr>
+                      <tr>
+                        <td>Hana</td>
+                        <td>6</td>
+                        <td>7</td>
+                      </tr>
+                      <tr>
+                        <td>Tech Solution</td>
+                        <td>4</td>
+                        <td>3</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="panel panel-alerts">
+                  <div class="panel-head">
+                    <span class="panel-kicker">ALERTAS (IMPORTANTE)</span>
+                    <h2>Alertas</h2>
+                  </div>
+
+                  <div class="alert-list">
+                    <div class="alert-item">Tickets sin respuesta (4 dias): ERP Integration Q4</div>
+                    <div class="alert-item">Alta prioridad sin resolver (7 dias): CRM Migration</div>
+                    <div class="alert-item">Alta prioridad sin resolver (7 dias): CRM Migration</div>
+                    <div class="alert-item">Alta prioridad sin resolver (7 dias): CRM Migration</div>
+                    <div class="alert-item">Alta prioridad sin resolver (7 dias): CRM Migration</div>
+                  </div>
+                </article>
+              </section>
+            </div>
+          </div>
+        </section>
+
+        <section
+          class="analysis-view analysis-view-support"
+          id="panel-satisfaccion"
+          data-tab-panel="satisfaccion"
+          role="tabpanel"
+          aria-labelledby="tab-satisfaccion"
+          hidden
+        >
+          <div class="support-surface satisfaction-surface">
+            <div class="support-centered">
+              <section class="analysis-toolbar">
+                <div class="filter-section analysis-toolbar-filters" aria-label="Filtros del tablero de satisfaccion">
+                  <div class="filter-heading">Filtrar datos</div>
+                  <div class="filter-row filter-row-satisfaction">
+                    <label class="filter-field">
+                      <span class="filter-label">Fecha inicio</span>
+                      <input type="date" value="2026-04-01" />
+                    </label>
+                    <label class="filter-field">
+                      <span class="filter-label">Fecha fin</span>
+                      <input type="date" value="2026-04-24" />
+                    </label>
+                    <label class="filter-field filter-field-select">
+                      <span class="filter-label">Cliente</span>
+                      <select>
+                        <option>Todos</option>
+                        <option>Globex</option>
+                        <option>Hana</option>
+                        <option>Carlos</option>
+                      </select>
+                    </label>
+                    <button type="button" class="filter-clear">Limpiar filtro</button>
+                  </div>
+                </div>
+
+                <button type="button" class="analysis-action-button" data-export-trigger="satisfaccion">Exportar reporte</button>
+              </section>
+
+              <section class="metric-grid metric-grid-satisfaction" aria-label="Indicadores de satisfaccion">
+                <article class="metric-card">
+                  <span>Satisfaccion promedio:</span>
+                  <strong>4.3/5</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Encuestas enviadas:</span>
+                  <strong>1500</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Encuestas rendidas</span>
+                  <strong>1458</strong>
+                </article>
+                <article class="metric-card">
+                  <span>Taza de respuesta:</span>
+                  <strong>65.3%</strong>
+                </article>
+              </section>
+
+              <section class="satisfaction-dashboard-grid">
+                <article class="panel panel-chart panel-satisfaction-evolution">
+                  <div class="panel-head panel-head-split">
+                    <div>
+                      <span class="panel-kicker">EVOLUCION DE SATISFACCION</span>
+                      <h2>Promedio de satisfaccion por periodo</h2>
+                    </div>
+                    <div class="panel-chip">Este mes - 15/06/2024</div>
+                  </div>
+
+                  <div class="chart-box chart-box-sales" aria-hidden="true">
+                    <div class="chart-scale chart-scale-sales">
+                      <span>30</span>
+                      <span>20</span>
+                      <span>10</span>
+                      <span>0</span>
+                    </div>
+                    <svg viewBox="0 0 760 260" class="chart-svg" role="img" aria-label="Promedio de satisfaccion por periodo">
+                      <defs>
+                        <linearGradient id="satisfactionLineGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+                          <stop offset="0%" stop-color="#93c8ea" />
+                          <stop offset="100%" stop-color="#215f8f" />
+                        </linearGradient>
+                      </defs>
+                      <line x1="54" y1="28" x2="54" y2="214" class="chart-axis" />
+                      <line x1="54" y1="214" x2="720" y2="214" class="chart-axis" />
+                      <line x1="54" y1="78" x2="720" y2="78" class="chart-grid" />
+                      <line x1="54" y1="128" x2="720" y2="128" class="chart-grid" />
+                      <line x1="54" y1="172" x2="720" y2="172" class="chart-grid" />
+                      <polyline
+                        points="54,186 144,150 234,156 324,144 414,176 504,108 594,146 654,112 720,176"
+                        class="chart-line satisfaction-chart-line"
+                      />
+                      <g class="chart-labels">
+                        <text x="54" y="244">mes</text>
+                        <text x="144" y="244">Febrero</text>
+                        <text x="234" y="244">Mars</text>
+                        <text x="324" y="244">Abril</text>
+                        <text x="414" y="244">Mayo</text>
+                        <text x="504" y="244">Junio</text>
+                        <text x="594" y="244">Julio</text>
+                        <text x="654" y="244">morro</text>
+                        <text x="720" y="244">mes</text>
+                      </g>
+                    </svg>
+                  </div>
+                </article>
+
+                <article class="panel panel-satisfaction-distribution">
+                  <div class="panel-head">
+                    <span class="panel-kicker">DISTRIBUCION DE RESPUESTAS</span>
+                    <h2>Respuestas</h2>
+                  </div>
+
+                  <div class="satisfaction-distribution-list">
+                    <div class="satisfaction-distribution-item satisfaction-distribution-item-green">
+                      <span class="satisfaction-distribution-percent">60%</span>
+                      <span>Muy satisfecho (60%) - verde</span>
+                    </div>
+                    <div class="satisfaction-distribution-item satisfaction-distribution-item-lime">
+                      <span class="satisfaction-distribution-percent">25%</span>
+                      <span>Satisfecho (25%) - verde</span>
+                    </div>
+                    <div class="satisfaction-distribution-item satisfaction-distribution-item-yellow">
+                      <span class="satisfaction-distribution-percent">10%</span>
+                      <span>Neutral (10%) - amarilla</span>
+                    </div>
+                    <div class="satisfaction-distribution-item satisfaction-distribution-item-red">
+                      <span class="satisfaction-distribution-percent">5%</span>
+                      <span>Insatisfecho (5%) - roja</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="panel panel-mini-table">
+                  <div class="panel-head">
+                    <span class="panel-kicker">ULTIMAS RESPUESTAS</span>
+                    <h2>Ultimas Respuestas</h2>
+                  </div>
+
+                  <table class="summary-table summary-table-compact">
+                    <thead>
+                      <tr>
+                        <th>Cliente</th>
+                        <th>Tipo</th>
+                        <th>Puntuacion</th>
+                        <th>Comentario breve</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>Globex</td>
+                        <td>Proyecto</td>
+                        <td>4.5/5</td>
+                        <td>"Gran trabajo en el proyecto Q4"</td>
+                      </tr>
+                      <tr>
+                        <td>Hana</td>
+                        <td>Ticket</td>
+                        <td>3/5</td>
+                        <td>"Respuesta tardia"</td>
+                      </tr>
+                      <tr>
+                        <td>Carlos</td>
+                        <td>Entregable</td>
+                        <td>5/5</td>
+                        <td>"Entregable de alta calidad"</td>
+                      </tr>
+                      <tr>
+                        <td>Carlos</td>
+                        <td>Entregable</td>
+                        <td>5/5</td>
+                        <td>"Entregable de alta calidad"</td>
+                      </tr>
+                      <tr>
+                        <td>Hana</td>
+                        <td>Proyecto</td>
+                        <td>4/5</td>
+                        <td>"Entregable de alta calidad"</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </article>
+
+                <article class="panel panel-satisfaction-context">
+                  <div class="panel-head">
+                    <span class="panel-kicker">SATISFACCION POR CONTEXTO</span>
+                    <h2>Contexto</h2>
+                  </div>
+
+                  <div class="context-score-list">
+                    <div class="context-score-item">
+                      <span class="context-dot context-dot-green"></span>
+                      <span>Proyectos -> promedio (4.2/5)</span>
+                    </div>
+                    <div class="context-score-item">
+                      <span class="context-dot context-dot-yellow"></span>
+                      <span>Tickets -> promedio (4.0/5)</span>
+                    </div>
+                    <div class="context-score-item">
+                      <span class="context-dot context-dot-green"></span>
+                      <span>Entregables -> promedio (4.6/5)</span>
+                    </div>
+                  </div>
+                </article>
+
+                <article class="panel panel-alerts">
+                  <div class="panel-head">
+                    <span class="panel-kicker">ALERTAS (IMPORTANTE)</span>
+                    <h2>Alertas</h2>
+                  </div>
+
+                  <div class="alert-list">
+                    <div class="alert-item">Baja satisfaccion reciente (3/5): Carlos, Ticket #1234</div>
+                    <div class="alert-item">Encuestas sin responder (7 dias): Globex, Proyecto Q3</div>
+                    <div class="alert-item">Caida en el promedio (Este mes)</div>
+                  </div>
+                </article>
+              </section>
+            </div>
+          </div>
+        </section>
+      </main>
+    </div>
+
+    <div class="export-modal-backdrop" id="exportModal" hidden>
+      <div class="export-modal" role="dialog" aria-modal="true" aria-labelledby="exportModalTitle">
+        <div class="export-modal-header">
+          <div>
+            <h2 id="exportModalTitle">Exportar reporte</h2>
+            <p>Selecciona el formato de exportacion</p>
+          </div>
+          <button type="button" class="export-close-button" id="closeExportModal" aria-label="Cerrar">X</button>
+        </div>
+
+        <div class="export-format-grid" role="radiogroup" aria-label="Formato de exportacion">
+          <button
+            type="button"
+            class="export-format-card is-selected"
+            data-export-format="pdf"
+            role="radio"
+            aria-checked="true"
+          >
+            <strong>PDF</strong>
+            <span>Ideal para reportes y presentaciones</span>
+          </button>
+          <button
+            type="button"
+            class="export-format-card"
+            data-export-format="xlsx"
+            role="radio"
+            aria-checked="false"
+          >
+            <strong>Excel (.xlsx)</strong>
+            <span>Ideal para analisis y edicion de datos</span>
+          </button>
+        </div>
+
+        <label class="export-checkbox-row">
+          <input type="checkbox" id="exportFilteredOnly" />
+          <span>Exportar datos segun filtros actuales</span>
+        </label>
+
+        <div class="export-modal-footer">
+          <button type="button" class="export-secondary-button" id="cancelExportModal">Cancelar</button>
+          <button type="button" class="export-primary-button" id="confirmExportModal">Exportar</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/analysis.js"></script>
+  </body>
+</html>
+
+
+
+
+

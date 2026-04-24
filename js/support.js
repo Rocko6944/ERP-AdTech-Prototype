@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const ticketStatusFilter = document.querySelector('#ticketStatusFilter');
   const ticketPriorityFilter = document.querySelector('#ticketPriorityFilter');
   const clearTicketFiltersButton = document.querySelector('#clearTicketFilters');
+  const openTicketCreateButton = document.querySelector('#openTicketCreateButton');
   const ticketsTable = document.querySelector('#supportTicketsTable');
   const paginationLabel = document.querySelector('#supportPaginationLabel');
   const prevPageButton = document.querySelector('#prevTicketsPage');
@@ -14,12 +15,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const pageButtons = document.querySelectorAll('[data-page]');
   const ticketViewModal = document.querySelector('#ticketViewModal');
   const ticketEditModal = document.querySelector('#ticketEditModal');
+  const ticketCreateModal = document.querySelector('#ticketCreateModal');
   const closeTicketViewModalButton = document.querySelector('#closeTicketViewModal');
   const closeTicketViewFooterButton = document.querySelector('#closeTicketViewFooter');
   const closeTicketEditModalButton = document.querySelector('#closeTicketEditModal');
+  const closeTicketCreateModalButton = document.querySelector('#closeTicketCreateModal');
   const cancelTicketEditButton = document.querySelector('#cancelTicketEdit');
+  const cancelTicketCreateButton = document.querySelector('#cancelTicketCreate');
   const deleteTicketEditButton = document.querySelector('#deleteTicketEdit');
   const saveTicketEditButton = document.querySelector('#saveTicketEdit');
+  const saveTicketCreateButton = document.querySelector('#saveTicketCreate');
   const ticketViewModalTitle = document.querySelector('#ticketViewModalTitle');
   const ticketViewStatusPill = document.querySelector('#ticketViewStatusPill');
   const ticketViewClient = document.querySelector('#ticketViewClient');
@@ -41,6 +46,16 @@ document.addEventListener('DOMContentLoaded', () => {
   const ticketEditNotes = document.querySelector('#ticketEditNotes');
   const ticketEditOwner = document.querySelector('#ticketEditOwner');
   const ticketEditStatus = document.querySelector('#ticketEditStatus');
+  const ticketCreateSubject = document.querySelector('#ticketCreateSubject');
+  const ticketCreateDescription = document.querySelector('#ticketCreateDescription');
+  const ticketCreateClient = document.querySelector('#ticketCreateClient');
+  const ticketCreateContact = document.querySelector('#ticketCreateContact');
+  const ticketCreateType = document.querySelector('#ticketCreateType');
+  const ticketCreatePriority = document.querySelector('#ticketCreatePriority');
+  const ticketCreateOwner = document.querySelector('#ticketCreateOwner');
+  const ticketCreateStatus = document.querySelector('#ticketCreateStatus');
+  const ticketCreateFile = document.querySelector('#ticketCreateFile');
+  const ticketCreateFileName = document.querySelector('#ticketCreateFileName');
   const collapseKey = 'erpOperationsSidebarCollapsed';
   let pendingTicketEditIndex = null;
 
@@ -148,6 +163,32 @@ document.addEventListener('DOMContentLoaded', () => {
   let currentPage = 1;
   const pageSize = 7;
 
+  const escapeHTML = (value) =>
+    String(value)
+      .replace(/&/g, '&amp;')
+      .replace(/</g, '&lt;')
+      .replace(/>/g, '&gt;')
+      .replace(/"/g, '&quot;')
+      .replace(/'/g, '&#039;');
+
+  const getNextTicketCode = () => {
+    const maxCode = tickets.reduce((max, ticket) => {
+      const codeNumber = Number(ticket.code);
+      return Number.isNaN(codeNumber) ? max : Math.max(max, codeNumber);
+    }, 2020000);
+
+    return String(maxCode + 1);
+  };
+
+  const formatTicketDate = () => {
+    const date = new Date();
+    return new Intl.DateTimeFormat('es-PE', {
+      day: '2-digit',
+      month: '2-digit',
+      year: 'numeric'
+    }).format(date);
+  };
+
   const getPriorityClass = (priority) => {
     if (priority === 'Alta') return 'is-high';
     if (priority === 'Media') return 'is-medium';
@@ -173,6 +214,38 @@ document.addEventListener('DOMContentLoaded', () => {
     }
 
     pendingTicketEditIndex = null;
+  };
+
+  const resetTicketCreateForm = () => {
+    if (ticketCreateSubject) ticketCreateSubject.value = '';
+    if (ticketCreateDescription) ticketCreateDescription.value = '';
+    if (ticketCreateClient) ticketCreateClient.value = '';
+    if (ticketCreateContact) ticketCreateContact.value = '';
+    if (ticketCreateType) ticketCreateType.value = 'Soporte tecnico';
+    if (ticketCreatePriority) ticketCreatePriority.value = 'Alta';
+    if (ticketCreateOwner) ticketCreateOwner.value = 'Carlos';
+    if (ticketCreateStatus) ticketCreateStatus.value = 'Abierto';
+    if (ticketCreateFile) ticketCreateFile.value = '';
+    if (ticketCreateFileName) ticketCreateFileName.textContent = 'Adjunta evidencias o documentos relacionados';
+  };
+
+  const openTicketCreateModal = () => {
+    if (!ticketCreateModal) {
+      return;
+    }
+
+    resetTicketCreateForm();
+    ticketCreateModal.hidden = false;
+
+    if (ticketCreateSubject) {
+      ticketCreateSubject.focus();
+    }
+  };
+
+  const hideTicketCreateModal = () => {
+    if (ticketCreateModal) {
+      ticketCreateModal.hidden = true;
+    }
   };
 
   const applyTicketStatus = (element, status) => {
@@ -351,13 +424,13 @@ document.addEventListener('DOMContentLoaded', () => {
       const row = document.createElement('div');
       row.className = 'support-table-row';
       row.innerHTML = `
-        <span>${ticket.code}</span>
-        <span>${ticket.subject}</span>
-        <span>${ticket.client}</span>
-        <span><span class="support-priority-pill ${getPriorityClass(ticket.priority)}">${ticket.priority}</span></span>
-        <span><span class="support-status-pill ${getStatusClass(ticket.status)}">${ticket.status}</span></span>
-        <span class="support-created-cell">${ticket.createdAt}</span>
-        <span class="support-owner-cell">${ticket.owner}</span>
+        <span>${escapeHTML(ticket.code)}</span>
+        <span>${escapeHTML(ticket.subject)}</span>
+        <span>${escapeHTML(ticket.client)}</span>
+        <span><span class="support-priority-pill ${getPriorityClass(ticket.priority)}">${escapeHTML(ticket.priority)}</span></span>
+        <span><span class="support-status-pill ${getStatusClass(ticket.status)}">${escapeHTML(ticket.status)}</span></span>
+        <span class="support-created-cell">${escapeHTML(ticket.createdAt)}</span>
+        <span class="support-owner-cell">${escapeHTML(ticket.owner)}</span>
         <span class="support-actions">
           <button type="button" class="support-action" data-ticket-view-index="${tickets.indexOf(ticket)}">Ver ticket</button>
           <button type="button" class="support-action" data-ticket-edit-index="${tickets.indexOf(ticket)}">Editar</button>
@@ -402,11 +475,100 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
-  if (logoutButton) {
-    logoutButton.addEventListener('click', () => {
+  const openLogoutConfirmModal = () => {
+    const existingModal = document.querySelector('#logoutConfirmOverlay');
+
+    if (existingModal) {
+      existingModal.hidden = false;
+      return;
+    }
+
+    const overlay = document.createElement('div');
+    overlay.id = 'logoutConfirmOverlay';
+    overlay.style.position = 'fixed';
+    overlay.style.inset = '0';
+    overlay.style.display = 'grid';
+    overlay.style.placeItems = 'center';
+    overlay.style.padding = '24px';
+    overlay.style.background = 'rgba(15, 23, 42, 0.34)';
+    overlay.style.backdropFilter = 'blur(6px)';
+    overlay.style.zIndex = '9999';
+
+    const modal = document.createElement('div');
+    modal.style.width = 'min(100%, 420px)';
+    modal.style.padding = '28px';
+    modal.style.borderRadius = '24px';
+    modal.style.background = '#ffffff';
+    modal.style.boxShadow = '0 28px 64px rgba(15, 23, 42, 0.18)';
+
+    const title = document.createElement('h2');
+    title.textContent = 'Cerrar sesion';
+    title.style.margin = '0';
+    title.style.fontSize = '1.9rem';
+    title.style.lineHeight = '1.05';
+    title.style.color = '#111827';
+
+    const message = document.createElement('p');
+    message.textContent = 'Seguro que deseas cerrar sesion?';
+    message.style.margin = '12px 0 0';
+    message.style.color = '#556071';
+    message.style.fontWeight = '600';
+    message.style.lineHeight = '1.5';
+
+    const actions = document.createElement('div');
+    actions.style.display = 'flex';
+    actions.style.justifyContent = 'flex-end';
+    actions.style.gap = '12px';
+    actions.style.marginTop = '22px';
+
+    const cancelButton = document.createElement('button');
+    cancelButton.type = 'button';
+    cancelButton.textContent = 'Cancelar';
+    cancelButton.style.minHeight = '44px';
+    cancelButton.style.padding = '0 18px';
+    cancelButton.style.border = '1px solid #d5dde9';
+    cancelButton.style.borderRadius = '12px';
+    cancelButton.style.background = '#ffffff';
+    cancelButton.style.color = '#435064';
+    cancelButton.style.fontWeight = '700';
+    cancelButton.style.cursor = 'pointer';
+
+    const confirmButton = document.createElement('button');
+    confirmButton.type = 'button';
+    confirmButton.textContent = 'Cerrar sesion';
+    confirmButton.style.minHeight = '44px';
+    confirmButton.style.padding = '0 18px';
+    confirmButton.style.border = 'none';
+    confirmButton.style.borderRadius = '12px';
+    confirmButton.style.background = '#2563eb';
+    confirmButton.style.color = '#ffffff';
+    confirmButton.style.fontWeight = '700';
+    confirmButton.style.cursor = 'pointer';
+
+    const closeModal = () => {
+      overlay.hidden = true;
+    };
+
+    cancelButton.addEventListener('click', closeModal);
+    overlay.addEventListener('click', (event) => {
+      if (event.target === overlay) {
+        closeModal();
+      }
+    });
+
+    confirmButton.addEventListener('click', () => {
       localStorage.removeItem('erpPrototypeUser');
       window.location.href = 'login.html';
     });
+
+    actions.append(cancelButton, confirmButton);
+    modal.append(title, message, actions);
+    overlay.appendChild(modal);
+    document.body.appendChild(overlay);
+  };
+
+  if (logoutButton) {
+    logoutButton.addEventListener('click', openLogoutConfirmModal);
   }
 
   if (backButton) {
@@ -456,6 +618,10 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (openTicketCreateButton) {
+    openTicketCreateButton.addEventListener('click', openTicketCreateModal);
+  }
+
   if (ticketsTable) {
     ticketsTable.addEventListener('click', (event) => {
       const viewButton = event.target.closest('[data-ticket-view-index]');
@@ -500,6 +666,66 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (cancelTicketEditButton) {
     cancelTicketEditButton.addEventListener('click', hideTicketEditModal);
+  }
+
+  if (closeTicketCreateModalButton) {
+    closeTicketCreateModalButton.addEventListener('click', hideTicketCreateModal);
+  }
+
+  if (cancelTicketCreateButton) {
+    cancelTicketCreateButton.addEventListener('click', hideTicketCreateModal);
+  }
+
+  if (ticketCreateFile) {
+    ticketCreateFile.addEventListener('change', () => {
+      if (!ticketCreateFileName) {
+        return;
+      }
+
+      ticketCreateFileName.textContent = ticketCreateFile.files.length
+        ? ticketCreateFile.files[0].name
+        : 'Adjunta evidencias o documentos relacionados';
+    });
+  }
+
+  if (saveTicketCreateButton) {
+    saveTicketCreateButton.addEventListener('click', () => {
+      const subject = ticketCreateSubject ? ticketCreateSubject.value.trim() : '';
+      const client = ticketCreateClient ? ticketCreateClient.value.trim() : '';
+
+      if (!subject) {
+        if (ticketCreateSubject) ticketCreateSubject.focus();
+        return;
+      }
+
+      if (!client) {
+        if (ticketCreateClient) ticketCreateClient.focus();
+        return;
+      }
+
+      const selectedFile = ticketCreateFile && ticketCreateFile.files.length ? ticketCreateFile.files[0] : null;
+
+      tickets.unshift({
+        code: getNextTicketCode(),
+        subject,
+        client,
+        contact: ticketCreateContact ? ticketCreateContact.value.trim() || 'Sin contacto' : 'Sin contacto',
+        type: ticketCreateType ? ticketCreateType.value : 'Soporte tecnico',
+        priority: ticketCreatePriority ? ticketCreatePriority.value : 'Alta',
+        status: ticketCreateStatus ? ticketCreateStatus.value : 'Abierto',
+        createdAt: formatTicketDate(),
+        owner: ticketCreateOwner ? ticketCreateOwner.value : 'Carlos',
+        description: ticketCreateDescription
+          ? ticketCreateDescription.value.trim() || 'Sin descripcion registrada.'
+          : 'Sin descripcion registrada.',
+        fileName: selectedFile ? selectedFile.name : 'Sin archivos adjuntos',
+        fileMeta: selectedFile ? `${Math.max(1, Math.round(selectedFile.size / 1024))} KB` : 'No adjunto'
+      });
+
+      currentPage = 1;
+      renderTickets();
+      hideTicketCreateModal();
+    });
   }
 
   if (deleteTicketEditButton) {
@@ -575,6 +801,14 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (ticketCreateModal) {
+    ticketCreateModal.addEventListener('click', (event) => {
+      if (event.target === ticketCreateModal) {
+        hideTicketCreateModal();
+      }
+    });
+  }
+
   document.addEventListener('keydown', (event) => {
     if (event.key === 'Escape') {
       if (ticketViewModal && !ticketViewModal.hidden) {
@@ -583,6 +817,10 @@ document.addEventListener('DOMContentLoaded', () => {
 
       if (ticketEditModal && !ticketEditModal.hidden) {
         hideTicketEditModal();
+      }
+
+      if (ticketCreateModal && !ticketCreateModal.hidden) {
+        hideTicketCreateModal();
       }
     }
   });

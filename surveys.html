@@ -1,0 +1,401 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Encuestas | ERP Adtech</title>
+    <link rel="stylesheet" href="css/surveys.css" />
+  </head>
+  <body>
+    <div class="surveys-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menu">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegacion del modulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="sales.html">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link is-active" href="operations.html" aria-current="page">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="analysis.html">
+              <img src="Images/IsotipoAnalisis.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Analisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <a class="sidebar-link sidebar-action" href="notifications.html">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </a>
+          <a class="sidebar-link sidebar-action" href="settings.html">
+            <img src="Images/IconoConfiguracionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuracion</span>
+          </a>
+          <a class="sidebar-link sidebar-action" href="help.html">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </a>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <img src="Images/IconoSesionNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Cerrar sesion</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="surveys-content">
+        <div class="page-back-row">
+          <button type="button" class="page-back-button" data-back-target="operations.html">
+            <span class="page-back-arrow" aria-hidden="true"></span>
+            Regresar
+          </button>
+        </div>
+
+        <section class="top-tabs" aria-label="Pestanas de operaciones">
+          <a class="top-tab" href="operations.html">Proyectos</a>
+          <a class="top-tab" href="support.html">Soporte</a>
+          <a class="top-tab is-active" href="surveys.html" aria-current="page">Encuestas</a>
+        </section>
+
+        <header class="surveys-header">
+          <h1>Encuestas de satisfaccion</h1>
+          <p>Gestiona y monitorea la satisfaccion de los clientes</p>
+        </header>
+
+        <section class="surveys-kpis" aria-label="Resumen de encuestas">
+          <article class="survey-kpi-card">
+            <span>Encuestas enviadas:</span>
+            <strong>15</strong>
+          </article>
+          <article class="survey-kpi-card">
+            <span>Encuestas respondidas:</span>
+            <strong>32</strong>
+          </article>
+          <article class="survey-kpi-card">
+            <span>Tasa de respuesta:</span>
+            <strong>70%</strong>
+          </article>
+          <article class="survey-kpi-card">
+            <span>Promedio de calificacion</span>
+            <strong>4.3</strong>
+          </article>
+        </section>
+
+        <div class="surveys-actions-row">
+          <button type="button" class="survey-primary-button" id="newSurveyButton">+ Nueva encuesta</button>
+        </div>
+
+        <section class="survey-filters-panel" aria-label="Filtros de encuestas">
+          <label class="survey-filter survey-filter-search">
+            <span>Buscador</span>
+            <div class="survey-search-box">
+              <span class="survey-search-icon" aria-hidden="true"></span>
+              <input type="text" id="surveySearchInput" placeholder="Buscar encuesta..." />
+            </div>
+          </label>
+
+          <label class="survey-filter">
+            <span>Estado</span>
+            <select id="surveyStatusFilter">
+              <option value="Todos">Todos</option>
+              <option value="Enviada">Enviada</option>
+              <option value="Respondida">Respondida</option>
+            </select>
+          </label>
+
+          <label class="survey-filter">
+            <span>Tipo</span>
+            <select id="surveyTypeFilter">
+              <option value="Todos">Proyecto / ticket</option>
+              <option value="Proyecto">Proyecto</option>
+              <option value="Ticket">Ticket</option>
+              <option value="Entregable">Entregable</option>
+            </select>
+          </label>
+
+          <button type="button" class="survey-clear-button" id="clearSurveyFilters">Limpiar filtro</button>
+        </section>
+
+        <section class="survey-table-card" aria-label="Tabla de encuestas">
+          <div class="survey-table-scroll">
+            <table class="survey-table">
+              <thead>
+                <tr>
+                  <th>Nombre de encuesta</th>
+                  <th>Cliente</th>
+                  <th>Tipo</th>
+                  <th>Relacion</th>
+                  <th>Estado</th>
+                  <th>Fecha de envio</th>
+                  <th>Puntuacion</th>
+                  <th>Acciones</th>
+                </tr>
+              </thead>
+              <tbody id="surveysTableBody"></tbody>
+            </table>
+          </div>
+        </section>
+
+        <div class="survey-pagination">
+          <p id="surveyPaginationLabel">Mostrando 1-10 de 100</p>
+          <div class="survey-pagination-controls">
+            <button type="button" class="survey-page-button" id="prevSurveyPage" aria-label="Pagina anterior">&lt;</button>
+            <button type="button" class="survey-page-button is-active" data-survey-page="1">1</button>
+            <button type="button" class="survey-page-button" data-survey-page="2">2</button>
+            <button type="button" class="survey-page-button" id="nextSurveyPage" aria-label="Pagina siguiente">&gt;</button>
+          </div>
+        </div>
+      </main>
+    </div>
+
+    <div class="modal-backdrop" id="surveyDetailModal" hidden>
+      <div class="survey-detail-modal" role="dialog" aria-modal="true" aria-labelledby="surveyDetailTitle">
+        <button type="button" class="survey-detail-close" id="closeSurveyDetailModal" aria-label="Cerrar">X</button>
+
+        <header class="survey-detail-header">
+          <div>
+            <h2 id="surveyDetailTitle">Resultado de encuesta</h2>
+            <div class="survey-detail-title-row">
+              <h3 id="surveyDetailName">Encuesta cierre de proyecto junio</h3>
+              <span class="survey-detail-status" id="surveyDetailStatus">Respondida</span>
+            </div>
+            <p id="surveyDetailMeta">Cliente: Tech Solutions Inc. | Relacion: Proyecto Renovacion Tech</p>
+          </div>
+        </header>
+
+        <div class="survey-detail-body">
+          <section class="survey-detail-card">
+            <h4>Resultado general</h4>
+            <div class="survey-detail-score">
+              <span class="survey-detail-stars" id="surveyDetailStars">*****</span>
+              <strong id="surveyDetailScore">(4/5)</strong>
+            </div>
+          </section>
+
+          <section class="survey-detail-card">
+            <h4>Respuestas clave</h4>
+            <div class="survey-answer-row">
+              <div>
+                <strong>Satisfaccion</strong>
+                <p>Que tan satisfecho estas con el servicio?</p>
+              </div>
+              <span id="surveyDetailSatisfaction">4 / 5</span>
+            </div>
+            <div class="survey-answer-row">
+              <div>
+                <strong>Experiencia</strong>
+                <p>Como calificarias la atencion del equipo?</p>
+              </div>
+              <span id="surveyDetailExperience">5 / 5</span>
+            </div>
+            <div class="survey-answer-row">
+              <div>
+                <strong>Recomendacion</strong>
+                <p>Volverias a trabajar con nosotros?</p>
+              </div>
+              <span id="surveyDetailRecommendation">Si</span>
+            </div>
+          </section>
+
+          <section class="survey-detail-card">
+            <h4>Comentario del cliente</h4>
+            <p id="surveyDetailComment">El servicio fue bueno, pero podria mejorar el tiempo de respuesta.</p>
+          </section>
+
+          <section class="survey-detail-card">
+            <h4>Informacion basica</h4>
+            <p><strong>Fecha de envio:</strong> <span id="surveyDetailSentAt">15/06/2024</span></p>
+            <p><strong>Fecha de respuesta:</strong> <span id="surveyDetailAnsweredAt">18/06/2024</span></p>
+            <p><strong>Canal:</strong> <span id="surveyDetailChannel">Correo</span></p>
+          </section>
+        </div>
+
+        <div class="survey-detail-footer">
+          <button type="button" class="survey-detail-secondary" id="closeSurveyDetailFooter">Cerrar</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="modal-backdrop" id="surveyCreateModal" hidden>
+      <div class="survey-create-modal" role="dialog" aria-modal="true" aria-labelledby="surveyCreateTitle">
+        <button type="button" class="survey-detail-close" id="closeSurveyCreateModal" aria-label="Cerrar">X</button>
+
+        <header class="survey-create-header">
+          <h2 id="surveyCreateTitle">Nueva encuesta</h2>
+          <p>Crea y programa una encuesta de satisfaccion para un cliente.</p>
+        </header>
+
+        <div class="survey-create-grid">
+          <section class="survey-create-card">
+            <h3>Informacion general</h3>
+            <label class="survey-create-field">
+              <span>Nombre de la encuesta</span>
+              <input type="text" id="surveyCreateName" placeholder="Ej: Encuesta cierre de proyecto junio" autocomplete="off" />
+            </label>
+            <label class="survey-create-field">
+              <span>Cliente</span>
+              <input type="text" id="surveyCreateClient" placeholder="Nombre del cliente" autocomplete="off" />
+            </label>
+            <label class="survey-create-field">
+              <span>Tipo de encuesta</span>
+              <select id="surveyCreateType">
+                <option>Proyecto</option>
+                <option>Ticket</option>
+                <option>Entregable</option>
+              </select>
+            </label>
+            <label class="survey-create-field">
+              <span>Elemento asociado</span>
+              <input type="text" id="surveyCreateRelation" placeholder="Nombre del proyecto / ticket / entregable" autocomplete="off" />
+            </label>
+
+            <div class="survey-create-questions">
+              <div class="survey-create-questions-header">
+                <h3>Preguntas incluidas</h3>
+                <button type="button" class="survey-add-question-button" id="addSurveyQuestion" aria-label="Agregar pregunta">+</button>
+              </div>
+              <div class="survey-question-list" id="surveyQuestionList">
+                <label class="survey-question-row">
+                  <input type="text" id="surveyQuestionOne" value="Que tan satisfecho estas con el servicio recibido?" readonly />
+                  <select id="surveyQuestionOneType">
+                    <option>Escala 1-5 estrellas</option>
+                    <option>Escala 1-5</option>
+                    <option>Si / No</option>
+                    <option>Respuesta abierta</option>
+                  </select>
+                </label>
+                <label class="survey-question-row">
+                  <input type="text" id="surveyQuestionTwo" value="Como calificarias la atencion del equipo?" readonly />
+                  <select id="surveyQuestionTwoType">
+                    <option>Escala 1-5</option>
+                    <option>Escala 1-5 estrellas</option>
+                    <option>Si / No</option>
+                    <option>Respuesta abierta</option>
+                  </select>
+                </label>
+                <label class="survey-question-row">
+                  <input type="text" id="surveyQuestionThree" value="Volverias a trabajar con nosotros?" readonly />
+                  <select id="surveyQuestionThreeType">
+                    <option>Si / No</option>
+                    <option>Escala 1-5</option>
+                    <option>Escala 1-5 estrellas</option>
+                    <option>Respuesta abierta</option>
+                  </select>
+                </label>
+                <label class="survey-question-row">
+                  <input type="text" id="surveyQuestionFour" value="Comentarios adicionales" readonly />
+                  <select id="surveyQuestionFourType">
+                    <option>Respuesta abierta</option>
+                    <option>Escala 1-5</option>
+                    <option>Escala 1-5 estrellas</option>
+                    <option>Si / No</option>
+                  </select>
+                </label>
+              </div>
+            </div>
+          </section>
+
+          <section class="survey-create-card">
+            <h3>Plantilla de encuesta</h3>
+            <div class="survey-template-grid" id="surveyTemplateGrid">
+              <button type="button" class="survey-template-option is-selected" data-template="project">
+                <strong>Satisfaccion general de proyecto</strong>
+                <span>Evalua la experiencia del cliente al finalizar un proyecto.</span>
+              </button>
+              <button type="button" class="survey-template-option" data-template="support">
+                <strong>Cierre de ticket de soporte</strong>
+                <span>Evalua la experiencia del cliente al finalizar un soporte.</span>
+              </button>
+              <button type="button" class="survey-template-option" data-template="delivery">
+                <strong>Evaluacion de entregable</strong>
+                <span>Evalua la experiencia del cliente al recibir un entregable.</span>
+              </button>
+              <button type="button" class="survey-template-option" data-template="team">
+                <strong>Atencion del equipo</strong>
+                <span>Evalua la atencion del equipo.</span>
+              </button>
+              <button type="button" class="survey-template-option" data-template="manual">
+                <strong>Preguntas manuales</strong>
+                <span>Ingresa preguntas personalizadas para esta encuesta.</span>
+              </button>
+            </div>
+          </section>
+
+          <section class="survey-create-card">
+            <h3>Canal de envio</h3>
+            <div class="survey-channel-grid">
+              <label class="survey-channel-option">
+                <input type="checkbox" id="surveyChannelEmail" checked />
+                <span>Correo electronico</span>
+              </label>
+              <label class="survey-channel-option">
+                <input type="checkbox" id="surveyChannelWhatsapp" />
+                <span>WhatsApp</span>
+              </label>
+            </div>
+            <label class="survey-create-field">
+              <span>Correo destinatario</span>
+              <input type="email" id="surveyCreateEmail" autocomplete="off" />
+            </label>
+            <label class="survey-create-field">
+              <span>Asunto del mensaje</span>
+              <input type="text" id="surveyCreateSubject" autocomplete="off" />
+            </label>
+            <div class="survey-preview">
+              <strong>Vista previa breve del mensaje:</strong>
+              <p id="surveyCreatePreview">
+                Hola, te compartimos una encuesta de satisfaccion sobre el servicio brindado. Responde esta encuesta: [link]
+              </p>
+            </div>
+          </section>
+
+          <section class="survey-create-card survey-create-card-wide">
+            <h3>Configuracion</h3>
+            <div class="survey-create-config">
+              <label class="survey-create-field">
+                <span>Fecha de envio</span>
+                <input type="date" id="surveyCreateDate" />
+              </label>
+              <label class="survey-create-field">
+                <span>Hora de envio</span>
+                <input type="time" id="surveyCreateTime" />
+              </label>
+            </div>
+            <label class="survey-create-check">
+              <input type="checkbox" id="surveyCreateAutoSend" />
+              <span>Enviar automaticamente al cerrar el proceso relacionado (opcional)</span>
+            </label>
+          </section>
+        </div>
+
+        <div class="survey-create-footer">
+          <button type="button" class="survey-create-secondary" id="cancelSurveyCreate">Cancelar</button>
+          <button type="button" class="survey-create-primary" id="saveSurveyCreate">Crear encuesta</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/surveys.js"></script>
+  </body>
+</html>
+
+
+
+
+

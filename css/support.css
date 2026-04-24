@@ -712,9 +712,24 @@ body {
   box-shadow: 0 28px 64px rgba(19, 27, 40, 0.28);
 }
 
+.ticket-create-modal {
+  position: relative;
+  width: min(1120px, 100%);
+  max-height: calc(100vh - 36px);
+  overflow: auto;
+  border-radius: 18px;
+  background: #ffffff;
+  box-shadow: 0 28px 64px rgba(19, 27, 40, 0.28);
+}
+
 .ticket-edit-header {
   padding: 22px 24px 18px;
   border-bottom: 1px solid #e4e9f0;
+  background: #ffffff;
+}
+
+.ticket-create-header {
+  padding: 22px 24px 10px;
   background: #ffffff;
 }
 
@@ -723,7 +738,20 @@ body {
   font-size: 2rem;
 }
 
+.ticket-create-header h2 {
+  margin: 0;
+  padding-right: 46px;
+  font-size: 2rem;
+  line-height: 1.08;
+}
+
 .ticket-edit-header p {
+  margin: 4px 0 0;
+  color: #505d6d;
+  font-weight: 600;
+}
+
+.ticket-create-header p {
   margin: 4px 0 0;
   color: #505d6d;
   font-weight: 600;
@@ -737,9 +765,22 @@ body {
   background: #ffffff;
 }
 
+.ticket-create-grid {
+  display: grid;
+  grid-template-columns: minmax(320px, 0.98fr) minmax(420px, 1fr);
+  gap: 14px;
+  padding: 14px 24px 18px;
+  background: #ffffff;
+}
+
 .ticket-edit-stack {
   display: grid;
   gap: 16px;
+}
+
+.ticket-create-stack {
+  display: grid;
+  gap: 14px;
 }
 
 .ticket-edit-card {
@@ -749,13 +790,35 @@ body {
   background: #ffffff;
 }
 
+.ticket-create-card {
+  padding: 16px;
+  border: 1px solid #dde4ec;
+  border-radius: 8px;
+  background: #ffffff;
+  box-shadow: 0 10px 26px rgba(33, 46, 64, 0.08);
+}
+
 .ticket-edit-card h3 {
   margin: 0 0 14px;
   font-size: 1.05rem;
 }
 
+.ticket-create-card h3 {
+  margin: 0 0 14px;
+  color: #172233;
+  font-size: 1.05rem;
+}
+
 .ticket-edit-card-wide {
   grid-column: 1 / -1;
+}
+
+.ticket-create-card-wide {
+  grid-column: 1 / -1;
+}
+
+.ticket-create-card-large textarea {
+  min-height: 152px;
 }
 
 .ticket-edit-field {
@@ -821,6 +884,9 @@ body {
 }
 
 .ticket-edit-upload-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
   min-height: 38px;
   padding: 0 16px;
   border: 1px solid #d6dde6;
@@ -830,6 +896,15 @@ body {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
+}
+
+.ticket-create-file-input {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  white-space: nowrap;
 }
 
 .ticket-edit-footer {
@@ -874,6 +949,7 @@ body {
   .support-filters-panel,
   .ticket-view-info-grid,
   .ticket-edit-grid,
+  .ticket-create-grid,
   .ticket-edit-two-columns,
   .ticket-edit-split,
   .support-table-header,
@@ -930,6 +1006,7 @@ body {
   .support-filters-panel,
   .ticket-view-info-grid,
   .ticket-edit-grid,
+  .ticket-create-grid,
   .ticket-edit-two-columns,
   .ticket-edit-split,
   .support-table-header,

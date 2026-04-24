@@ -1,0 +1,1258 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Configuraciones | ERP Adtech</title>
+    <link rel="stylesheet" href="css/settings.css" />
+  </head>
+  <body>
+    <div class="settings-shell">
+      <aside class="sidebar is-collapsed" id="sidebar">
+        <div class="sidebar-top">
+          <button type="button" class="sidebar-toggle" id="sidebarToggle" aria-label="Expandir menu">
+            <img src="Images/IconoCerrarBarra.png" alt="" class="toggle-icon toggle-icon-close" />
+            <img src="Images/iconoAbrirBarra.png" alt="" class="toggle-icon toggle-icon-open" />
+          </button>
+
+          <nav class="sidebar-nav" aria-label="Navegacion del modulo">
+            <a class="sidebar-link" href="modules.html">
+              <img src="Images/IconoPanelGeneral.png" alt="" class="sidebar-icon" />
+              <span class="sidebar-label">Panel general</span>
+            </a>
+            <a class="sidebar-link" href="marketing.html">
+              <img src="Images/IsotipoMKT.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Marketing</span>
+            </a>
+            <a class="sidebar-link" href="sales.html">
+              <img src="Images/IsotipoVentas.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Ventas</span>
+            </a>
+            <a class="sidebar-link" href="operations.html">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Operaciones</span>
+            </a>
+            <a class="sidebar-link" href="analysis.html">
+              <img src="Images/IsotipoOperaciones.png" alt="" class="sidebar-icon sidebar-icon-plain" />
+              <span class="sidebar-label">Analisis</span>
+            </a>
+          </nav>
+        </div>
+
+        <div class="sidebar-bottom">
+          <a class="sidebar-link sidebar-action" href="notifications.html">
+            <img src="Images/IconoNotificacionesNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Notificaciones</span>
+          </a>
+          <a class="sidebar-link sidebar-action is-active" href="settings.html" aria-current="page">
+            <img src="Images/IconoConfiguracionesBlanco.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Configuracion</span>
+          </a>
+          <a class="sidebar-link sidebar-action" href="help.html">
+            <img src="Images/IconoAyuda.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Ayuda</span>
+          </a>
+          <button type="button" class="sidebar-link sidebar-action" id="logoutButton">
+            <img src="Images/IconoSesionNegro.png" alt="" class="sidebar-icon" />
+            <span class="sidebar-label">Cerrar sesion</span>
+          </button>
+        </div>
+      </aside>
+
+      <main class="settings-content">
+        <header class="settings-header">
+          <h1>Configuraciones</h1>
+        </header>
+
+        <section class="settings-tabs" aria-label="Secciones de configuracion">
+          <button type="button" class="settings-tab is-active" data-settings-tab="usuarios">Usuarios</button>
+          <button type="button" class="settings-tab" data-settings-tab="equipos">Equipos</button>
+        </section>
+
+        <section class="settings-panel" data-settings-panel="usuarios">
+          <section class="settings-toolbar" aria-label="Filtros de usuarios">
+            <div class="settings-filter-group">
+              <label class="settings-filter-field settings-filter-field-search">
+                <span class="settings-filter-label">Buscar</span>
+                <div class="settings-search-wrap">
+                  <span class="settings-search-icon" aria-hidden="true"></span>
+                  <input type="search" id="settingsSearchInput" placeholder="Nombre usuario" />
+                </div>
+              </label>
+
+              <label class="settings-filter-field">
+                <span class="settings-filter-label">Estado</span>
+                <div class="settings-select-wrap">
+                  <select id="settingsStatusFilter">
+                    <option value="all">Activo / inactivo</option>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                  </select>
+                </div>
+              </label>
+            </div>
+
+            <div class="settings-actions">
+              <button type="button" class="settings-soft-button" id="clearSettingsFilters">Limpiar filtro</button>
+              <button type="button" class="settings-primary-button" id="openNewUserModal">+ Nuevo Usuario</button>
+            </div>
+          </section>
+
+          <section class="settings-table-card" aria-label="Tabla de usuarios">
+            <div class="settings-table-scroll">
+              <table class="settings-table">
+                <thead>
+                  <tr>
+                    <th>Nombre</th>
+                    <th>Correo</th>
+                    <th>Rol</th>
+                    <th>Estado</th>
+                    <th>Fecha de creacion</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    data-name="Administrador General"
+                    data-status="activo"
+                    data-email="admin@adtechsystem.com"
+                    data-role="Administrador"
+                    data-created="16/02/2023"
+                    data-phone="+51 987 123 456"
+                    data-area="Direccion General"
+                    data-team="Liderazgo"
+                    data-access="Hoy, hace 1 hora"
+                  >
+                    <td>Administrador General</td>
+                    <td>admin@adtechsystem.com</td>
+                    <td>Administrador</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>16/02/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Desactivar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="Gionet Grandato"
+                    data-status="inactivo"
+                    data-email="portaltracta@gmail.com"
+                    data-role="Operaciones"
+                    data-created="15/02/2023"
+                    data-phone="+51 945 210 774"
+                    data-area="Operaciones"
+                    data-team="Implementacion"
+                    data-access="Hace 6 dias"
+                  >
+                    <td>Gionet Grandato</td>
+                    <td>portaltracta@gmail.com</td>
+                    <td>Operaciones</td>
+                    <td><span class="settings-status-pill settings-status-pill-inactive">Inactivo</span></td>
+                    <td>15/02/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Activar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="Alirca Bores"
+                    data-status="activo"
+                    data-email="alirca.bores@adtechsystem.com"
+                    data-role="Ventas"
+                    data-created="13/02/2023"
+                    data-phone="+51 954 334 201"
+                    data-area="Ventas"
+                    data-team="Cuentas"
+                    data-access="Hace 2 dias"
+                  >
+                    <td>Alirca Bores</td>
+                    <td>alirca.bores@adtechsystem.com</td>
+                    <td>Ventas</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>13/02/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Desactivar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="Jasyes Homre"
+                    data-status="activo"
+                    data-email="jasyes.homre@adtechsystem.com"
+                    data-role="Analista"
+                    data-created="14/03/2023"
+                    data-phone="+51 933 876 112"
+                    data-area="Analisis"
+                    data-team="BI"
+                    data-access="Hace 4 horas"
+                  >
+                    <td>Jasyes Homre</td>
+                    <td>jasyes.homre@adtechsystem.com</td>
+                    <td>Analista</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>14/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Desactivar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="Carlos Perez"
+                    data-status="activo"
+                    data-email="carlos.perez@adtechsystem.com"
+                    data-role="Comercial"
+                    data-created="14/03/2023"
+                    data-phone="+51 924 456 789"
+                    data-area="Marketing"
+                    data-team="Growth"
+                    data-access="Hace 2 dias"
+                  >
+                    <td>Carlos Perez</td>
+                    <td>carlos.perez@adtechsystem.com</td>
+                    <td>Comercial</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>14/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Desactivar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="Marcs Samez"
+                    data-status="inactivo"
+                    data-email="marcs.samez@adtechsystem.com"
+                    data-role="Administrador"
+                    data-created="10/03/2023"
+                    data-phone="+51 976 890 221"
+                    data-area="Administracion"
+                    data-team="Backoffice"
+                    data-access="Hace 9 dias"
+                  >
+                    <td>Marcs Samez</td>
+                    <td>marcs.samez@adtechsystem.com</td>
+                    <td>Administrador</td>
+                    <td><span class="settings-status-pill settings-status-pill-inactive">Inactivo</span></td>
+                    <td>10/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Activar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="Alexa Solunn"
+                    data-status="inactivo"
+                    data-email="alexa.solunn@adtechsystem.com"
+                    data-role="Recursos Humanos"
+                    data-created="09/03/2023"
+                    data-phone="+51 955 440 188"
+                    data-area="Talento"
+                    data-team="People"
+                    data-access="Hace 12 dias"
+                  >
+                    <td>Alexa Solunn</td>
+                    <td>alexa.solunn@adtechsystem.com</td>
+                    <td>Recursos Humanos</td>
+                    <td><span class="settings-status-pill settings-status-pill-inactive">Inactivo</span></td>
+                    <td>09/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Activar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="AdministaKumber"
+                    data-status="activo"
+                    data-email="portaltracta@gmail.com"
+                    data-role="Operaciones"
+                    data-created="16/03/2023"
+                    data-phone="+51 948 221 305"
+                    data-area="Operaciones"
+                    data-team="Delivery"
+                    data-access="Hace 1 dia"
+                  >
+                    <td>AdministaKumber</td>
+                    <td>portaltracta@gmail.com</td>
+                    <td>Operaciones</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>16/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Desactivar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="Carlos Perelan"
+                    data-status="activo"
+                    data-email="portaltracta@gmail.com"
+                    data-role="Ventas"
+                    data-created="06/03/2022"
+                    data-phone="+51 989 322 144"
+                    data-area="Comercial"
+                    data-team="Prospeccion"
+                    data-access="Hace 3 dias"
+                  >
+                    <td>Carlos Perelan</td>
+                    <td>portaltracta@gmail.com</td>
+                    <td>Ventas</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>06/03/2022</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Desactivar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-name="Carlos Perez Analista"
+                    data-status="inactivo"
+                    data-email="portaltracta@gmail.com"
+                    data-role="Analista"
+                    data-created="06/03/2022"
+                    data-phone="+51 962 884 519"
+                    data-area="Analisis"
+                    data-team="Insights"
+                    data-access="Hace 15 dias"
+                  >
+                    <td>Carlos Perez</td>
+                    <td>portaltracta@gmail.com</td>
+                    <td>Analista</td>
+                    <td><span class="settings-status-pill settings-status-pill-inactive">Inactivo</span></td>
+                    <td>06/03/2022</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-toggle-button">Activar</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <footer class="settings-footer">
+            <span>Mostrando 1-10 de 100</span>
+            <div class="settings-pagination">
+              <button type="button" class="settings-pagination-button">&#8249;</button>
+              <button type="button" class="settings-pagination-button is-active">1</button>
+              <button type="button" class="settings-pagination-button">2</button>
+              <button type="button" class="settings-pagination-button">&#8250;</button>
+            </div>
+          </footer>
+        </section>
+
+        <section class="settings-panel" data-settings-panel="equipos" hidden>
+          <section class="settings-toolbar" aria-label="Filtros de equipos">
+            <div class="settings-filter-group">
+              <label class="settings-filter-field settings-filter-field-search">
+                <span class="settings-filter-label">Buscar</span>
+                <div class="settings-search-wrap">
+                  <span class="settings-search-icon" aria-hidden="true"></span>
+                  <input type="search" id="teamSearchInput" placeholder="Nombre equipo" />
+                </div>
+              </label>
+
+              <label class="settings-filter-field">
+                <span class="settings-filter-label">Estado</span>
+                <div class="settings-select-wrap">
+                  <select id="teamStatusFilter">
+                    <option value="all">Activo / inactivo</option>
+                    <option value="activo">Activo</option>
+                    <option value="inactivo">Inactivo</option>
+                  </select>
+                </div>
+              </label>
+            </div>
+
+            <div class="settings-actions">
+              <button type="button" class="settings-soft-button" id="clearTeamFilters">Limpiar filtro</button>
+              <button type="button" class="settings-primary-button" id="openNewTeamModal">+ Nuevo Equipo</button>
+            </div>
+          </section>
+
+          <section class="settings-table-card" aria-label="Tabla de equipos">
+            <div class="settings-table-scroll">
+              <table class="settings-table">
+                <thead>
+                  <tr>
+                    <th>Nombre del equipo</th>
+                    <th>Area</th>
+                    <th>Numero de miembros</th>
+                    <th>Responsable (lider)</th>
+                    <th>Estado</th>
+                    <th>Fecha de creacion</th>
+                    <th>Acciones</th>
+                  </tr>
+                </thead>
+                <tbody>
+                  <tr
+                    data-team-name="Equipo Comercial"
+                    data-team-status="activo"
+                    data-team-area="Marketing"
+                    data-team-members-count="12 integrantes"
+                    data-team-lead="Carlos Perez"
+                    data-team-created="16/02/2023"
+                    data-team-members="Ana Torres - Marketing|Luis Gomez - Analista|Pedro Ruiz - Soporte|Lilia Perez - Marketing|Maria Gomez - Marketing|Jorge Ruiz - Automatizacion"
+                    data-team-description="Equipo encargado de campañas comerciales, relacion con clientes y seguimiento del pipeline."
+                  >
+                    <td>Equipo Comercial</td>
+                    <td><span class="settings-area-pill settings-area-pill-marketing">Marketing</span></td>
+                    <td>12</td>
+                    <td>Carlos Perez</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>16/02/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Equipo de Proyectos"
+                    data-team-status="activo"
+                    data-team-area="Ventas"
+                    data-team-members-count="8 integrantes"
+                    data-team-lead="Marcs Samez"
+                    data-team-created="15/02/2023"
+                    data-team-members="Claudia Perez - Ventas|Mario Diaz - PM|Rosa Leon - Soporte|Kevin Soto - Ventas"
+                    data-team-description="Equipo orientado a coordinacion de proyectos comerciales y control de entregables."
+                  >
+                    <td>Equipo de Proyectos</td>
+                    <td><span class="settings-area-pill settings-area-pill-sales">Ventas</span></td>
+                    <td>8</td>
+                    <td>Marcs Samez</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>15/02/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Soporte Tecnico"
+                    data-team-status="activo"
+                    data-team-area="Operaciones"
+                    data-team-members-count="15 integrantes"
+                    data-team-lead="Tech Solution"
+                    data-team-created="13/02/2023"
+                    data-team-members="Ruben Salas - Mesa de ayuda|Mia Lopez - QA|Jose Cruz - Integraciones|Rita Perez - Soporte"
+                    data-team-description="Equipo responsable de incidencias, tickets criticos y seguimiento tecnico con clientes."
+                  >
+                    <td>Soporte Tecnico</td>
+                    <td><span class="settings-area-pill settings-area-pill-operations">Operaciones</span></td>
+                    <td>15</td>
+                    <td>Tech Solution</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>13/02/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Automatizacion"
+                    data-team-status="activo"
+                    data-team-area="Analisis"
+                    data-team-members-count="10 integrantes"
+                    data-team-lead="Carlos Perez"
+                    data-team-created="14/03/2023"
+                    data-team-members="Sandra Ruiz - BI|Marco Vera - Automatizacion|Elena Paz - Datos|Victor Jara - Integraciones"
+                    data-team-description="Equipo enfocado en automatizacion de procesos, tableros y monitoreo de resultados."
+                  >
+                    <td>Automatizacion</td>
+                    <td><span class="settings-area-pill settings-area-pill-analysis">Analisis</span></td>
+                    <td>10</td>
+                    <td>Carlos Perez</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>14/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Equipo Comercial Norte"
+                    data-team-status="activo"
+                    data-team-area="Marketing"
+                    data-team-members-count="12 integrantes"
+                    data-team-lead="Marcs Samez"
+                    data-team-created="14/03/2023"
+                    data-team-members="Andrea Muro - Marketing|Felipe Rios - Growth|Karen Vega - Contenido|Diego Lara - Paid Media"
+                    data-team-description="Equipo regional que impulsa campañas y coordinacion comercial en cuentas prioritarias."
+                  >
+                    <td>Equipo Comercial</td>
+                    <td><span class="settings-area-pill settings-area-pill-marketing">Marketing</span></td>
+                    <td>12</td>
+                    <td>Marcs Samez</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>14/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Soporte Tecnico Marketing"
+                    data-team-status="activo"
+                    data-team-area="Marketing"
+                    data-team-members-count="8 integrantes"
+                    data-team-lead="Hana"
+                    data-team-created="10/03/2023"
+                    data-team-members="Hana - Marketing|Julio Perez - SEO|Miriam Soto - CRM|Alex Ramos - Social Media"
+                    data-team-description="Equipo de apoyo a marketing para performance, automatizaciones y soporte de campañas."
+                  >
+                    <td>Soporte Tecnico</td>
+                    <td><span class="settings-area-pill settings-area-pill-marketing">Marketing</span></td>
+                    <td>8</td>
+                    <td>Hana</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>10/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Soporte Ventas"
+                    data-team-status="inactivo"
+                    data-team-area="Ventas"
+                    data-team-members-count="15 integrantes"
+                    data-team-lead="Carlos Perez"
+                    data-team-created="09/03/2023"
+                    data-team-members="Lucia Pena - Ventas|Ramon Cruz - CRM|Paola Gil - Seguimiento|Ivan Mena - Pipeline"
+                    data-team-description="Equipo de soporte comercial hoy en pausa por reorganizacion de procesos internos."
+                  >
+                    <td>Soporte Tecnico</td>
+                    <td><span class="settings-area-pill settings-area-pill-sales">Ventas</span></td>
+                    <td>15</td>
+                    <td>Carlos Perez</td>
+                    <td><span class="settings-status-pill settings-status-pill-inactive">Inactivo</span></td>
+                    <td>09/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Soporte Operaciones"
+                    data-team-status="activo"
+                    data-team-area="Operaciones"
+                    data-team-members-count="8 integrantes"
+                    data-team-lead="Tech Solution"
+                    data-team-created="16/03/2023"
+                    data-team-members="Pablo Ruiz - Operaciones|Alma Cortez - Logistica|Mauro Soria - Calidad|Ines Vera - Soporte"
+                    data-team-description="Equipo que acompaña la ejecucion operativa y el control de servicio para clientes activos."
+                  >
+                    <td>Soporte Tecnico</td>
+                    <td><span class="settings-area-pill settings-area-pill-operations">Operaciones</span></td>
+                    <td>8</td>
+                    <td>Tech Solution</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>16/03/2023</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Soporte Ventas Sur"
+                    data-team-status="inactivo"
+                    data-team-area="Ventas"
+                    data-team-members-count="10 integrantes"
+                    data-team-lead="Carlos Perez"
+                    data-team-created="06/03/2022"
+                    data-team-members="Nora Gil - Ventas|Pedro Sanz - Leads|Cesar Mora - Prospeccion|Vania Ruiz - Comercial"
+                    data-team-description="Equipo de cobertura comercial sur, actualmente inactivo por redistribucion de cuentas."
+                  >
+                    <td>Soporte Tecnico</td>
+                    <td><span class="settings-area-pill settings-area-pill-sales">Ventas</span></td>
+                    <td>10</td>
+                    <td>Carlos Perez</td>
+                    <td><span class="settings-status-pill settings-status-pill-inactive">Inactivo</span></td>
+                    <td>06/03/2022</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                  <tr
+                    data-team-name="Automatizacion BI"
+                    data-team-status="activo"
+                    data-team-area="Analisis"
+                    data-team-members-count="2 integrantes"
+                    data-team-lead="Tech Solution"
+                    data-team-created="06/03/2022"
+                    data-team-members="Julia Cardenas - BI|Renzo Vera - Automatizacion"
+                    data-team-description="Equipo compacto dedicado a tableros ejecutivos, reportes y automatizacion de datos."
+                  >
+                    <td>Automatizacion</td>
+                    <td><span class="settings-area-pill settings-area-pill-analysis">Analisis</span></td>
+                    <td>2</td>
+                    <td>Tech Solution</td>
+                    <td><span class="settings-status-pill settings-status-pill-active">Activo</span></td>
+                    <td>06/03/2022</td>
+                    <td>
+                      <div class="settings-row-actions">
+                        <button type="button" class="settings-action-button settings-team-view-button">Ver</button>
+                        <button type="button" class="settings-action-button settings-team-edit-button">Editar</button>
+                        <button type="button" class="settings-action-button settings-team-delete-button">Eliminar</button>
+                      </div>
+                    </td>
+                  </tr>
+                </tbody>
+              </table>
+            </div>
+          </section>
+
+          <footer class="settings-footer">
+            <span>Mostrando 1-10 de 100</span>
+            <div class="settings-pagination">
+              <button type="button" class="settings-pagination-button">&#8249;</button>
+              <button type="button" class="settings-pagination-button is-active">1</button>
+              <button type="button" class="settings-pagination-button">2</button>
+              <button type="button" class="settings-pagination-button">&#8250;</button>
+            </div>
+          </footer>
+        </section>
+      </main>
+    </div>
+
+    <div class="settings-modal-backdrop" id="userDetailModal" hidden>
+      <section class="settings-modal" role="dialog" aria-modal="true" aria-labelledby="userDetailTitle">
+        <button type="button" class="settings-modal-close" id="closeUserDetailModal" aria-label="Cerrar detalle">
+          X
+        </button>
+
+        <div class="settings-modal-header">
+          <h2 id="userDetailTitle">Detalle de usuario</h2>
+          <p>"Informacion del perfil"</p>
+        </div>
+
+        <div class="settings-modal-section">
+          <h3>Informacion principal</h3>
+          <div class="settings-modal-grid settings-modal-grid-primary-top">
+            <div class="settings-modal-field">
+              <span>Nombre</span>
+              <strong id="userDetailName"></strong>
+            </div>
+            <div class="settings-modal-field">
+              <span>Correo electronico</span>
+              <strong id="userDetailEmail"></strong>
+            </div>
+            <div class="settings-modal-field">
+              <span>Rol</span>
+              <strong id="userDetailRole"></strong>
+            </div>
+          </div>
+          <div class="settings-modal-grid settings-modal-grid-primary-bottom">
+            <div class="settings-modal-field">
+              <span>Estado</span>
+              <div id="userDetailStatus"></div>
+            </div>
+            <div class="settings-modal-field">
+              <span>Fecha de creacion</span>
+              <strong id="userDetailCreated"></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-modal-section">
+          <h3>Informacion adicional</h3>
+          <div class="settings-modal-grid">
+            <div class="settings-modal-field">
+              <span>Telefono</span>
+              <strong id="userDetailPhone"></strong>
+            </div>
+            <div class="settings-modal-field">
+              <span>Area</span>
+              <strong id="userDetailArea"></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-modal-section">
+          <h3>Actividad</h3>
+          <div class="settings-modal-field settings-modal-field-activity">
+            <span>Ultimo acceso</span>
+            <strong id="userDetailAccess"></strong>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="settings-modal-backdrop" id="teamDetailModal" hidden>
+      <section class="settings-modal settings-team-modal" role="dialog" aria-modal="true" aria-labelledby="teamDetailTitle">
+        <button type="button" class="settings-modal-close" id="closeTeamDetailModal" aria-label="Cerrar detalle de equipo">
+          X
+        </button>
+
+        <div class="settings-modal-header">
+          <h2 id="teamDetailTitle">Detalle del equipo</h2>
+          <p>"Informacion del equipo de trabajo"</p>
+        </div>
+
+        <div class="settings-modal-section">
+          <h3>Informacion general</h3>
+          <div class="settings-modal-grid settings-team-detail-grid">
+            <div class="settings-modal-field">
+              <span>Nombre del equipo</span>
+              <strong id="teamDetailName"></strong>
+            </div>
+            <div class="settings-modal-field">
+              <span>Area</span>
+              <strong id="teamDetailArea"></strong>
+            </div>
+            <div class="settings-modal-field">
+              <span>Responsable</span>
+              <strong id="teamDetailLead"></strong>
+            </div>
+            <div class="settings-modal-field">
+              <span>Numero de miembros</span>
+              <strong id="teamDetailCount"></strong>
+            </div>
+            <div class="settings-modal-field">
+              <span>Fecha de creacion</span>
+              <strong id="teamDetailCreated"></strong>
+            </div>
+          </div>
+        </div>
+
+        <div class="settings-modal-section">
+          <h3>Miembros del equipo</h3>
+          <div class="settings-team-members-grid" id="teamDetailMembers"></div>
+        </div>
+
+        <div class="settings-modal-section">
+          <h3>Descripcion</h3>
+          <div class="settings-modal-field settings-modal-field-activity">
+            <strong id="teamDetailDescription"></strong>
+          </div>
+        </div>
+
+        <div class="settings-confirm-actions">
+          <button type="button" class="settings-edit-primary-button" id="closeTeamDetailFooter">Cerrar</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="settings-modal-backdrop" id="teamEditModal" hidden>
+      <section class="settings-modal settings-edit-modal settings-team-edit-modal" role="dialog" aria-modal="true" aria-labelledby="teamEditTitle">
+        <button type="button" class="settings-modal-close" id="closeTeamEditModal" aria-label="Cerrar edicion de equipo">
+          X
+        </button>
+
+        <div class="settings-modal-header">
+          <h2 id="teamEditTitle">Editar equipo</h2>
+          <p>"Modifica la informacion del equipo"</p>
+        </div>
+
+        <form class="settings-edit-form" id="teamEditForm">
+          <section class="settings-edit-block">
+            <h3>Informacion del equipo</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Nombre del equipo</span>
+                <input type="text" id="editTeamName" />
+              </label>
+              <label class="settings-edit-field">
+                <span>Descripcion</span>
+                <textarea id="editTeamDescription" rows="3"></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Organizacion</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Area</span>
+                <select id="editTeamArea">
+                  <option>Marketing</option>
+                  <option>Ventas</option>
+                  <option>Operaciones</option>
+                  <option>Analisis</option>
+                </select>
+              </label>
+              <label class="settings-edit-field">
+                <span>Responsable</span>
+                <select id="editTeamLead">
+                  <option>Carlos Perez</option>
+                  <option>Marcs Samez</option>
+                  <option>Tech Solution</option>
+                  <option>Hana</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Miembros</h3>
+            <div class="settings-team-edit-subtitle">Lista de miembros actuales</div>
+            <div class="settings-team-edit-members" id="editTeamMembersList"></div>
+
+            <div class="settings-team-edit-add">
+              <label class="settings-edit-field">
+                <span>Agregar miembros</span>
+                <select id="editTeamMemberSelect">
+                  <option>Ana Torres - Marketing</option>
+                  <option>Luis Gomez - Analista</option>
+                  <option>Pedro Ruiz - Soporte</option>
+                  <option>Lilia Perez - Marketing</option>
+                  <option>Maria Gomez - Marketing</option>
+                  <option>Jorge Ruiz - Automatizacion</option>
+                  <option>Claudia Perez - Ventas</option>
+                  <option>Mario Diaz - PM</option>
+                  <option>Rosa Leon - Soporte</option>
+                  <option>Kevin Soto - Ventas</option>
+                  <option>Ruben Salas - Mesa de ayuda</option>
+                  <option>Mia Lopez - QA</option>
+                  <option>Jose Cruz - Integraciones</option>
+                  <option>Rita Perez - Soporte</option>
+                </select>
+              </label>
+              <button type="button" class="settings-edit-primary-button" id="addTeamMemberButton">Agregar al equipo</button>
+            </div>
+          </section>
+
+          <section class="settings-edit-block settings-edit-block-muted">
+            <h3>Informacion adicional</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <div class="settings-edit-meta">
+                <span>Fecha de creacion</span>
+                <strong id="editTeamCreated"></strong>
+              </div>
+              <div class="settings-edit-meta">
+                <span>Total de miembros</span>
+                <strong id="editTeamMembersCount"></strong>
+              </div>
+            </div>
+          </section>
+
+          <div class="settings-edit-actions">
+            <button type="button" class="settings-edit-secondary-button" id="closeTeamEditFooter">Cancelar</button>
+            <button type="button" class="settings-edit-secondary-button">Eliminar equipo</button>
+            <button type="submit" class="settings-edit-primary-button">Guardar cambios</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="settings-modal-backdrop" id="newTeamModal" hidden>
+      <section class="settings-modal settings-edit-modal settings-team-edit-modal" role="dialog" aria-modal="true" aria-labelledby="newTeamTitle">
+        <button type="button" class="settings-modal-close" id="closeNewTeamModal" aria-label="Cerrar nuevo equipo">
+          X
+        </button>
+
+        <div class="settings-modal-header">
+          <h2 id="newTeamTitle">Nuevo equipo</h2>
+          <p>"Crea un nuevo equipo de trabajo"</p>
+        </div>
+
+        <form class="settings-edit-form" id="newTeamForm">
+          <section class="settings-edit-block">
+            <h3>Informacion del equipo</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Nombre del equipo</span>
+                <input type="text" id="newTeamName" required />
+              </label>
+              <label class="settings-edit-field">
+                <span>Descripcion (opcional)</span>
+                <textarea id="newTeamDescription" rows="3" placeholder="Describe el proposito o alcance del equipo"></textarea>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Organizacion</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Area</span>
+                <select id="newTeamArea" required>
+                  <option>Marketing</option>
+                  <option>Ventas</option>
+                  <option>Operaciones</option>
+                  <option>Analisis</option>
+                </select>
+              </label>
+              <label class="settings-edit-field">
+                <span>Responsable</span>
+                <select id="newTeamLead" required>
+                  <option>Carlos Perez</option>
+                  <option>Marcs Samez</option>
+                  <option>Tech Solution</option>
+                  <option>Hana</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Miembros</h3>
+            <label class="settings-edit-field">
+              <span>Lista de usuarios disponibles</span>
+              <select id="newTeamMemberSelect">
+                <option>Ana Torres - Marketing</option>
+                <option>Luis Gomez - Analista</option>
+                <option>Pedro Ruiz - Soporte</option>
+                <option>Lilia Perez - Marketing</option>
+                <option>Maria Gomez - Marketing</option>
+                <option>Jorge Ruiz - Automatizacion</option>
+                <option>Claudia Perez - Ventas</option>
+                <option>Mario Diaz - PM</option>
+                <option>Rosa Leon - Soporte</option>
+                <option>Kevin Soto - Ventas</option>
+                <option>Ruben Salas - Mesa de ayuda</option>
+                <option>Mia Lopez - QA</option>
+                <option>Jose Cruz - Integraciones</option>
+                <option>Rita Perez - Soporte</option>
+              </select>
+            </label>
+
+            <div class="settings-team-edit-add settings-team-edit-add-compact">
+              <button type="button" class="settings-edit-primary-button" id="addNewTeamMemberButton">Agregar al equipo</button>
+            </div>
+
+            <div class="settings-team-edit-subtitle">Vista previa</div>
+            <div class="settings-team-preview-empty" id="newTeamPreviewEmpty">No se han seleccionado miembros aun</div>
+            <div class="settings-team-edit-members" id="newTeamMembersList"></div>
+          </section>
+
+          <section class="settings-edit-block settings-edit-block-muted">
+            <h3>Configuracion inicial</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Estado del equipo</span>
+                <select id="newTeamStatus" required>
+                  <option value="activo">Activo</option>
+                  <option value="inactivo">Inactivo</option>
+                </select>
+              </label>
+              <div class="settings-edit-meta">
+                <span>Por defecto</span>
+                <strong>Activo</strong>
+              </div>
+            </div>
+          </section>
+
+          <div class="settings-edit-actions">
+            <button type="button" class="settings-edit-secondary-button" id="closeNewTeamFooter">Cancelar</button>
+            <button type="submit" class="settings-edit-primary-button">Crear equipo</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="settings-modal-backdrop" id="teamDeleteConfirmModal" hidden>
+      <section class="settings-modal settings-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="teamDeleteConfirmTitle">
+        <button type="button" class="settings-modal-close" id="closeTeamDeleteConfirmModal" aria-label="Cerrar confirmacion de eliminacion">
+          X
+        </button>
+
+        <div class="settings-modal-header settings-confirm-header">
+          <h2 id="teamDeleteConfirmTitle">Confirmar eliminacion</h2>
+          <p id="teamDeleteConfirmMessage">Confirma si deseas eliminar este equipo.</p>
+        </div>
+
+        <div class="settings-confirm-actions">
+          <button type="button" class="settings-edit-secondary-button" id="cancelTeamDeleteConfirm">Cancelar</button>
+          <button type="button" class="settings-edit-primary-button" id="acceptTeamDeleteConfirm">Eliminar equipo</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="settings-modal-backdrop" id="userEditModal" hidden>
+      <section class="settings-modal settings-edit-modal" role="dialog" aria-modal="true" aria-labelledby="userEditTitle">
+        <button type="button" class="settings-modal-close" id="closeUserEditModal" aria-label="Cerrar edicion">
+          X
+        </button>
+
+        <div class="settings-modal-header">
+          <h2 id="userEditTitle">Editar usuario</h2>
+          <p>"Modifica la informacion del usuario"</p>
+        </div>
+
+        <form class="settings-edit-form" id="userEditForm">
+          <section class="settings-edit-block">
+            <h3>Datos personales</h3>
+            <div class="settings-edit-grid settings-edit-grid-three">
+              <label class="settings-edit-field">
+                <span>Nombre completo</span>
+                <input type="text" id="editUserName" />
+              </label>
+              <label class="settings-edit-field">
+                <span>Correo electronico</span>
+                <input type="email" id="editUserEmail" />
+              </label>
+              <label class="settings-edit-field">
+                <span>Telefono</span>
+                <input type="text" id="editUserPhone" />
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Organizacion</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Area</span>
+                <select id="editUserArea">
+                  <option>Marketing</option>
+                  <option>Ventas</option>
+                  <option>Operaciones</option>
+                  <option>Analisis</option>
+                  <option>Administracion</option>
+                  <option>Talento</option>
+                  <option>Comercial</option>
+                  <option>Direccion General</option>
+                </select>
+              </label>
+              <label class="settings-edit-field">
+                <span>Equipo</span>
+                <select id="editUserTeam">
+                  <option>Liderazgo</option>
+                  <option>Growth</option>
+                  <option>Cuentas</option>
+                  <option>Prospeccion</option>
+                  <option>Implementacion</option>
+                  <option>Delivery</option>
+                  <option>BI</option>
+                  <option>Insights</option>
+                  <option>Backoffice</option>
+                  <option>People</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Rol y estado</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Rol</span>
+                <select id="editUserRole">
+                  <option>Administrador</option>
+                  <option>Operaciones</option>
+                  <option>Ventas</option>
+                  <option>Analista</option>
+                  <option>Comercial</option>
+                  <option>Recursos Humanos</option>
+                </select>
+              </label>
+              <label class="settings-edit-field">
+                <span>Estado</span>
+                <select id="editUserStatus">
+                  <option value="activo">Activo</option>
+                  <option value="inactivo">Inactivo</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block settings-edit-block-muted">
+            <h3>Informacion adicional</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <div class="settings-edit-meta">
+                <span>Fecha de creacion</span>
+                <strong id="editUserCreated"></strong>
+              </div>
+              <div class="settings-edit-meta">
+                <span>Ultimo acceso</span>
+                <strong id="editUserAccess"></strong>
+              </div>
+            </div>
+          </section>
+
+          <div class="settings-edit-actions">
+            <button type="button" class="settings-edit-secondary-button" id="closeUserEditFooter">Cerrar</button>
+            <button type="submit" class="settings-edit-primary-button">Guardar cambios</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="settings-modal-backdrop" id="statusConfirmModal" hidden>
+      <section class="settings-modal settings-confirm-modal" role="dialog" aria-modal="true" aria-labelledby="statusConfirmTitle">
+        <button type="button" class="settings-modal-close" id="closeStatusConfirmModal" aria-label="Cerrar confirmacion">
+          X
+        </button>
+
+        <div class="settings-modal-header settings-confirm-header">
+          <h2 id="statusConfirmTitle">Confirmar cambio</h2>
+          <p id="statusConfirmMessage">Confirma la accion sobre este usuario.</p>
+        </div>
+
+        <div class="settings-confirm-actions">
+          <button type="button" class="settings-edit-secondary-button" id="cancelStatusConfirm">Cancelar</button>
+          <button type="button" class="settings-edit-primary-button" id="acceptStatusConfirm">Confirmar</button>
+        </div>
+      </section>
+    </div>
+
+    <div class="settings-modal-backdrop" id="newUserModal" hidden>
+      <section class="settings-modal settings-edit-modal" role="dialog" aria-modal="true" aria-labelledby="newUserTitle">
+        <button type="button" class="settings-modal-close" id="closeNewUserModal" aria-label="Cerrar nuevo usuario">
+          X
+        </button>
+
+        <div class="settings-modal-header">
+          <h2 id="newUserTitle">Nuevo usuario</h2>
+          <p>"Registra un nuevo usuario en el sistema"</p>
+        </div>
+
+        <form class="settings-edit-form" id="newUserForm">
+          <section class="settings-edit-block">
+            <h3>Datos personales</h3>
+            <div class="settings-edit-grid settings-edit-grid-three">
+              <label class="settings-edit-field">
+                <span>Nombre completo</span>
+                <input type="text" id="newUserName" required />
+              </label>
+              <label class="settings-edit-field">
+                <span>Correo electronico</span>
+                <input type="email" id="newUserEmail" required />
+              </label>
+              <label class="settings-edit-field">
+                <span>Telefono (opcional)</span>
+                <input type="text" id="newUserPhone" />
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Acceso</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Contrasena</span>
+                <input type="password" id="newUserPassword" required />
+              </label>
+              <label class="settings-edit-field">
+                <span>Confirmar contrasena</span>
+                <input type="password" id="newUserPasswordConfirm" required />
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Organizacion</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Area</span>
+                <select id="newUserArea" required>
+                  <option value="Marketing">Marketing</option>
+                  <option value="Ventas">Ventas</option>
+                  <option value="Operaciones">Operaciones</option>
+                  <option value="Analisis">Analisis</option>
+                  <option value="Administracion">Administracion</option>
+                  <option value="Talento">Talento</option>
+                  <option value="Comercial">Comercial</option>
+                  <option value="Direccion General">Direccion General</option>
+                </select>
+              </label>
+              <label class="settings-edit-field">
+                <span>Equipo</span>
+                <select id="newUserTeam" required>
+                  <option value="Liderazgo">Liderazgo</option>
+                  <option value="Growth">Growth</option>
+                  <option value="Cuentas">Cuentas</option>
+                  <option value="Prospeccion">Prospeccion</option>
+                  <option value="Implementacion">Implementacion</option>
+                  <option value="Delivery">Delivery</option>
+                  <option value="BI">BI</option>
+                  <option value="Insights">Insights</option>
+                  <option value="Backoffice">Backoffice</option>
+                  <option value="People">People</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <section class="settings-edit-block">
+            <h3>Permisos</h3>
+            <div class="settings-edit-grid settings-edit-grid-two">
+              <label class="settings-edit-field">
+                <span>Rol</span>
+                <select id="newUserRole" required>
+                  <option value="Administrador">Administrador</option>
+                  <option value="Operaciones">Operaciones</option>
+                  <option value="Ventas">Ventas</option>
+                  <option value="Analista">Analista</option>
+                  <option value="Comercial">Comercial</option>
+                  <option value="Recursos Humanos">Recursos Humanos</option>
+                </select>
+              </label>
+              <label class="settings-edit-field">
+                <span>Estado</span>
+                <select id="newUserStatus" required>
+                  <option value="activo">Activo</option>
+                  <option value="inactivo">Inactivo</option>
+                </select>
+              </label>
+            </div>
+          </section>
+
+          <div class="settings-edit-actions">
+            <button type="button" class="settings-edit-secondary-button" id="closeNewUserFooter">Cerrar</button>
+            <button type="submit" class="settings-edit-primary-button">Crear usuario</button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <script src="js/settings.js"></script>
+  </body>
+</html>
+
