@@ -2,6 +2,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const moduleButtons = document.querySelectorAll('.module-button');
   const moduleCards = document.querySelectorAll('.module-card');
   const languageSelect = document.querySelector('#languageSelect');
+  const topbarMenuToggle = document.querySelector('#topbarMenuToggle');
+  const topbarActions = document.querySelector('#topbarActions');
   const profileToggle = document.querySelector('#profileToggle');
   const profilePopover = document.querySelector('#profilePopover');
   const profileInitial = document.querySelector('#profileInitial');
@@ -45,6 +47,47 @@ document.addEventListener('DOMContentLoaded', () => {
     languageSelect.addEventListener('change', () => {
       localStorage.setItem('erpPrototypeLanguage', languageSelect.value);
     });
+  }
+
+  const closeTopbarMenu = () => {
+    if (!topbarActions || !topbarMenuToggle || window.innerWidth >= 768) {
+      return;
+    }
+
+    topbarActions.classList.remove('is-open');
+    topbarMenuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  const syncTopbarMenu = () => {
+    if (!topbarActions || !topbarMenuToggle) {
+      return;
+    }
+
+    if (window.innerWidth >= 768) {
+      topbarActions.classList.add('is-open');
+      topbarMenuToggle.setAttribute('aria-expanded', 'true');
+      return;
+    }
+
+    topbarActions.classList.remove('is-open');
+    topbarMenuToggle.setAttribute('aria-expanded', 'false');
+  };
+
+  if (topbarMenuToggle && topbarActions) {
+    topbarMenuToggle.addEventListener('click', (event) => {
+      event.stopPropagation();
+      const willOpen = !topbarActions.classList.contains('is-open');
+      topbarActions.classList.toggle('is-open', willOpen);
+      topbarMenuToggle.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+    });
+
+    topbarActions.addEventListener('click', (event) => {
+      event.stopPropagation();
+    });
+
+    document.addEventListener('click', closeTopbarMenu);
+    window.addEventListener('resize', syncTopbarMenu);
+    syncTopbarMenu();
   }
 
   const closeProfilePopover = () => {
