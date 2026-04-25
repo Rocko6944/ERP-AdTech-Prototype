@@ -396,6 +396,25 @@ document.addEventListener('DOMContentLoaded', () => {
     surveyDetailModal.hidden = false;
   };
 
+  const confirmSurveyDeletion = (index) => {
+    const survey = surveys[index];
+
+    if (!survey) {
+      return;
+    }
+
+    const confirmed = window.confirm(`Estas seguro de eliminar la encuesta "${survey.name}"?`);
+
+    if (!confirmed) {
+      return;
+    }
+
+    surveys.splice(index, 1);
+    const totalPages = Math.max(1, Math.ceil(getFilteredSurveys().length / pageSize));
+    currentPage = Math.min(currentPage, totalPages);
+    renderSurveys();
+  };
+
   const getFilteredSurveys = () => {
     const query = surveySearchInput ? surveySearchInput.value.trim().toLowerCase() : '';
     const status = surveyStatusFilter ? surveyStatusFilter.value : 'Todos';
@@ -694,7 +713,22 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (surveysTableBody) {
     surveysTableBody.addEventListener('click', (event) => {
-      if (event.target.closest('.survey-action')) {
+      const deleteButton = event.target.closest('.survey-action');
+
+      if (deleteButton) {
+        const row = event.target.closest('[data-survey-index]');
+
+        if (!row) {
+          return;
+        }
+
+        const surveyIndex = Number(row.dataset.surveyIndex);
+
+        if (Number.isNaN(surveyIndex)) {
+          return;
+        }
+
+        confirmSurveyDeletion(surveyIndex);
         return;
       }
 

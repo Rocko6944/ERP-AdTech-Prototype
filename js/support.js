@@ -13,6 +13,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const prevPageButton = document.querySelector('#prevTicketsPage');
   const nextPageButton = document.querySelector('#nextTicketsPage');
   const pageButtons = document.querySelectorAll('[data-page]');
+  const ticketsOpenCount = document.querySelector('#ticketsOpenCount');
+  const ticketsProgressCount = document.querySelector('#ticketsProgressCount');
+  const ticketsPendingCount = document.querySelector('#ticketsPendingCount');
+  const ticketsClosedCount = document.querySelector('#ticketsClosedCount');
+  const supportToast = document.querySelector('#supportToast');
   const ticketViewModal = document.querySelector('#ticketViewModal');
   const ticketEditModal = document.querySelector('#ticketEditModal');
   const ticketCreateModal = document.querySelector('#ticketCreateModal');
@@ -162,6 +167,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   let currentPage = 1;
   const pageSize = 7;
+
+  const showSupportToast = (message) => {
+    if (!supportToast) {
+      return;
+    }
+
+    supportToast.textContent = message;
+    supportToast.hidden = false;
+    window.clearTimeout(window.supportToastTimeout);
+    window.supportToastTimeout = window.setTimeout(() => {
+      supportToast.hidden = true;
+    }, 2500);
+  };
 
   const escapeHTML = (value) =>
     String(value)
@@ -406,6 +424,24 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   };
 
+  const updateTicketCounters = () => {
+    if (ticketsOpenCount) {
+      ticketsOpenCount.textContent = String(tickets.filter((ticket) => ticket.status === 'Abierto').length);
+    }
+
+    if (ticketsProgressCount) {
+      ticketsProgressCount.textContent = String(tickets.filter((ticket) => ticket.status === 'En proceso').length);
+    }
+
+    if (ticketsPendingCount) {
+      ticketsPendingCount.textContent = String(tickets.filter((ticket) => ticket.status === 'Pendiente').length);
+    }
+
+    if (ticketsClosedCount) {
+      ticketsClosedCount.textContent = String(tickets.filter((ticket) => ticket.status === 'Cerrado').length);
+    }
+  };
+
   const renderTickets = () => {
     if (!ticketsTable) {
       return;
@@ -434,7 +470,7 @@ document.addEventListener('DOMContentLoaded', () => {
         <span class="support-actions">
           <button type="button" class="support-action" data-ticket-view-index="${tickets.indexOf(ticket)}">Ver ticket</button>
           <button type="button" class="support-action" data-ticket-edit-index="${tickets.indexOf(ticket)}">Editar</button>
-          <button type="button" class="support-action">Cerrar ticket</button>
+          <button type="button" class="support-action" data-ticket-close-index="${tickets.indexOf(ticket)}">Cerrar ticket</button>
         </span>
       `;
       ticketsTable.appendChild(row);
@@ -457,6 +493,8 @@ document.addEventListener('DOMContentLoaded', () => {
     if (nextPageButton) {
       nextPageButton.disabled = currentPage === totalPages;
     }
+
+    updateTicketCounters();
   };
 
   if (sidebar) {
@@ -626,6 +664,7 @@ document.addEventListener('DOMContentLoaded', () => {
     ticketsTable.addEventListener('click', (event) => {
       const viewButton = event.target.closest('[data-ticket-view-index]');
       const editButton = event.target.closest('[data-ticket-edit-index]');
+      const closeButton = event.target.closest('[data-ticket-close-index]');
 
       if (viewButton) {
         const viewIndex = Number(viewButton.dataset.ticketViewIndex);
@@ -635,6 +674,24 @@ document.addEventListener('DOMContentLoaded', () => {
         }
 
         openTicketViewModal(viewIndex);
+        return;
+      }
+
+      if (closeButton) {
+        const closeIndex = Number(closeButton.dataset.ticketCloseIndex);
+
+        if (Number.isNaN(closeIndex) || !tickets[closeIndex]) {
+          return;
+        }
+
+        if (tickets[closeIndex].status === 'Cerrado') {
+          showSupportToast('Este ticket ya esta cerrado.');
+          return;
+        }
+
+        tickets[closeIndex].status = 'Cerrado';
+        renderTickets();
+        showSupportToast('Ticket cerrado correctamente.');
         return;
       }
 

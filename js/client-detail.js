@@ -11,6 +11,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const projectsModal = document.querySelector('#projectsModal');
   const closeProjectsModalButton = document.querySelector('#closeProjectsModal');
   const cancelProjectsModalButton = document.querySelector('#cancelProjectsModal');
+  const openNewProjectFromClientModalButton = document.querySelector('#openNewProjectFromClientModal');
   const editClientForm = document.querySelector('#editClientForm');
   const clientHeading = document.querySelector('.client-heading h1');
   const clientCompanyTag = document.querySelector('.client-tags .tag:first-child');
@@ -215,6 +216,20 @@ document.addEventListener('DOMContentLoaded', () => {
       if (event.target === projectsModal) {
         closeProjectsModal();
       }
+    });
+  }
+
+  if (openNewProjectFromClientModalButton) {
+    openNewProjectFromClientModalButton.addEventListener('click', () => {
+      const clientName = document.querySelector('[data-client-field="company"]')?.textContent?.trim() || 'Tech Solutions Inc.';
+      const ownerName = document.querySelector('[data-client-field="owner"]')?.textContent?.trim() || 'Carlos P.';
+      const params = new URLSearchParams({
+        openCreateProject: '1',
+        client: clientName,
+        owner: ownerName
+      });
+
+      window.location.href = `operations.html?${params.toString()}`;
     });
   }
 

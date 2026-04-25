@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', () => {
   const closeCreateProjectModalButton = document.querySelector('#closeCreateProjectModal');
   const cancelCreateProjectModalButton = document.querySelector('#cancelCreateProjectModal');
   const createProjectForm = document.querySelector('#createProjectForm');
+  const createProjectClientInput = document.querySelector('#createProjectClientInput');
+  const createProjectOwnerInput = document.querySelector('#createProjectOwnerInput');
   const createProjectServicesList = document.querySelector('#createProjectServicesList');
   const createServiceTypeInput = document.querySelector('#createServiceTypeInput');
   const createServiceDescriptionInput = document.querySelector('#createServiceDescriptionInput');
@@ -132,6 +134,24 @@ document.addEventListener('DOMContentLoaded', () => {
 
     loadDefaultCreateServices();
     createProjectModal.hidden = false;
+  };
+
+  const applyCreateProjectPrefill = () => {
+    const params = new URLSearchParams(window.location.search);
+    const client = params.get('client');
+    const owner = params.get('owner');
+
+    if (client && createProjectClientInput) {
+      createProjectClientInput.value = client;
+    }
+
+    if (owner && createProjectOwnerInput) {
+      const matchedOption = Array.from(createProjectOwnerInput.options).find((option) => option.textContent === owner);
+
+      if (matchedOption) {
+        createProjectOwnerInput.value = matchedOption.value;
+      }
+    }
   };
 
   const hideProjectModal = () => {
@@ -453,6 +473,19 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (openCreateProjectModalButton) {
     openCreateProjectModalButton.addEventListener('click', openCreateProjectModal);
+  }
+
+  const pageParams = new URLSearchParams(window.location.search);
+
+  if (pageParams.get('openCreateProject') === '1') {
+    applyCreateProjectPrefill();
+    openCreateProjectModal();
+    pageParams.delete('openCreateProject');
+    pageParams.delete('client');
+    pageParams.delete('owner');
+    const nextQuery = pageParams.toString();
+    const nextUrl = `${window.location.pathname}${nextQuery ? `?${nextQuery}` : ''}${window.location.hash}`;
+    window.history.replaceState({}, '', nextUrl);
   }
 
   openProjectModalButtons.forEach((button) => {

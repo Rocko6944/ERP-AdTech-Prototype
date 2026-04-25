@@ -103,11 +103,11 @@ button {
   .help-shell,
   .client-detail-shell,
   .deliverable-detail-shell,
-  .lead-detail-shell,
+  .lead-shell,
   .new-opportunity-shell,
   .notifications-shell,
-  .opportunity-detail-shell,
-  .project-detail-shell {
+  .opportunity-shell,
+  .project-shell {
     grid-template-columns: 1fr !important;
   }
 
@@ -158,11 +158,11 @@ button {
   .help-content,
   .client-detail-content,
   .deliverable-detail-content,
-  .lead-detail-content,
+  .lead-content,
   .new-opportunity-content,
   .notifications-content,
-  .opportunity-detail-content,
-  .project-detail-content {
+  .opportunity-content,
+  .project-content {
     padding: 1rem !important;
   }
 
@@ -201,11 +201,11 @@ button {
   .help-shell,
   .client-detail-shell,
   .deliverable-detail-shell,
-  .lead-detail-shell,
+  .lead-shell,
   .new-opportunity-shell,
   .notifications-shell,
-  .opportunity-detail-shell,
-  .project-detail-shell {
+  .opportunity-shell,
+  .project-shell {
     grid-template-columns: 15rem 1fr !important;
   }
 
@@ -227,11 +227,11 @@ button {
   .help-content,
   .client-detail-content,
   .deliverable-detail-content,
-  .lead-detail-content,
+  .lead-content,
   .new-opportunity-content,
   .notifications-content,
-  .opportunity-detail-content,
-  .project-detail-content {
+  .opportunity-content,
+  .project-content {
     padding: 1.25rem !important;
   }
 
@@ -266,11 +266,11 @@ button {
   .help-shell,
   .client-detail-shell,
   .deliverable-detail-shell,
-  .lead-detail-shell,
+  .lead-shell,
   .new-opportunity-shell,
   .notifications-shell,
-  .opportunity-detail-shell,
-  .project-detail-shell {
+  .opportunity-shell,
+  .project-shell {
     display: block !important;
     min-height: 100vh;
   }
@@ -294,11 +294,11 @@ button {
   .help-content,
   .client-detail-content,
   .deliverable-detail-content,
-  .lead-detail-content,
+  .lead-content,
   .new-opportunity-content,
   .notifications-content,
-  .opportunity-detail-content,
-  .project-detail-content {
+  .opportunity-content,
+  .project-content {
     margin-left: var(--desktop-sidebar-width) !important;
     min-width: 0;
   }
