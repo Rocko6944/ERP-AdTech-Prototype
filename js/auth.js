@@ -5,10 +5,16 @@ const validUser = 'ADTECH';
 const validPassword = 'prototipo';
 
 if (passwordField && passwordToggle) {
+  passwordToggle.setAttribute('aria-label', 'Mostrar contrasena');
+  passwordToggle.setAttribute('aria-pressed', 'false');
+  passwordToggle.setAttribute('title', 'Mostrar contrasena');
+
   passwordToggle.addEventListener('click', () => {
     const isHidden = passwordField.type === 'password';
     passwordField.type = isHidden ? 'text' : 'password';
-    passwordToggle.setAttribute('aria-label', isHidden ? 'Ocultar contraseña' : 'Mostrar contraseña');
+    passwordToggle.setAttribute('aria-label', isHidden ? 'Ocultar contrasena' : 'Mostrar contrasena');
+    passwordToggle.setAttribute('aria-pressed', isHidden ? 'true' : 'false');
+    passwordToggle.setAttribute('title', isHidden ? 'Ocultar contrasena' : 'Mostrar contrasena');
   });
 }
 
@@ -20,12 +26,12 @@ if (loginForm) {
     const password = document.querySelector('#password').value.trim();
 
     if (!email || !password) {
-      alert('Por favor, ingresa usuario y contraseña.');
+      alert('Por favor, ingresa usuario y contrasena.');
       return;
     }
 
     if (email !== validUser || password !== validPassword) {
-      alert('Usuario o contraseña incorrectos. Usa ADTECH y prototipo.');
+      alert('Usuario o contrasena incorrectos. Usa ADTECH y prototipo.');
       return;
     }
 
