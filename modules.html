@@ -26,9 +26,36 @@
               <option value="en">English</option>
             </select>
           </label>
-          <button type="button" class="topbar-avatar" aria-label="Perfil">
-            <img src="Images/IconoUsuarioBlanco.png" alt="" />
-          </button>
+          <div class="topbar-profile">
+            <button type="button" class="topbar-avatar" id="profileToggle" aria-label="Perfil" aria-expanded="false" aria-controls="profilePopover">
+              <img src="Images/IconoUsuarioBlanco.png" alt="" />
+            </button>
+
+            <section class="profile-popover" id="profilePopover" hidden aria-label="Datos del usuario">
+              <div class="profile-popover-header">
+                <div class="profile-avatar-badge" id="profileInitial">A</div>
+                <div class="profile-meta">
+                  <strong id="profileName">ADTECH</strong>
+                  <span id="profileRole">Usuario autenticado</span>
+                </div>
+              </div>
+
+              <dl class="profile-details">
+                <div>
+                  <dt>Usuario</dt>
+                  <dd id="profileUser">ADTECH</dd>
+                </div>
+                <div>
+                  <dt>Correo</dt>
+                  <dd id="profileEmail">adtech@empresa.com</dd>
+                </div>
+                <div>
+                  <dt>Estado</dt>
+                  <dd>Sesion activa</dd>
+                </div>
+              </dl>
+            </section>
+          </div>
         </div>
       </header>
 

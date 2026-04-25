@@ -58,12 +58,35 @@ document.addEventListener('DOMContentLoaded', () => {
     modal.style.background = '#ffffff';
     modal.style.boxShadow = '0 28px 64px rgba(15, 23, 42, 0.18)';
 
+    const header = document.createElement('div');
+    header.style.display = 'flex';
+    header.style.alignItems = 'flex-start';
+    header.style.justifyContent = 'space-between';
+    header.style.gap = '16px';
+
     const title = document.createElement('h2');
     title.textContent = 'Cerrar sesion';
     title.style.margin = '0';
     title.style.fontSize = '1.9rem';
     title.style.lineHeight = '1.05';
     title.style.color = '#111827';
+
+    const closeButton = document.createElement('button');
+    closeButton.type = 'button';
+    closeButton.textContent = 'X';
+    closeButton.setAttribute('aria-label', 'Cerrar ventana');
+    closeButton.style.display = 'inline-flex';
+    closeButton.style.alignItems = 'center';
+    closeButton.style.justifyContent = 'center';
+    closeButton.style.width = '40px';
+    closeButton.style.height = '40px';
+    closeButton.style.border = 'none';
+    closeButton.style.borderRadius = '999px';
+    closeButton.style.background = 'transparent';
+    closeButton.style.color = '#556071';
+    closeButton.style.fontSize = '1.8rem';
+    closeButton.style.lineHeight = '1';
+    closeButton.style.cursor = 'pointer';
 
     const message = document.createElement('p');
     message.textContent = 'Seguro que deseas cerrar sesion?';
@@ -107,6 +130,7 @@ document.addEventListener('DOMContentLoaded', () => {
     };
 
     cancelButton.addEventListener('click', closeModal);
+    closeButton.addEventListener('click', closeModal);
     overlay.addEventListener('click', (event) => {
       if (event.target === overlay) {
         closeModal();
@@ -118,8 +142,9 @@ document.addEventListener('DOMContentLoaded', () => {
       window.location.href = 'login.html';
     });
 
+    header.append(title, closeButton);
     actions.append(cancelButton, confirmButton);
-    modal.append(title, message, actions);
+    modal.append(header, message, actions);
     overlay.appendChild(modal);
     document.body.appendChild(overlay);
   };

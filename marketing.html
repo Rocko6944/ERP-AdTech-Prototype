@@ -98,7 +98,7 @@
             <span>Leads totales</span>
             <strong>100</strong>
           </article>
-          <button type="button" class="new-lead-button">+ Nuevo Lead</button>
+          <button type="button" class="new-lead-button" id="openLeadModal">+ Nuevo Lead</button>
         </section>
 
         <section class="filters-row" aria-label="Filtros de leads">
@@ -251,7 +251,114 @@
       </main>
     </div>
 
+    <div class="campaign-modal-backdrop" id="leadModal" hidden>
+      <section class="campaign-modal lead-modal" role="dialog" aria-modal="true" aria-labelledby="leadModalTitle">
+        <button type="button" class="campaign-modal-close" id="closeLeadModal" aria-label="Cerrar formulario">
+          <span></span>
+          <span></span>
+        </button>
+
+        <h2 id="leadModalTitle">Registrar lead</h2>
+
+        <form class="campaign-form" id="leadForm">
+          <div class="campaign-grid">
+            <label class="campaign-field">
+              <span>Nombre del lead</span>
+              <input class="campaign-input" type="text" id="leadName" name="leadName" placeholder="Ej. Maria Lopez" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Empresa</span>
+              <input class="campaign-input" type="text" id="leadCompany" name="leadCompany" placeholder="Ej. AgroTech Solutions" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Estado</span>
+              <select class="campaign-input" id="leadStatus" name="leadStatus" required>
+                <option value="">Selecciona un estado</option>
+                <option value="nuevo">Nuevo</option>
+                <option value="contactado">Contactado</option>
+                <option value="calificado">Calificado</option>
+                <option value="descartado">Descartado</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Prioridad</span>
+              <select class="campaign-input" id="leadPriority" name="leadPriority" required>
+                <option value="">Selecciona una prioridad</option>
+                <option value="alta">Alta</option>
+                <option value="media">Media</option>
+                <option value="baja">Baja</option>
+              </select>
+            </label>
+
+            <label class="campaign-field">
+              <span>Telefono</span>
+              <input class="campaign-input" type="tel" id="leadPhone" name="leadPhone" placeholder="Ej. 987654321" required />
+            </label>
+
+            <label class="campaign-field">
+              <span>Correo</span>
+              <input class="campaign-input" type="email" id="leadEmail" name="leadEmail" placeholder="Ej. contacto@empresa.com" required />
+            </label>
+
+            <label class="campaign-field campaign-field-full lead-checkbox-field">
+              <span>Reunion agendada</span>
+              <label class="lead-checkbox">
+                <input type="checkbox" id="leadHasMeeting" name="leadHasMeeting" />
+                <span>Si, ya hay una reunion programada</span>
+              </label>
+            </label>
+
+            <label class="campaign-field">
+              <span>Dia de reunion</span>
+              <input class="campaign-input" type="date" id="leadMeetingDate" name="leadMeetingDate" disabled />
+            </label>
+
+            <label class="campaign-field">
+              <span>Hora de reunion</span>
+              <input class="campaign-input lead-time-input" type="time" id="leadMeetingTime" name="leadMeetingTime" disabled />
+            </label>
+
+            <label class="campaign-field campaign-field-full">
+              <span>Responsable</span>
+              <select class="campaign-input" id="leadOwner" name="leadOwner" required>
+                <option value="">Selecciona un responsable</option>
+                <option value="ana-g">Ana G.</option>
+                <option value="carlos-p">Carlos P.</option>
+                <option value="laura-m">Laura M.</option>
+                <option value="diego-r">Diego R.</option>
+              </select>
+            </label>
+
+            <label class="campaign-field campaign-field-full">
+              <span>Observacion o comentario</span>
+              <textarea
+                class="campaign-input campaign-textarea"
+                id="leadNotes"
+                name="leadNotes"
+                placeholder="Agrega contexto relevante sobre el lead, su interes o proximo paso"
+              ></textarea>
+            </label>
+          </div>
+
+          <div class="campaign-modal-actions">
+            <button type="button" class="campaign-modal-button campaign-modal-button-secondary" id="cancelLeadModal">
+              Cancelar
+            </button>
+            <button type="submit" class="campaign-modal-button campaign-modal-button-primary">
+              Guardar lead
+            </button>
+          </div>
+        </form>
+      </section>
+    </div>
+
+    <div class="campaign-toast" id="leadToast" hidden>Lead registrado correctamente.</div>
+
     <script src="js/marketing.js"></script>
+    <script src="js/logout-navigation.js"></script>
   </body>
 </html>
 

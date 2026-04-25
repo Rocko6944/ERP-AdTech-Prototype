@@ -4,6 +4,15 @@ document.addEventListener('DOMContentLoaded', () => {
   const logoutButton = document.querySelector('#logoutButton');
   const clickableRows = document.querySelectorAll('.clickable-row');
   const backButton = document.querySelector('[data-back-target]');
+  const openLeadModalButton = document.querySelector('#openLeadModal');
+  const leadModal = document.querySelector('#leadModal');
+  const closeLeadModalButton = document.querySelector('#closeLeadModal');
+  const cancelLeadModalButton = document.querySelector('#cancelLeadModal');
+  const leadForm = document.querySelector('#leadForm');
+  const leadToast = document.querySelector('#leadToast');
+  const leadHasMeeting = document.querySelector('#leadHasMeeting');
+  const leadMeetingDate = document.querySelector('#leadMeetingDate');
+  const leadMeetingTime = document.querySelector('#leadMeetingTime');
   const openCampaignModalButton = document.querySelector('#openCampaignModal');
   const campaignModal = document.querySelector('#campaignModal');
   const closeCampaignModalButton = document.querySelector('#closeCampaignModal');
@@ -190,6 +199,40 @@ document.addEventListener('DOMContentLoaded', () => {
     }
   };
 
+  const hideLeadModal = () => {
+    if (leadModal) {
+      leadModal.hidden = true;
+    }
+  };
+
+  const showLeadModal = () => {
+    if (leadModal) {
+      leadModal.hidden = false;
+    }
+  };
+
+  const syncLeadMeetingFields = () => {
+    const canScheduleMeeting = !leadHasMeeting?.checked;
+
+    if (leadMeetingDate) {
+      leadMeetingDate.disabled = !canScheduleMeeting;
+      leadMeetingDate.required = canScheduleMeeting;
+
+      if (!canScheduleMeeting) {
+        leadMeetingDate.value = '';
+      }
+    }
+
+    if (leadMeetingTime) {
+      leadMeetingTime.disabled = !canScheduleMeeting;
+      leadMeetingTime.required = canScheduleMeeting;
+
+      if (!canScheduleMeeting) {
+        leadMeetingTime.value = '';
+      }
+    }
+  };
+
   const hideCampaignLeadsModal = () => {
     if (campaignLeadsModal) {
       campaignLeadsModal.hidden = true;
@@ -240,6 +283,31 @@ document.addEventListener('DOMContentLoaded', () => {
 
   if (openCampaignModalButton) {
     openCampaignModalButton.addEventListener('click', showCampaignModal);
+  }
+
+  if (openLeadModalButton) {
+    openLeadModalButton.addEventListener('click', showLeadModal);
+  }
+
+  if (leadHasMeeting) {
+    leadHasMeeting.addEventListener('change', syncLeadMeetingFields);
+    syncLeadMeetingFields();
+  }
+
+  if (closeLeadModalButton) {
+    closeLeadModalButton.addEventListener('click', hideLeadModal);
+  }
+
+  if (cancelLeadModalButton) {
+    cancelLeadModalButton.addEventListener('click', hideLeadModal);
+  }
+
+  if (leadModal) {
+    leadModal.addEventListener('click', (event) => {
+      if (event.target === leadModal) {
+        hideLeadModal();
+      }
+    });
   }
 
   if (closeCampaignModalButton) {
@@ -444,6 +512,28 @@ document.addEventListener('DOMContentLoaded', () => {
     });
   }
 
+  if (leadForm) {
+    leadForm.addEventListener('submit', (event) => {
+      event.preventDefault();
+
+      if (!leadForm.reportValidity()) {
+        return;
+      }
+
+      hideLeadModal();
+      leadForm.reset();
+      syncLeadMeetingFields();
+
+      if (leadToast) {
+        leadToast.hidden = false;
+        window.clearTimeout(window.leadToastTimeout);
+        window.leadToastTimeout = window.setTimeout(() => {
+          leadToast.hidden = true;
+        }, 2500);
+      }
+    });
+  }
+
   if (editCampaignForm) {
     editCampaignForm.addEventListener('submit', (event) => {
       event.preventDefault();
@@ -586,6 +676,10 @@ document.addEventListener('DOMContentLoaded', () => {
   });
 
   document.addEventListener('keydown', (event) => {
+    if (event.key === 'Escape' && leadModal && !leadModal.hidden) {
+      hideLeadModal();
+    }
+
     if (event.key === 'Escape' && campaignModal && !campaignModal.hidden) {
       hideCampaignModal();
     }

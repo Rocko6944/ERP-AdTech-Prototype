@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="es">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Cerrar sesión | ERP Adtech</title>
+    <link rel="stylesheet" href="css/logout.css" />
+  </head>
+  <body>
+    <main class="logout-shell">
+      <section class="logout-card" aria-labelledby="logoutTitle">
+        <p class="logout-eyebrow"></p>
+        <h1 id="logoutTitle">¿De verdad deseas cerrar sesión?</h1>
+        <p class="logout-copy">
+          Si cancelas, volverás a la pantalla anterior. Si confirmas, te llevaremos al inicio de sesión.
+        </p>
+
+        <div class="logout-actions">
+          <button type="button" class="logout-button logout-button-secondary" id="cancelLogoutButton">
+            Cancelar
+          </button>
+          <button type="button" class="logout-button logout-button-primary" id="confirmLogoutButton">
+            Cerrar sesión
+          </button>
+        </div>
+      </section>
+    </main>
+
+    <script src="js/logout.js"></script>
+  </body>
+</html>

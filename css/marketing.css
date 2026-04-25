@@ -968,6 +968,10 @@ select.input-box {
   width: min(100%, 760px);
 }
 
+.lead-modal {
+  width: min(100%, 860px);
+}
+
 .edit-section-title {
   margin-bottom: -4px;
   font-size: 1.02rem;
@@ -1080,7 +1084,8 @@ select.input-box {
 }
 
 select.campaign-input,
-input[type="date"].campaign-input {
+input[type="date"].campaign-input,
+input[type="time"].campaign-input {
   appearance: none;
   background-image:
     linear-gradient(45deg, transparent 50%, #666666 50%),
@@ -1090,6 +1095,37 @@ input[type="date"].campaign-input {
     calc(100% - 15px) calc(50% - 2px);
   background-size: 7px 7px, 7px 7px;
   background-repeat: no-repeat;
+}
+
+.lead-time-input {
+  padding-right: 48px;
+}
+
+.lead-checkbox-field {
+  gap: 10px;
+}
+
+.lead-checkbox {
+  display: inline-flex;
+  align-items: center;
+  gap: 10px;
+  width: fit-content;
+  min-height: 46px;
+  padding: 0 16px;
+  border-radius: 12px;
+  background: #f1f2f5;
+  font-weight: 600;
+}
+
+.lead-checkbox input {
+  width: 18px;
+  height: 18px;
+  accent-color: #4b67dc;
+}
+
+.campaign-input:disabled {
+  cursor: not-allowed;
+  opacity: 0.6;
 }
 
 .campaign-textarea {
